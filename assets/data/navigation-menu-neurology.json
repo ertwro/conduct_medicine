@@ -1,0 +1,381 @@
+[
+  {
+    "title": "Neurology",
+    "id": "nav-header",
+    "items": [
+      {
+        "label": "Home",
+        "url": "index.html",
+        "id": "nav-link-home"
+      },
+      {
+        "label": "Outpatient Setting",
+        "id": "nav-cat-outpatient-setting",
+        "subItems": [
+          {
+            "label": "Low Back Pain / Lumbago (F█ M▂)",
+            "url": "dolor-lumbar-lumbalgia.html",
+            "id": "nav-link-dolor-lumbar-lumbalgia"
+          },
+          {
+            "label": "Primary Headaches (F█ M▂)",
+            "url": "cefaleas-primarias.html",
+            "id": "nav-link-cefaleas-primarias"
+          },
+          {
+            "label": "Headache and Pain Management (F█ M▂)",
+            "url": "manejo-de-cefaleas-y-dolor.html",
+            "id": "nav-link-manejo-de-cefaleas-y-dolor"
+          },
+          {
+            "label": "Neck and Arm Pain / Cervicobrachialgia (F█ M▂)",
+            "url": "dolor-de-cuello-y-brazo-cervicobraquialgia.html",
+            "id": "nav-link-dolor-de-cuello-y-brazo-cervicobraquialgia"
+          },
+          {
+            "label": "Approach to Dizziness/Vertigo (Outpatient) (F█ M▂)",
+            "url": "abordaje-del-paciente-con-mareo-vertigo.html",
+            "id": "nav-link-abordaje-del-paciente-con-mareo-vertigo"
+          },
+          {
+            "label": "Numbness and Neurological Episodes (F▄ M▂)",
+            "url": "entumecimiento-y-episodios-neurologicos.html",
+            "id": "nav-link-entumecimiento-y-episodios-neurologicos"
+          },
+          {
+            "label": "Cognitive Complaints / Concerns (F▄ M▄)",
+            "url": "quejas-cognitivas-preocupaciones-cognitivas.html",
+            "id": "nav-link-quejas-cognitivas-preocupaciones-cognitivas"
+          },
+          {
+            "label": "Gait Disorders (F▄ M▄)",
+            "url": "trastornos-de-la-marcha.html",
+            "id": "nav-link-trastornos-de-la-marcha"
+          },
+          {
+            "label": "Tremors (F▄ M▂)",
+            "url": "temblores.html",
+            "id": "nav-link-temblores"
+          },
+          {
+            "label": "Neuropathy (F▄ M▂)",
+            "url": "neuropatia.html",
+            "id": "nav-link-neuropatia"
+          },
+          {
+            "label": "Diagnosis of Sleep Disorders (F▄ M▂)",
+            "url": "diagnostico-de-trastornos-del-sueno.html",
+            "id": "nav-link-diagnostico-de-trastornos-del-sueno"
+          },
+          {
+            "label": "Treatment of Sleep Disorders (F▄ M▂)",
+            "url": "tratamiento-de-trastornos-del-sueno.html",
+            "id": "nav-link-tratamiento-de-trastornos-del-sueno"
+          },
+          {
+            "label": "Epilepsy (Chronic Management) (F▄ M▄)",
+            "url": "epilepsia.html",
+            "id": "nav-link-epilepsia"
+          },
+          {
+            "label": "Parkinsonism (F▄ M▄)",
+            "url": "parkinsonismo.html",
+            "id": "nav-link-parkinsonismo"
+          },
+          {
+            "label": "Hypokinetic Movement Disorders (F▄ M▄)",
+            "url": "trastornos-hipocineticos-del-movimiento.html",
+            "id": "nav-link-trastornos-hipocineticos-del-movimiento"
+          },
+          {
+            "label": "Functional Neurological Disorders (F▄ M▂)",
+            "url": "trastornos-neurologicos-funcionales.html",
+            "id": "nav-link-trastornos-neurologicos-funcionales"
+          },
+          {
+            "label": "ADHD Management (F▄ M▂)",
+            "url": "trastorno-por-deficit-de-atencion-e-hiperactividad-tdah.html",
+            "id": "nav-link-trastorno-por-deficit-de-atencion-e-hiperactividad-tdah"
+          },
+          {
+            "label": "Chronic Pain Management (F▄ M▂)",
+            "url": "manejo-del-dolor-cronico.html",
+            "id": "nav-link-manejo-del-dolor-cronico"
+          },
+          {
+            "label": "Choosing Initial Antiepileptic Drug (F▄ M▄)",
+            "url": "como-elegir-el-medicamento-antiepileptico-inicial.html",
+            "id": "nav-link-como-elegir-el-medicamento-antiepileptico-inicial"
+          },
+          {
+            "label": "Non-pharmacological Epilepsy Treatment (F▄ M▄)",
+            "url": "tratamiento-no-farmacologico-de-la-epilepsia.html",
+            "id": "nav-link-tratamiento-no-farmacologico-de-la-epilepsia"
+          },
+          {
+            "label": "Injections for Pain Syndromes (F▂ M▂)",
+            "url": "inyecciones-para-tratar-sindromes-dolorosos.html",
+            "id": "nav-link-inyecciones-para-tratar-sindromes-dolorosos"
+          },
+          {
+            "label": "Behavioral Disturbances (F▂ M▄)",
+            "url": "alteraciones-del-comportamiento.html",
+            "id": "nav-link-alteraciones-del-comportamiento"
+          },
+          {
+            "label": "Attention & Executive Function Disorders (F▂ M▂)",
+            "url": "trastornos-de-la-atencion-y-funcion-ejecutiva.html",
+            "id": "nav-link-trastornos-de-la-atencion-y-funcion-ejecutiva"
+          },
+          {
+            "label": "Multiple Sclerosis (Management) (F▂ M▄)",
+            "url": "esclerosis-multiple.html",
+            "id": "nav-link-esclerosis-multiple"
+          },
+          {
+            "label": "Myopathy (Outpatient) (F▂ M▂)",
+            "url": "miopatia.html",
+            "id": "nav-link-miopatia"
+          },
+          {
+            "label": "Hyperkinetic Movement Disorders (F▂ M▂)",
+            "url": "trastornos-hipercineticos-del-movimiento.html",
+            "id": "nav-link-trastornos-hipercineticos-del-movimiento"
+          },
+          {
+            "label": "Autoimmune Neurology (Outpatient) (F▂ M▄)",
+            "url": "trastornos-autoinmunes-en-neurologia.html",
+            "id": "nav-link-trastornos-autoinmunes-en-neurologia"
+          },
+          {
+            "label": "Neurogenic Bladder & Uroneurology (F▂ M▂)",
+            "url": "vejiga-neurogenica-y-uroneurologia.html",
+            "id": "nav-link-vejiga-neurogenica-y-uroneurologia"
+          },
+          {
+            "label": "Sexual Dysfunction in Neurological Diseases (F▂ M▂)",
+            "url": "disfuncion-sexual-en-enfermedades-neurologicas.html",
+            "id": "nav-link-disfuncion-sexual-en-enfermedades-neurologicas"
+          },
+          {
+            "label": "Women's Neurology (F▂ M▂)",
+            "url": "neurologia-de-la-mujer.html",
+            "id": "nav-link-neurologia-de-la-mujer"
+          },
+          {
+            "label": "HIV Neurology (Outpatient) (F▂ M▄)",
+            "url": "neurologia-del-vih.html",
+            "id": "nav-link-neurologia-del-vih"
+          },
+          {
+            "label": "Vitamin Deficiency Neurology (Outpatient) (F▂ M▂)",
+            "url": "neurologia-de-la-deficiencia-de-vitaminas.html",
+            "id": "nav-link-neurologia-de-la-deficiencia-de-vitaminas"
+          },
+          {
+            "label": "Incidental Brain MRI Findings (F▂ M▂)",
+            "url": "hallazgos-incidentales-en-rmn-cerebral.html",
+            "id": "nav-link-hallazgos-incidentales-en-rmn-cerebral"
+          },
+          {
+            "label": "Neuropsychological Assessment (F▂)",
+            "url": "evaluacion-neuropsicologica.html",
+            "id": "nav-link-evaluacion-neuropsicologica"
+          },
+          {
+            "label": "Principles of Autonomic Testing (F▂)",
+            "url": "principios-del-uso-de-pruebas-autonomicas.html",
+            "id": "nav-link-principios-del-uso-de-pruebas-autonomicas"
+          }
+        ]
+      },
+      {
+        "label": "Emergency Room",
+        "id": "nav-cat-emergency-room",
+        "subItems": [
+          {
+            "label": "Concussion / Mild TBI (F█ M▂)",
+            "url": "conmocion-cerebral-tce-leve.html",
+            "id": "nav-link-conmocion-cerebral-tce-leve"
+          },
+          {
+            "label": "Headache (Acute/Severe) (F█ M█)",
+            "url": "cefalea-aguda-severa.html",
+            "id": "nav-link-cefalea-aguda-severa"
+          },
+          {
+            "label": "Approach to Dizziness/Vertigo (Acute) (F▄ M▄)",
+            "url": "abordaje-del-paciente-con-mareo-vertigo-agudo.html",
+            "id": "nav-link-abordaje-del-paciente-con-mareo-vertigo-agudo"
+          },
+          {
+            "label": "Stroke / CVA (Acute Management) (F▄ M█)",
+            "url": "accidente-cerebrovascular-acv-ictus.html",
+            "id": "nav-link-accidente-cerebrovascular-acv-ictus"
+          },
+          {
+            "label": "Acute Ischemic Stroke (F▄ M█)",
+            "url": "acv-isquemico-agudo.html",
+            "id": "nav-link-acv-isquemico-agudo"
+          },
+          {
+            "label": "Hemorrhagic Stroke (F▂ M█)",
+            "url": "acv-hemorragico.html",
+            "id": "nav-link-acv-hemorragico"
+          },
+          {
+            "label": "Seizures / First Seizure / Status Epilepticus (F▄ M▄)",
+            "url": "convulsiones-primera-crisis-status.html",
+            "id": "nav-link-convulsiones-primera-crisis-status"
+          },
+          {
+            "label": "Delirium and Confusion (Acute) (F▄ M█)",
+            "url": "delirio-y-confusion-agudo.html",
+            "id": "nav-link-delirio-y-confusion-agudo"
+          },
+          {
+            "label": "Neurological Complications of Substance Use (Acute) (F▄ M▄)",
+            "url": "complicaciones-neurologicas-del-uso-de-sustancias.html",
+            "id": "nav-link-complicaciones-neurologicas-del-uso-de-sustancias"
+          },
+          {
+            "label": "Alcohol Neurology (Acute/Withdrawal) (F▄ M▄)",
+            "url": "neurologia-del-alcohol-agudo-abstinencia.html",
+            "id": "nav-link-neurologia-del-alcohol-agudo-abstinencia"
+          },
+          {
+            "label": "Spinal Cord Disorders (Acute) (F▂ M█)",
+            "url": "trastornos-de-la-medula-espinal-agudo.html",
+            "id": "nav-link-trastornos-de-la-medula-espinal-agudo"
+          },
+          {
+            "label": "Bacterial Meningitis (Acute) (F▂ M█)",
+            "url": "meningitis-bacteriana.html",
+            "id": "nav-link-meningitis-bacteriana"
+          },
+          {
+            "label": "Infectious Encephalitis (Acute) (F▂ M█)",
+            "url": "encefalitis-infecciosa.html",
+            "id": "nav-link-encefalitis-infecciosa"
+          },
+          {
+            "label": "Headache as Symptom of Systemic Disease (F▂ M█)",
+            "url": "cefalea-como-sintoma-de-enfermedad-sistemica.html",
+            "id": "nav-link-cefalea-como-sintoma-de-enfermedad-sistemica"
+          },
+          {
+            "label": "Seizures as Symptom of Systemic Disease (F▂ M█)",
+            "url": "convulsiones-como-sintoma-de-enfermedad-sistemica.html",
+            "id": "nav-link-convulsiones-como-sintoma-de-enfermedad-sistemica"
+          },
+          {
+            "label": "Ocular Movement Abnormalities (Acute) (F▂ M▄)",
+            "url": "alteraciones-de-los-movimientos-oculares-agudo.html",
+            "id": "nav-link-alteraciones-de-los-movimientos-oculares-agudo"
+          }
+        ]
+      },
+      {
+        "label": "Hospitalization",
+        "id": "nav-cat-hospitalization",
+        "subItems": [
+          {
+            "label": "Stroke / CVA (Inpatient Management/Recovery) (F█ M█)",
+            "url": "accidente-cerebrovascular-acv-ictus-manejo-recuperacion.html",
+            "id": "nav-link-accidente-cerebrovascular-acv-ictus-manejo-recuperacion"
+          },
+          {
+            "label": "Delirium and Confusion (Inpatient) (F▄ M█)",
+            "url": "delirio-y-confusion.html",
+            "id": "nav-link-delirio-y-confusion"
+          },
+          {
+            "label": "Bacterial Meningitis (Inpatient) (F▄ M█)",
+            "url": "meningitis-bacteriana.html",
+            "id": "nav-link-meningitis-bacteriana"
+          },
+          {
+            "label": "Infectious Encephalitis (Inpatient) (F▄ M█)",
+            "url": "encefalitis-infecciosa.html",
+            "id": "nav-link-encefalitis-infecciosa"
+          },
+          {
+            "label": "Seizures (Inpatient: Status/Workup/Adjustment) (F▄ M▄)",
+            "url": "convulsiones-status-estudio-ajuste.html",
+            "id": "nav-link-convulsiones-status-estudio-ajuste"
+          },
+          {
+            "label": "Spinal Cord Disorders (Inpatient) (F▂ M█)",
+            "url": "trastornos-de-la-medula-espinal.html",
+            "id": "nav-link-trastornos-de-la-medula-espinal"
+          },
+          {
+            "label": "Neurological Complications of Substance Use / Alcohol (Inpatient) (F▂ M▄)",
+            "url": "complicaciones-neurologicas-del-uso-de-sustancias-alcohol.html",
+            "id": "nav-link-complicaciones-neurologicas-del-uso-de-sustancias-alcohol"
+          },
+          {
+            "label": "Primary Brain Tumors (Inpatient) (F▂ M█)",
+            "url": "tumores-cerebrales-primarios.html",
+            "id": "nav-link-tumores-cerebrales-primarios"
+          },
+          {
+            "label": "Nervous System Metastases (Inpatient) (F▂ M█)",
+            "url": "metastasis-al-sistema-nervioso.html",
+            "id": "nav-link-metastasis-al-sistema-nervioso"
+          },
+          {
+            "label": "Neurological Issues in Brain Cancer (Inpatient) (F▂ M█)",
+            "url": "problemas-neurologicos-en-el-cancer-cerebral.html",
+            "id": "nav-link-problemas-neurologicos-en-el-cancer-cerebral"
+          },
+          {
+            "label": "Primary CNS Lymphoma (Inpatient) (F▂ M█)",
+            "url": "linfoma-primario-del-sistema-nervioso-central.html",
+            "id": "nav-link-linfoma-primario-del-sistema-nervioso-central"
+          },
+          {
+            "label": "Multiple Sclerosis (Severe Relapses/Inpatient) (F▂ M▄)",
+            "url": "esclerosis-multiple-recaidas-severas.html",
+            "id": "nav-link-esclerosis-multiple-recaidas-severas"
+          },
+          {
+            "label": "Autoimmune Neurology (Crisis/Onset/Inpatient) (F▂ M▄)",
+            "url": "trastornos-autoinmunes-en-neurologia-crisis-inicio.html",
+            "id": "nav-link-trastornos-autoinmunes-en-neurologia-crisis-inicio"
+          },
+          {
+            "label": "Hospital Neurology Principles",
+            "url": "neurologia-hospitalaria.html",
+            "id": "nav-link-neurologia-hospitalaria"
+          },
+          {
+            "label": "HIV Neurology (Acute Complications/Inpatient) (F▂ M▄)",
+            "url": "neurologia-del-vih-complicaciones-agudas.html",
+            "id": "nav-link-neurologia-del-vih-complicaciones-agudas"
+          },
+          {
+            "label": "Myopathy (Acute/Severe/Inpatient) (F▂ M▂)",
+            "url": "miopatia-aguda-severa.html",
+            "id": "nav-link-miopatia-aguda-severa"
+          },
+          {
+            "label": "Vitamin Deficiency Neurology (Severe/Inpatient) (F▂ M▂)",
+            "url": "neurologia-de-la-deficiencia-de-vitaminas-severa.html",
+            "id": "nav-link-neurologia-de-la-deficiencia-de-vitaminas-severa"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "support-header",
+    "items": [
+      {
+        "label": "Invite me a coffee",
+        "url": "#",
+        "id": "nav-link-invite-coffee"
+      }
+    ]
+  }
+]

@@ -1,0 +1,125 @@
+<!DOCTYPE html> <html lang="en"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- The <title> element defines the title of the document. This text is shown in the browser's title bar or tab,
+         and is also used by search engines and for bookmarks. Make it descriptive for each page. -->
+    <title>Page Title - Your Site Name</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- This file ('assets/css/main.css') should contain your custom styles that are not covered by Tailwind,
+         or specific overrides and component styles for your website. -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- This script enables the use of Lucide icons throughout your site (e.g., search icon, menu icon).
+         It will find elements with 'data-lucide' attributes and replace them with SVGs. -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    " from the end.            -->
+    <!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css"> <!- Core CSS for Reveal.js. Essential for basic presentation layout and functionality. ->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css" id="theme"> <!- A theme for Reveal.js (e.g., 'black.min.css'). You can choose other themes. The 'id="theme"' allows dynamic theme switching if implemented. ->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css"> <!- Stylesheet for code syntax highlighting within Reveal.js slides, using Highlight.js. 'monokai.min.css' is one of many available styles. ->
+    -->
+    </head>
+<body> ") is COMMENTED OUT by default.              -->
+    " comment tags that        -->
+    <!--
+    <div class="presentation-area-wrapper" data-presentation-src="YOUR_PRESENTATION_SOURCE_GOES_HERE">
+        <! -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             THIS IS THE LINE YOU ARE LOOKING FOR!
+             When you uncomment this block, this 'div' with class="presentation-area-wrapper"
+             and the 'data-presentation-src' attribute will become active HTML.
+             REPLACE "YOUR_PRESENTATION_SOURCE_GOES_HERE" with your actual presentation source
+             as per OPTION A, B, or C detailed in the instructions above.
+        -->
+    <!--
+        <div id="loading-indicator">Loading presentation...</div> <!- A placeholder text or spinner shown while the presentation content is being fetched by 'reveal-loader.js'. ->
+        <div class="reveal"> <!- The main container that Reveal.js uses to initialize the presentation. ->
+            <div class="slides"> <!- This inner container will hold all the individual <section> elements (slides) of the presentation. 'reveal-loader.js' populates this. ->
+                <section><h2>Loading Slides...</h2></section> <!- Initial content that gets replaced by the actual slides. ->
+            </div>
+        </div>
+    </div>
+    -->
+    <!-- This <div> is a placeholder. The actual header content (which includes the search bar, social media links,
+         translation button, and mobile navigation toggle) is defined in 'partials/_header.html'.
+         'assets/js/app.js' will fetch '_header.html' and inject its content here. -->
+    <div id="header-placeholder"></div>
+
+    <main class="site-main-content-area">
+
+        <!-- This <div> is a placeholder. The structural <aside> element for the side navigation panel
+             is defined in 'partials/_navigation_shell.html'.
+             'assets/js/app.js' fetches '_navigation_shell.html' and injects it here.
+             Then, 'assets/js/navigation.js' (specifically its 'window.initAppNavigation' function, called by app.js)
+             populates this <aside> shell with the actual navigation links from 'assets/data/navigation-menu.json'. -->
+        <div id="navigation-shell-placeholder"></div>
+
+        <!-- This 'div.actual-main-content' is where you will put the content that is unique to THIS page.
+             The header, navigation, and footer (if any) are generally shared across pages. -->
+        <div class="actual-main-content">
+
+            <h2 id="main-content-header" class="text-2xl font-semibold mb-4 text-gray-100">
+                Your Page Heading Goes here, Initially
+            </h2>
+
+            <p class="mb-4">
+                This is where your unique content for this page will go.
+            </p>
+            <p class="mb-4">
+                You can add more paragraphs, lists, images, or any other HTML elements you need to build out your page.
+            </p>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-3 text-sky-400">Example Content Block</h3>
+                <p>More detailed information and articles would populate this space. This is just a sample layout.</p>
+            </div>
+
+            </div>
+        </main>
+
+    <!-- This <div> is a placeholder. The overlay element (often used for features like the mobile navigation's
+         slide-in effect or for modal dialogs) is defined in 'partials/_page_overlay.html'.
+         'assets/js/app.js' fetches '_page_overlay.html' and injects its content here. -->
+    <div id="page-overlay-placeholder"></div>
+
+    " from the end.            -->
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script> <!- The core Reveal.js library. Essential for presentations. ->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/markdown/markdown.min.js"></script> <!- Enables creating slides from Markdown. ->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script> <!- Adds support for speaker notes (visible in a separate window). ->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script> <!- Integrates Highlight.js for code syntax highlighting in slides. ->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/math/math.js"></script> <!- Adds support for rendering mathematical formulas using KaTeX or MathJax. ->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/zoom/zoom.js"></script> <!- Allows zooming into parts of a slide. ->
+    -->
+    <!-- Main Application Logic: This script ('assets/js/app.js') is responsible for core functionalities like:
+         - Loading HTML partials (header, navigation shell, overlay) into their placeholders.
+         - Initializing mobile navigation interactivity.
+         - Setting up the search bar functionality.
+         - Handling language translation.
+         - Initializing Lucide icons after partials are loaded.
+         - Crucially, after loading partials, it calls 'window.initAppNavigation()' (defined in navigation.js)
+           to populate the navigation panel. -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Search Data: This file ('assets/js/search-data.js') contains the 'sitePages' array,
+         which provides the metadata (title, URL, description, keywords) for each page on your site.
+         This data is used by 'app.js' to power the client-side search functionality.
+         !!! IMPORTANT: Remember to update this file whenever you add a new page to your site. !!! -->
+    <script src="assets/js/search-data.js"></script>
+
+    <!-- Navigation Logic: This script ('assets/js/navigation.js') defines the 'window.initAppNavigation' function.
+         This function is responsible for:
+         - Fetching the navigation structure from 'assets/data/navigation-menu.json'.
+         - Dynamically building the HTML for the navigation links.
+         - Injecting this HTML into the '.site-navigation-panel' (which was loaded as a partial by app.js).
+         - Setting up event listeners for collapsible navigation sections.
+         !!! IMPORTANT: 'app.js' calls 'window.initAppNavigation()' AFTER partials are loaded. !!! -->
+    <script src="assets/js/navigation.js"></script>
+
+    " comment tags.                                                 -->
+    <!--
+    <script src="assets/js/reveal-loader.js"></script> <!- This custom script handles the loading of specific presentation content based on 'data-presentation-src'. ->
+    -->
+    </body>
+</html>
+
