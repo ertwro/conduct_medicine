@@ -213,6 +213,7 @@ mark.search-preview-highlight { background-color: #facc15; color: #1f2937; paddi
     }
     .site-navigation-panel.mobile-nav-is-open {
         transform: translateX(0);
+        z-index: 1012;
     }
 
     body.mobile-nav-active {
