@@ -17,8 +17,7 @@
         "title": "Support",
         "id": "support-header",
         "items": [
-            { "label": "Video Course", "url": "#" },
-            { "label": "Invite us a coffee", "url": "#" }
+            { "label": "Invite us a coffee", "url": "#" },
         ]
     }
 ]
