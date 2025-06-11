@@ -17,7 +17,7 @@
         "title": "Support",
         "id": "support-header",
         "items": [
-            { "label": "Invite us a coffee", "url": "#" },
+            { "label": "Invite us a coffee", "url": "#" }
         ]
     }
 ]
