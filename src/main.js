@@ -570,7 +570,20 @@ class ConductMedicineApp {
       
     } catch (error) {
       console.error(`❌ Failed to load ${specialty} navigation:`, error);
-      this.createBasicNavigation();
+      // Don't fall back to basic navigation - show error in navigation panel instead
+      const navPanel = document.querySelector('.site-navigation-panel');
+      if (navPanel) {
+        navPanel.innerHTML = `
+          <div class="navigation-error p-4 text-center">
+            <h3 class="text-lg font-semibold text-red-400 mb-2">Navigation Error</h3>
+            <p class="text-sm text-gray-400 mb-3">Failed to load ${specialty} navigation</p>
+            <p class="text-xs text-gray-500">${error.message}</p>
+            <button onclick="window.location.reload()" class="mt-3 px-3 py-1 bg-sky-600 hover:bg-sky-700 text-white rounded text-sm">
+              Reload Page
+            </button>
+          </div>
+        `;
+      }
     }
   }
 
@@ -580,7 +593,6 @@ class ConductMedicineApp {
       const navPanel = document.querySelector('.site-navigation-panel');
       if (!navPanel) {
         console.warn('Navigation panel not found');
-        this.createBasicNavigation();
         return;
       }
       
@@ -658,7 +670,20 @@ class ConductMedicineApp {
       
     } catch (error) {
       console.error('Error building navigation directly:', error);
-      this.createBasicNavigation();
+      // Don't fall back to basic navigation - show error in navigation panel instead
+      const navPanel = document.querySelector('.site-navigation-panel');
+      if (navPanel) {
+        navPanel.innerHTML = `
+          <div class="navigation-error p-4 text-center">
+            <h3 class="text-lg font-semibold text-red-400 mb-2">Navigation Error</h3>
+            <p class="text-sm text-gray-400 mb-3">Failed to load navigation</p>
+            <p class="text-xs text-gray-500">${error.message}</p>
+            <button onclick="window.location.reload()" class="mt-3 px-3 py-1 bg-sky-600 hover:bg-sky-700 text-white rounded text-sm">
+              Reload Page
+            </button>
+          </div>
+        `;
+      }
     }
   }
 
@@ -755,51 +780,6 @@ class ConductMedicineApp {
     return label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   }
 
-  createBasicNavigation() {
-    const navPanel = document.querySelector('.site-navigation-panel');
-    if (!navPanel) return;
-
-    navPanel.innerHTML = `
-      <nav class="basic-navigation">
-        <h3 class="text-lg font-semibold text-gray-200 mb-4">Medical Specialties</h3>
-        <ul class="space-y-2">
-          <li>
-            <a href="/specialty/neurology" class="block p-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition-colors">
-              🧠 Neurology
-            </a>
-          </li>
-          <li>
-            <a href="/specialty/dermatology" class="block p-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition-colors">
-              🩺 Dermatology
-            </a>
-          </li>
-        </ul>
-        
-        <div class="mt-8">
-          <h4 class="text-sm font-semibold text-gray-300 mb-2">Sample Content</h4>
-          <ul class="space-y-1 text-sm">
-            <li>
-              <a href="/specialty/neurology/headache-management" class="block p-1 text-gray-400 hover:text-sky-400 transition-colors">
-                Headache Management
-              </a>
-            </li>
-            <li>
-              <a href="/specialty/dermatology/atopic-dermatitis" class="block p-1 text-gray-400 hover:text-sky-400 transition-colors">
-                Atopic Dermatitis
-              </a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="mt-8 p-3 bg-gray-800 rounded text-sm text-gray-400">
-          <p>📝 Navigation system loading...</p>
-          <p>This is a basic fallback menu.</p>
-        </div>
-      </nav>
-    `;
-    
-    console.log('📋 Created basic navigation fallback');
-  }
 
   loadMainPresentation() {
     // Check if there's a presentation area and load it
