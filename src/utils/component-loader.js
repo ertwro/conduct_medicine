@@ -38,14 +38,18 @@ export class ComponentLoader {
   }
 
   async fetchPartial(url) {
+    console.log(`🔍 Fetching partial: ${url}`);
     try {
       const response = await fetch(url);
+      console.log(`📡 Response for ${url}: ${response.status} ${response.statusText}`);
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
       const html = await response.text();
+      console.log(`📄 Content length for ${url}: ${html.length} chars`);
+      console.log(`📄 First 100 chars of ${url}:`, html.substring(0, 100));
       
       if (!html.trim()) {
         console.warn(`Partial ${url} is empty`);

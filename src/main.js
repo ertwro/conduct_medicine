@@ -104,37 +104,63 @@ class ConductMedicineApp {
   async loadPersistentComponents() {
     console.log('Loading persistent components...');
     
-    // Load header with search and language switcher
-    const headerHTML = await this.componentLoader.loadPartial('partials/_header.html');
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder && headerHTML) {
-      headerPlaceholder.outerHTML = headerHTML;
-    }
+    try {
+      // Load header with search and language switcher
+      console.log('🔍 Loading header...');
+      const headerHTML = await this.componentLoader.loadPartial(`${this.basePath}/_header.html`);
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      console.log('Header HTML length:', headerHTML?.length, 'Placeholder found:', !!headerPlaceholder);
+      if (headerPlaceholder && headerHTML) {
+        headerPlaceholder.outerHTML = headerHTML;
+        console.log('✅ Header loaded');
+      } else {
+        console.error('❌ Header loading failed - placeholder or HTML missing');
+      }
 
-    // Load navigation shell (will be populated by specialty-specific content)
-    const navHTML = await this.componentLoader.loadPartial('partials/_navigation_shell.html');
-    const navPlaceholder = document.getElementById('navigation-shell-placeholder');
-    if (navPlaceholder && navHTML) {
-      navPlaceholder.outerHTML = navHTML;
-    }
+      // Load navigation shell (will be populated by specialty-specific content)
+      console.log('🔍 Loading navigation shell...');
+      const navHTML = await this.componentLoader.loadPartial(`${this.basePath}/_navigation_shell.html`);
+      const navPlaceholder = document.getElementById('navigation-shell-placeholder');
+      console.log('Nav HTML length:', navHTML?.length, 'Placeholder found:', !!navPlaceholder);
+      if (navPlaceholder && navHTML) {
+        navPlaceholder.outerHTML = navHTML;
+        console.log('✅ Navigation shell loaded');
+        
+        // Verify navigation panel is now available
+        const navPanel = document.querySelector('.site-navigation-panel');
+        console.log('Navigation panel after loading:', !!navPanel);
+      } else {
+        console.error('❌ Navigation shell loading failed - placeholder or HTML missing');
+      }
 
-    // Load footer
-    const footerHTML = await this.componentLoader.loadPartial('partials/_footer.html');
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder && footerHTML) {
-      footerPlaceholder.outerHTML = footerHTML;
-    }
+      // Load footer
+      console.log('🔍 Loading footer...');
+      const footerHTML = await this.componentLoader.loadPartial(`${this.basePath}/_footer.html`);
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      if (footerPlaceholder && footerHTML) {
+        footerPlaceholder.outerHTML = footerHTML;
+        console.log('✅ Footer loaded');
+      }
 
-    // Load page overlay for modals
-    const overlayHTML = await this.componentLoader.loadPartial('partials/_page_overlay.html');
-    const overlayPlaceholder = document.getElementById('page-overlay-placeholder');
-    if (overlayPlaceholder && overlayHTML) {
-      overlayPlaceholder.outerHTML = overlayHTML;
-    }
+      // Load page overlay for modals
+      console.log('🔍 Loading page overlay...');
+      const overlayHTML = await this.componentLoader.loadPartial(`${this.basePath}/_page_overlay.html`);
+      const overlayPlaceholder = document.getElementById('page-overlay-placeholder');
+      if (overlayPlaceholder && overlayHTML) {
+        overlayPlaceholder.outerHTML = overlayHTML;
+        console.log('✅ Page overlay loaded');
+      }
 
-    // Initialize Lucide icons after components are loaded
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
+      // Initialize Lucide icons after components are loaded
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+        console.log('✅ Lucide icons initialized');
+      }
+      
+      console.log('✅ All persistent components loaded');
+      
+    } catch (error) {
+      console.error('❌ Error loading persistent components:', error);
     }
   }
 
@@ -177,6 +203,9 @@ class ConductMedicineApp {
     
     // Clear current specialty since we're on the main page
     this.currentSpecialty = null;
+    
+    // Show presentation area for main page
+    this.showPresentationArea();
     
     // Clear any existing navigation state flags to ensure fresh load
     delete window.generalNavInitialized;
@@ -332,6 +361,9 @@ class ConductMedicineApp {
     // Track current specialty for language switching
     this.currentSpecialty = specialty;
     
+    // Hide presentation area for specialty pages
+    this.hidePresentationArea();
+    
     // Load specialty-specific navigation
     await this.loadSpecialtyNavigation(specialty);
     
@@ -366,9 +398,6 @@ class ConductMedicineApp {
         </div>
       `;
     }
-    
-    // Load specialty presentation
-    this.loadSpecialtyPresentation(specialty);
   }
 
   async loadSpecialtyNavigation(specialty) {
@@ -783,6 +812,22 @@ class ConductMedicineApp {
     }
   }
 
+  showPresentationArea() {
+    const presentationWrapper = document.querySelector('.presentation-area-wrapper');
+    if (presentationWrapper) {
+      presentationWrapper.style.display = 'block';
+      console.log('✅ Presentation area shown');
+    }
+  }
+
+  hidePresentationArea() {
+    const presentationWrapper = document.querySelector('.presentation-area-wrapper');
+    if (presentationWrapper) {
+      presentationWrapper.style.display = 'none';
+      console.log('✅ Presentation area hidden');
+    }
+  }
+
   loadSpecialtyPresentation(specialty) {
     // Don't reload presentation for specialty pages to avoid conflicts
     console.log(`🎬 Skipping presentation reload for specialty: ${specialty}`);
@@ -793,6 +838,9 @@ class ConductMedicineApp {
     
     // Track current specialty for language switching
     this.currentSpecialty = specialty;
+    
+    // Hide presentation area for content pages
+    this.hidePresentationArea();
     
     // Load specialty navigation first (side pane)
     await this.loadSpecialtyNavigation(specialty);

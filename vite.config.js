@@ -77,13 +77,6 @@ export default defineConfig({
     fs: {
       strict: false
     },
-    // SPA fallback for development
-    historyApiFallback: {
-      // Fallback to index.html for client-side routing
-      rewrites: [
-        { from: /.*/, to: '/index.html' }
-      ]
-    }
   },
   
   // Explicitly set public directory
