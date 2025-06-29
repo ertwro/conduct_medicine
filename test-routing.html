@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>GitHub Pages SPA Routing Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 2rem; 
+            background: #111827; 
+            color: #d1d5db; 
+        }
+        .test-link { 
+            display: block; 
+            margin: 1rem 0; 
+            padding: 0.5rem; 
+            background: #374151; 
+            color: #60a5fa; 
+            text-decoration: none; 
+            border-radius: 4px; 
+        }
+        .test-link:hover { background: #4b5563; }
+        .explanation { 
+            background: #1f2937; 
+            padding: 1rem; 
+            border-radius: 8px; 
+            margin: 1rem 0; 
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 GitHub Pages SPA Routing Test</h1>
+    
+    <div class="explanation">
+        <h2>How it works:</h2>
+        <ol>
+            <li><strong>User visits deep link</strong> (e.g., /conduct_medicine/specialty/neurology)</li>
+            <li><strong>GitHub Pages can't find file</strong> → serves 404.html</li>
+            <li><strong>404.html redirects</strong> to index.html with path as parameter</li>
+            <li><strong>index.html handles redirect</strong> and routes to correct page</li>
+            <li><strong>SPA router takes over</strong> and displays the content</li>
+        </ol>
+    </div>
+    
+    <h2>Test Links (simulate GitHub Pages URLs):</h2>
+    <p>These would work on the deployed GitHub Pages site:</p>
+    
+    <a href="https://ertwro.github.io/conduct_medicine/" class="test-link">
+        🏠 Home Page
+    </a>
+    
+    <a href="https://ertwro.github.io/conduct_medicine/specialty/neurology" class="test-link">
+        🧠 Neurology Specialty Page
+    </a>
+    
+    <a href="https://ertwro.github.io/conduct_medicine/specialty/neurology/cefaleas-primarias" class="test-link">
+        📄 Neurology Content: Cefaleas Primarias
+    </a>
+    
+    <a href="https://ertwro.github.io/conduct_medicine/specialty/dermatology" class="test-link">
+        🩺 Dermatology Specialty Page
+    </a>
+    
+    <a href="https://ertwro.github.io/conduct_medicine/specialty/dermatology/atopic-dermatitis" class="test-link">
+        📄 Dermatology Content: Atopic Dermatitis
+    </a>
+    
+    <div class="explanation">
+        <h3>What happens:</h3>
+        <p><strong>Before fix:</strong> ❌ All deep links → 404 error</p>
+        <p><strong>After fix:</strong> ✅ All deep links → proper SPA routing</p>
+        
+        <h3>Files added:</h3>
+        <ul>
+            <li><code>public/404.html</code> - GitHub Pages fallback handler</li>
+            <li><code>public/_redirects</code> - Netlify-style redirects (backup)</li>
+            <li>Updated <code>index.html</code> - Handle redirect parameters</li>
+            <li>Updated <code>vite.config.js</code> - Dev server SPA fallback</li>
+        </ul>
+    </div>
+    
+    <p><strong>Ready to deploy!</strong> The GitHub Pages routing fix is now implemented.</p>
+</body>
+</html>

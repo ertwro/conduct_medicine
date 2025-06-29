@@ -37,7 +37,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="module" crossorigin src="/conduct_medicine/assets/index-KN_lZoVm.js"></script>
+    <script type="module" crossorigin src="/conduct_medicine/assets/index-DTVzPbXk.js"></script>
     <link rel="modulepreload" crossorigin href="/conduct_medicine/assets/vendor-CfY5IvzE.js">
     <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
     <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
@@ -316,11 +316,34 @@
     <!-- Presentation Loader (needed for reveal.js presentations) -->
     <script src="assets/js/reveal-loader.js"></script>
 
+    <!-- GitHub Pages SPA routing handler -->
+    <script>
+      // Handle redirects from 404.html for GitHub Pages SPA routing
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+        
+        // Also check for redirect parameter in URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var redirectPath = urlParams.get('redirect');
+        if (redirectPath) {
+          // Clean up the URL and navigate to the intended path
+          var cleanUrl = window.location.protocol + '//' + window.location.host + 
+                        window.location.pathname + redirectPath + 
+                        (window.location.hash || '');
+          history.replaceState(null, null, cleanUrl);
+        }
+      })();
+    </script>
+
     <!-- SPA Application -->
 
     <div id="footer-placeholder"></div>
     <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
     <script nomodule crossorigin id="vite-legacy-polyfill" src="/conduct_medicine/assets/polyfills-legacy-CRL5MgQ9.js"></script>
-    <script nomodule crossorigin id="vite-legacy-entry" data-src="/conduct_medicine/assets/index-legacy-CyMP8Fxd.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/conduct_medicine/assets/index-legacy-C6AVsQLe.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
   </body>
 </html>

@@ -76,6 +76,13 @@ export default defineConfig({
     // Ensure Vite serves files from public directory
     fs: {
       strict: false
+    },
+    // SPA fallback for development
+    historyApiFallback: {
+      // Fallback to index.html for client-side routing
+      rewrites: [
+        { from: /.*/, to: '/index.html' }
+      ]
     }
   },
   

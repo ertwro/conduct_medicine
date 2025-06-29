@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Conduct Based Medicine</title>
+    <script>
+        // GitHub Pages SPA routing hack
+        // This script takes the current URL and redirects to the index page with the path
+        // encoded in the query string. This allows us to handle client-side routing
+        // for single page applications on GitHub Pages.
+        
+        // Get the current path (removing the base path if present)
+        var currentPath = window.location.pathname;
+        var basePath = '/conduct_medicine';
+        
+        // Remove base path if it exists
+        if (currentPath.startsWith(basePath)) {
+            currentPath = currentPath.slice(basePath.length);
+        }
+        
+        // If we're not already at the root, redirect to index with the path as a parameter
+        if (currentPath !== '/' && currentPath !== '') {
+            var redirectUrl = window.location.protocol + '//' + window.location.host + basePath + 
+                             '/?redirect=' + encodeURIComponent(currentPath) + 
+                             (window.location.search ? '&' + window.location.search.slice(1) : '') +
+                             window.location.hash;
+            
+            window.location.replace(redirectUrl);
+        } else {
+            // If we're at the root, just go to the main index
+            window.location.replace(window.location.protocol + '//' + window.location.host + basePath + '/');
+        }
+    </script>
+</head>
+<body>
+    <!-- Fallback content in case JavaScript is disabled -->
+    <noscript>
+        <h1>JavaScript Required</h1>
+        <p>This application requires JavaScript to function properly.</p>
+        <p><a href="/conduct_medicine/">Return to Home</a></p>
+    </noscript>
+    
+    <!-- Loading indicator while redirecting -->
+    <div style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: #d1d5db;
+        background-color: #111827;
+    ">
+        <h2>Loading...</h2>
+        <p>Redirecting to Conduct Based Medicine...</p>
+    </div>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111827;
+            color: #d1d5db;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

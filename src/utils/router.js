@@ -33,7 +33,7 @@ export class Router {
     this.handleRoute(path);
   }
 
-  handleRoute(path = window.location.pathname) {
+  async handleRoute(path = window.location.pathname) {
     // Ensure path always starts with /
     if (!path.startsWith('/')) {
       path = '/' + path;
@@ -60,7 +60,7 @@ export class Router {
         
         // Call route handler
         try {
-          route.handler(params);
+          await route.handler(params);
           this.updateActiveNavigation(path);
           return;
         } catch (error) {

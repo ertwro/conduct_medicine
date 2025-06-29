@@ -56,8 +56,8 @@ class ConductMedicineApp {
       // Initialize UI interactions
       this.initializeInteractions();
       
-      // Handle initial route
-      this.router.handleRoute();
+      // Handle initial route AFTER components are loaded
+      await this.router.handleRoute();
       
       this.isInitialized = true;
       console.log('✅ SPA initialization complete');
@@ -140,13 +140,13 @@ class ConductMedicineApp {
 
   setupRouting() {
     // Define route patterns
-    this.router.addRoute('/', () => this.loadMainPage());
-    this.router.addRoute('/specialty/:specialty', (params) => this.loadSpecialtyPage(params.specialty));
-    this.router.addRoute('/specialty/:specialty/:page', (params) => this.loadSpecialtyContent(params.specialty, params.page));
-    this.router.addRoute('/tools/:tool', (params) => this.loadInteractiveTool(params.tool));
+    this.router.addRoute('/', async () => await this.loadMainPage());
+    this.router.addRoute('/specialty/:specialty', async (params) => await this.loadSpecialtyPage(params.specialty));
+    this.router.addRoute('/specialty/:specialty/:page', async (params) => await this.loadSpecialtyContent(params.specialty, params.page));
+    this.router.addRoute('/tools/:tool', async (params) => await this.loadInteractiveTool(params.tool));
     
     // Handle browser navigation
-    window.addEventListener('popstate', () => this.router.handleRoute());
+    window.addEventListener('popstate', async () => await this.router.handleRoute());
     
     // Handle internal navigation clicks
     document.addEventListener('click', (e) => {
@@ -375,11 +375,25 @@ class ConductMedicineApp {
     console.log(`🧠 Loading ${specialty} navigation directly...`);
     
     try {
-      const navPanel = document.querySelector('.site-navigation-panel');
+      // Wait for navigation panel to be available (with retry)
+      let navPanel = document.querySelector('.site-navigation-panel');
+      let retries = 0;
+      const maxRetries = 10;
+      
+      while (!navPanel && retries < maxRetries) {
+        console.log(`⏳ Waiting for navigation panel... (attempt ${retries + 1}/${maxRetries})`);
+        await new Promise(resolve => setTimeout(resolve, 100)); // Wait 100ms
+        navPanel = document.querySelector('.site-navigation-panel');
+        retries++;
+      }
+      
       if (!navPanel) {
-        console.error('❌ Navigation panel not found');
+        console.error('❌ Navigation panel not found after retries');
+        console.log('🔍 Available elements:', document.querySelectorAll('[class*="nav"]'));
         return;
       }
+      
+      console.log('✅ Navigation panel found:', navPanel);
 
       // Use the base path detected at app startup
       const basePath = this.basePath;

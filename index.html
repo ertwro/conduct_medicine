@@ -312,6 +312,29 @@
     <!-- Presentation Loader (needed for reveal.js presentations) -->
     <script src="assets/js/reveal-loader.js"></script>
 
+    <!-- GitHub Pages SPA routing handler -->
+    <script>
+      // Handle redirects from 404.html for GitHub Pages SPA routing
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+        
+        // Also check for redirect parameter in URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var redirectPath = urlParams.get('redirect');
+        if (redirectPath) {
+          // Clean up the URL and navigate to the intended path
+          var cleanUrl = window.location.protocol + '//' + window.location.host + 
+                        window.location.pathname + redirectPath + 
+                        (window.location.hash || '');
+          history.replaceState(null, null, cleanUrl);
+        }
+      })();
+    </script>
+
     <!-- SPA Application -->
     <script type="module" src="src/main.js"></script>
 
