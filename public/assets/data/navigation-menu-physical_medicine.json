@@ -1,0 +1,449 @@
+{
+  "ui_strings": {
+    "en": {
+      "charcotImageTitle": "Learn more about Physical Medicine & Rehabilitation",
+      "charcotImageAlt": "Physical Medicine & Rehabilitation",
+      "navUnavailableMsg": "Physical Medicine & Rehabilitation navigation menu is currently unavailable.",
+      "navErrorMsg": "Error loading physical_medicine navigation menu. See console for details.",
+      "legendTitle": "Symbol Legend:",
+      "legendFC": "Frequency of Consultation",
+      "legendMA": "Mortality Associated",
+      "legendHigh": "High",
+      "legendMedium": "Medium",
+      "legendLow": "Low",
+      "legendIndicators": "(Indicators like (F█ M▂) appear if data is available)"
+    },
+    "es": {
+      "charcotImageTitle": "Aprender más sobre Medicina Física y Rehabilitación",
+      "charcotImageAlt": "Medicina Física y Rehabilitación",
+      "navUnavailableMsg": "El menú de navegación de medicina física y rehabilitación no está disponible actualmente.",
+      "navErrorMsg": "Error al cargar el menú de navegación de physical_medicine. Consulte la consola para más detalles.",
+      "legendTitle": "Leyenda de Símbolos:",
+      "legendFC": "Frecuencia de Consulta",
+      "legendMA": "Mortalidad Asociada",
+      "legendHigh": "Alta",
+      "legendMedium": "Media",
+      "legendLow": "Baja",
+      "legendIndicators": "(Indicadores como (F█ M▂) aparecen si hay datos disponibles)"
+    }
+  },
+  "sections": [
+    {
+      "title": {
+        "en": "Physical Medicine & Rehabilitation",
+        "es": "Medicina Física y Rehabilitación"
+      },
+      "id": "nav-header-physical_medicine",
+      "items": [
+        {
+          "label": {
+            "en": "Home",
+            "es": "Inicio"
+          },
+          "url": "/",
+          "id": "nav-link-home"
+        },
+        {
+          "label": {
+            "en": "Outpatient Setting",
+            "es": "Consulta Externa"
+          },
+          "id": "nav-cat-outpatient-setting",
+          "subItems": [
+            {
+              "label": {
+                "en": "Low back pain examination and therapeutic management]( (F█ M▂)",
+                "es": "Low back pain examination and therapeutic management]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/low-back-pain-examination-and-therapeutic-management",
+              "id": "nav-link-low-back-pain-examination-and-therapeutic-management"
+            },
+            {
+              "label": {
+                "en": "Management of cervical pain syndrome]( (F█ M▂)",
+                "es": "Management of cervical pain syndrome]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/management-of-cervical-pain-syndrome",
+              "id": "nav-link-management-of-cervical-pain-syndrome"
+            },
+            {
+              "label": {
+                "en": "Chronic pain and its rational pharmacotherapy]( (F█ M▂)",
+                "es": "Chronic pain and its rational pharmacotherapy]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/chronic-pain-and-its-rational-pharmacotherapy",
+              "id": "nav-link-chronic-pain-and-its-rational-pharmacotherapy"
+            },
+            {
+              "label": {
+                "en": "Arthritis]( (F█ M▂)",
+                "es": "Arthritis]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/arthritis",
+              "id": "nav-link-arthritis"
+            },
+            {
+              "label": {
+                "en": "Physical modalities]( (F█ M▂)",
+                "es": "Physical modalities]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/physical-modalities",
+              "id": "nav-link-physical-modalities"
+            },
+            {
+              "label": {
+                "en": "Physiology of exercise for strength]( (F█ M▂)",
+                "es": "Physiology of exercise for strength]( (F█ M▂)"
+              },
+              "url": "/specialty/physical_medicine/physiology-of-exercise-for-strength",
+              "id": "nav-link-physiology-of-exercise-for-strength"
+            },
+            {
+              "label": {
+                "en": "Rehabilitation after total joint arthroplasty]( (F█ M▄)",
+                "es": "Rehabilitation after total joint arthroplasty]( (F█ M▄)"
+              },
+              "url": "/specialty/physical_medicine/rehabilitation-after-total-joint-arthroplasty",
+              "id": "nav-link-rehabilitation-after-total-joint-arthroplasty"
+            },
+            {
+              "label": {
+                "en": "Osteoporosis]( (F█ M▄)",
+                "es": "Osteoporosis]( (F█ M▄)"
+              },
+              "url": "/specialty/physical_medicine/osteoporosis",
+              "id": "nav-link-osteoporosis"
+            },
+            {
+              "label": {
+                "en": "Upper extremity compressive neuropathies]( (F▄ M▂)",
+                "es": "Upper extremity compressive neuropathies]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/upper-extremity-compressive-neuropathies",
+              "id": "nav-link-upper-extremity-compressive-neuropathies"
+            },
+            {
+              "label": {
+                "en": "Lower extremity compressive neuropathies]( (F▄ M▂)",
+                "es": "Lower extremity compressive neuropathies]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/lower-extremity-compressive-neuropathies",
+              "id": "nav-link-lower-extremity-compressive-neuropathies"
+            },
+            {
+              "label": {
+                "en": "Sports injuries]( (F▄ M▂)",
+                "es": "Sports injuries]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/sports-injuries",
+              "id": "nav-link-sports-injuries"
+            },
+            {
+              "label": {
+                "en": "Cumulative trauma disorders]( (F▄ M▂)",
+                "es": "Cumulative trauma disorders]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/cumulative-trauma-disorders",
+              "id": "nav-link-cumulative-trauma-disorders"
+            },
+            {
+              "label": {
+                "en": "Principles in hand rehabilitation]( (F▄ M▂)",
+                "es": "Principles in hand rehabilitation]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/principles-in-hand-rehabilitation",
+              "id": "nav-link-principles-in-hand-rehabilitation"
+            },
+            {
+              "label": {
+                "en": "Geriatric rehabilitation]( (F▄ M▂)",
+                "es": "Geriatric rehabilitation]( (F▄ M▂)"
+              },
+              "url": "/specialty/physical_medicine/geriatric-rehabilitation",
+              "id": "nav-link-geriatric-rehabilitation"
+            },
+            {
+              "label": {
+                "en": "Rehabilitation of patients with stroke]( (F▄ M▄)",
+                "es": "Rehabilitation of patients with stroke]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/rehabilitation-of-patients-with-stroke",
+              "id": "nav-link-rehabilitation-of-patients-with-stroke"
+            },
+            {
+              "label": {
+                "en": "Spasticity management]( (F▄ M▄)",
+                "es": "Spasticity management]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/spasticity-management",
+              "id": "nav-link-spasticity-management"
+            },
+            {
+              "label": {
+                "en": "Cardiac rehabilitation]( (F▄ M▄)",
+                "es": "Cardiac rehabilitation]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/cardiac-rehabilitation",
+              "id": "nav-link-cardiac-rehabilitation"
+            },
+            {
+              "label": {
+                "en": "Pulmonary rehabilitation]( (F▄ M▄)",
+                "es": "Pulmonary rehabilitation]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/pulmonary-rehabilitation",
+              "id": "nav-link-pulmonary-rehabilitation"
+            },
+            {
+              "label": {
+                "en": "Normal gait]( (F▄ M▄)",
+                "es": "Normal gait]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/normal-gait",
+              "id": "nav-link-normal-gait"
+            },
+            {
+              "label": {
+                "en": "Pathological gait]( (F▄ M▄)",
+                "es": "Pathological gait]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/pathological-gait",
+              "id": "nav-link-pathological-gait"
+            },
+            {
+              "label": {
+                "en": "Electrodiagnostic examination of radiculopathies]( (F▂ M▂)",
+                "es": "Electrodiagnostic examination of radiculopathies]( (F▂ M▂)"
+              },
+              "url": "/specialty/physical_medicine/electrodiagnostic-examination-of-radiculopathies",
+              "id": "nav-link-electrodiagnostic-examination-of-radiculopathies"
+            },
+            {
+              "label": {
+                "en": "H-reflex and F-response]( (F▂ M▂)",
+                "es": "H-reflex and F-response]( (F▂ M▂)"
+              },
+              "url": "/specialty/physical_medicine/h-reflex-and-f-response",
+              "id": "nav-link-h-reflex-and-f-response"
+            },
+            {
+              "label": {
+                "en": "Polyneuropathy]( (F▂ M▂)",
+                "es": "Polyneuropathy]( (F▂ M▂)"
+              },
+              "url": "/specialty/physical_medicine/polyneuropathy",
+              "id": "nav-link-polyneuropathy"
+            },
+            {
+              "label": {
+                "en": "Magnetic resonance imaging of the degenerative lumbar spine]( (F▂ M▂)",
+                "es": "Magnetic resonance imaging of the degenerative lumbar spine]( (F▂ M▂)"
+              },
+              "url": "/specialty/physical_medicine/magnetic-resonance-imaging-of-the-degenerative-lumbar-spine",
+              "id": "nav-link-magnetic-resonance-imaging-of-the-degenerative-lumbar-spine"
+            },
+            {
+              "label": {
+                "en": "Regulatory challenges in PM&R]( (F▂ M▂)",
+                "es": "Regulatory challenges in PM&R]( (F▂ M▂)"
+              },
+              "url": "/specialty/physical_medicine/regulatory-challenges-in-pmr",
+              "id": "nav-link-regulatory-challenges-in-pmr"
+            },
+            {
+              "label": {
+                "en": "Lower extremity amputation]( (F▂ M▄)",
+                "es": "Lower extremity amputation]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/lower-extremity-amputation",
+              "id": "nav-link-lower-extremity-amputation"
+            },
+            {
+              "label": {
+                "en": "Upper limb amputation and prosthetic rehab]( (F▂ M▄)",
+                "es": "Upper limb amputation and prosthetic rehab]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/upper-limb-amputation-and-prosthetic-rehab",
+              "id": "nav-link-upper-limb-amputation-and-prosthetic-rehab"
+            },
+            {
+              "label": {
+                "en": "Evaluation of the lower limb amputee and prosthetic rehab]( (F▂ M▄)",
+                "es": "Evaluation of the lower limb amputee and prosthetic rehab]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/evaluation-of-the-lower-limb-amputee-and-prosthetic-rehab",
+              "id": "nav-link-evaluation-of-the-lower-limb-amputee-and-prosthetic-rehab"
+            },
+            {
+              "label": {
+                "en": "Lower and upper limb orthotic devices]( (F▂ M▄)",
+                "es": "Lower and upper limb orthotic devices]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/lower-and-upper-limb-orthotic-devices",
+              "id": "nav-link-lower-and-upper-limb-orthotic-devices"
+            },
+            {
+              "label": {
+                "en": "Amputee gait-energy]( (F▂ M▄)",
+                "es": "Amputee gait-energy]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/amputee-gait-energy",
+              "id": "nav-link-amputee-gait-energy"
+            },
+            {
+              "label": {
+                "en": "Rehabilitation in patients with multiple sclerosis]( (F▂ M▄)",
+                "es": "Rehabilitation in patients with multiple sclerosis]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/rehabilitation-in-patients-with-multiple-sclerosis",
+              "id": "nav-link-rehabilitation-in-patients-with-multiple-sclerosis"
+            },
+            {
+              "label": {
+                "en": "Complex regional pain syndrome]( (F▂ M▄)",
+                "es": "Complex regional pain syndrome]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/complex-regional-pain-syndrome",
+              "id": "nav-link-complex-regional-pain-syndrome"
+            },
+            {
+              "label": {
+                "en": "Myopathies and their electrodiagnosis]( (F▂ M▄)",
+                "es": "Myopathies and their electrodiagnosis]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/myopathies-and-their-electrodiagnosis",
+              "id": "nav-link-myopathies-and-their-electrodiagnosis"
+            },
+            {
+              "label": {
+                "en": "EMG in motor neuron disease]( (F▂ M▄)",
+                "es": "EMG in motor neuron disease]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/emg-in-motor-neuron-disease",
+              "id": "nav-link-emg-in-motor-neuron-disease"
+            },
+            {
+              "label": {
+                "en": "Mild traumatic brain injury in sports]( (F▂ M▄)",
+                "es": "Mild traumatic brain injury in sports]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/mild-traumatic-brain-injury-in-sports",
+              "id": "nav-link-mild-traumatic-brain-injury-in-sports"
+            },
+            {
+              "label": {
+                "en": "Oncological rehabilitation]( (F▂ M█)",
+                "es": "Oncological rehabilitation]( (F▂ M█)"
+              },
+              "url": "/specialty/physical_medicine/oncological-rehabilitation",
+              "id": "nav-link-oncological-rehabilitation"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Emergency Room",
+            "es": "Sala de Emergencias"
+          },
+          "id": "nav-cat-emergency-room",
+          "subItems": [
+            {
+              "label": {
+                "en": "Traumatic brain injury]( (F█ M█)",
+                "es": "Traumatic brain injury]( (F█ M█)"
+              },
+              "url": "/specialty/physical_medicine/traumatic-brain-injury",
+              "id": "nav-link-traumatic-brain-injury"
+            },
+            {
+              "label": {
+                "en": "Classification and epidemiology of traumatic spinal chord injury]( (F▄ M█)",
+                "es": "Classification and epidemiology of traumatic spinal chord injury]( (F▄ M█)"
+              },
+              "url": "/specialty/physical_medicine/classification-and-epidemiology-of-traumatic-spinal-chord-injury",
+              "id": "nav-link-classification-and-epidemiology-of-traumatic-spinal-chord-injury"
+            },
+            {
+              "label": {
+                "en": "Interventional pain procedures]( (F▄ M▄)",
+                "es": "Interventional pain procedures]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/interventional-pain-procedures",
+              "id": "nav-link-interventional-pain-procedures"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Hospitalization",
+            "es": "Hospitalización"
+          },
+          "id": "nav-cat-hospitalization",
+          "subItems": [
+            {
+              "label": {
+                "en": "Pharmacological treatment of cognitive problems post traumatic brain injury]( (F█ M█)",
+                "es": "Pharmacological treatment of cognitive problems post traumatic brain injury]( (F█ M█)"
+              },
+              "url": "/specialty/physical_medicine/pharmacological-treatment-of-cognitive-problems-post-traumatic-brain-injury",
+              "id": "nav-link-pharmacological-treatment-of-cognitive-problems-post-traumatic-brain-injury"
+            },
+            {
+              "label": {
+                "en": "Neurological and functional outcomes]( (F▄ M▄)",
+                "es": "Neurological and functional outcomes]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/neurological-and-functional-outcomes",
+              "id": "nav-link-neurological-and-functional-outcomes"
+            },
+            {
+              "label": {
+                "en": "Neurogenic bladder and other medical issues]( (F▄ M▄)",
+                "es": "Neurogenic bladder and other medical issues]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/neurogenic-bladder-and-other-medical-issues",
+              "id": "nav-link-neurogenic-bladder-and-other-medical-issues"
+            },
+            {
+              "label": {
+                "en": "Swallowing disorders]( (F▄ M▄)",
+                "es": "Swallowing disorders]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/swallowing-disorders",
+              "id": "nav-link-swallowing-disorders"
+            },
+            {
+              "label": {
+                "en": "Neurogenic communication disorders]( (F▄ M▄)",
+                "es": "Neurogenic communication disorders]( (F▄ M▄)"
+              },
+              "url": "/specialty/physical_medicine/neurogenic-communication-disorders",
+              "id": "nav-link-neurogenic-communication-disorders"
+            },
+            {
+              "label": {
+                "en": "Rehabilitation in children: Spina bifida and cereral palsy]( (F▂ M▄)",
+                "es": "Rehabilitation in children: Spina bifida and cereral palsy]( (F▂ M▄)"
+              },
+              "url": "/specialty/physical_medicine/rehabilitation-in-children-spina-bifida-and-cereral-palsy",
+              "id": "nav-link-rehabilitation-in-children-spina-bifida-and-cereral-palsy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-header",
+      "items": [
+        {
+          "label": {
+            "en": "Invite me a coffee",
+            "es": "Invítame un café"
+          },
+          "url": "#",
+          "id": "nav-link-invite-coffee"
+        }
+      ]
+    }
+  ]
+}

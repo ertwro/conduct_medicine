@@ -1,0 +1,417 @@
+{
+  "ui_strings": {
+    "en": {
+      "charcotImageTitle": "Learn more about Gastroenterology",
+      "charcotImageAlt": "Gastroenterology",
+      "navUnavailableMsg": "Gastroenterology navigation menu is currently unavailable.",
+      "navErrorMsg": "Error loading gastroenterology navigation menu. See console for details.",
+      "legendTitle": "Symbol Legend:",
+      "legendFC": "Frequency of Consultation",
+      "legendMA": "Mortality Associated",
+      "legendHigh": "High",
+      "legendMedium": "Medium",
+      "legendLow": "Low",
+      "legendIndicators": "(Indicators like (F█ M▂) appear if data is available)"
+    },
+    "es": {
+      "charcotImageTitle": "Aprender más sobre Gastroenterología",
+      "charcotImageAlt": "Gastroenterología",
+      "navUnavailableMsg": "El menú de navegación de gastroenterología no está disponible actualmente.",
+      "navErrorMsg": "Error al cargar el menú de navegación de gastroenterology. Consulte la consola para más detalles.",
+      "legendTitle": "Leyenda de Símbolos:",
+      "legendFC": "Frecuencia de Consulta",
+      "legendMA": "Mortalidad Asociada",
+      "legendHigh": "Alta",
+      "legendMedium": "Media",
+      "legendLow": "Baja",
+      "legendIndicators": "(Indicadores como (F█ M▂) aparecen si hay datos disponibles)"
+    }
+  },
+  "sections": [
+    {
+      "title": {
+        "en": "Gastroenterology",
+        "es": "Gastroenterología"
+      },
+      "id": "nav-header-gastroenterology",
+      "items": [
+        {
+          "label": {
+            "en": "Home",
+            "es": "Inicio"
+          },
+          "url": "/",
+          "id": "nav-link-home"
+        },
+        {
+          "label": {
+            "en": "Outpatient Setting",
+            "es": "Consulta Externa"
+          },
+          "id": "nav-cat-outpatient-setting",
+          "subItems": [
+            {
+              "label": {
+                "en": "GERD (F█ M▂)",
+                "es": "GERD (F█ M▂)"
+              },
+              "url": "/specialty/gastroenterology/gerd",
+              "id": "nav-link-gerd"
+            },
+            {
+              "label": {
+                "en": "Peptic ulcer (F█ M▂)",
+                "es": "Peptic ulcer (F█ M▂)"
+              },
+              "url": "/specialty/gastroenterology/peptic-ulcer",
+              "id": "nav-link-peptic-ulcer"
+            },
+            {
+              "label": {
+                "en": "Constipation and diarrhea (F█ M▂)",
+                "es": "Constipation and diarrhea (F█ M▂)"
+              },
+              "url": "/specialty/gastroenterology/constipation-and-diarrhea",
+              "id": "nav-link-constipation-and-diarrhea"
+            },
+            {
+              "label": {
+                "en": "Irritable bowel disease (F█ M▂)",
+                "es": "Irritable bowel disease (F█ M▂)"
+              },
+              "url": "/specialty/gastroenterology/irritable-bowel-disease",
+              "id": "nav-link-irritable-bowel-disease"
+            },
+            {
+              "label": {
+                "en": "Functional dyspepsia, gastroparesis, ileus (F█ M▂)",
+                "es": "Functional dyspepsia, gastroparesis, ileus (F█ M▂)"
+              },
+              "url": "/specialty/gastroenterology/functional-dyspepsia-gastroparesis-ileus",
+              "id": "nav-link-functional-dyspepsia-gastroparesis-ileus"
+            },
+            {
+              "label": {
+                "en": "Inflammatory bowel Disease (F█ M▄)",
+                "es": "Inflammatory bowel Disease (F█ M▄)"
+              },
+              "url": "/specialty/gastroenterology/inflammatory-bowel-disease",
+              "id": "nav-link-inflammatory-bowel-disease"
+            },
+            {
+              "label": {
+                "en": "NAFLD (F█ M▄)",
+                "es": "NAFLD (F█ M▄)"
+              },
+              "url": "/specialty/gastroenterology/nafld",
+              "id": "nav-link-nafld"
+            },
+            {
+              "label": {
+                "en": "Celiac Disease (F▄ M▂)",
+                "es": "Celiac Disease (F▄ M▂)"
+              },
+              "url": "/specialty/gastroenterology/celiac-disease",
+              "id": "nav-link-celiac-disease"
+            },
+            {
+              "label": {
+                "en": "Malabsorption and nutrition (F▄ M▂)",
+                "es": "Malabsorption and nutrition (F▄ M▂)"
+              },
+              "url": "/specialty/gastroenterology/malabsorption-and-nutrition",
+              "id": "nav-link-malabsorption-and-nutrition"
+            },
+            {
+              "label": {
+                "en": "Colorectal cancer screening (F▄ M▂)",
+                "es": "Colorectal cancer screening (F▄ M▂)"
+              },
+              "url": "/specialty/gastroenterology/colorectal-cancer-screening",
+              "id": "nav-link-colorectal-cancer-screening"
+            },
+            {
+              "label": {
+                "en": "Liver fibrosis (F▄ M▂)",
+                "es": "Liver fibrosis (F▄ M▂)"
+              },
+              "url": "/specialty/gastroenterology/liver-fibrosis",
+              "id": "nav-link-liver-fibrosis"
+            },
+            {
+              "label": {
+                "en": "Viral Hepatitis (F▄ M▄)",
+                "es": "Viral Hepatitis (F▄ M▄)"
+              },
+              "url": "/specialty/gastroenterology/viral-hepatitis",
+              "id": "nav-link-viral-hepatitis"
+            },
+            {
+              "label": {
+                "en": "Hepatitis B (F▄ M▄)",
+                "es": "Hepatitis B (F▄ M▄)"
+              },
+              "url": "/specialty/gastroenterology/hepatitis-b",
+              "id": "nav-link-hepatitis-b"
+            },
+            {
+              "label": {
+                "en": "Hepatitis C (F▄ M▄)",
+                "es": "Hepatitis C (F▄ M▄)"
+              },
+              "url": "/specialty/gastroenterology/hepatitis-c",
+              "id": "nav-link-hepatitis-c"
+            },
+            {
+              "label": {
+                "en": "Autoimmune Liver disease (F▄ M▄)",
+                "es": "Autoimmune Liver disease (F▄ M▄)"
+              },
+              "url": "/specialty/gastroenterology/autoimmune-liver-disease",
+              "id": "nav-link-autoimmune-liver-disease"
+            },
+            {
+              "label": {
+                "en": "Recurrent and chronic pancreatitis (F▄ M▄)",
+                "es": "Recurrent and chronic pancreatitis (F▄ M▄)"
+              },
+              "url": "/specialty/gastroenterology/recurrent-and-chronic-pancreatitis",
+              "id": "nav-link-recurrent-and-chronic-pancreatitis"
+            },
+            {
+              "label": {
+                "en": "Esophageal motility and structural disorders (F▂ M▂)",
+                "es": "Esophageal motility and structural disorders (F▂ M▂)"
+              },
+              "url": "/specialty/gastroenterology/esophageal-motility-and-structural-disorders",
+              "id": "nav-link-esophageal-motility-and-structural-disorders"
+            },
+            {
+              "label": {
+                "en": "Hereditary Gastrointestinal polyposis (F▂ M▂)",
+                "es": "Hereditary Gastrointestinal polyposis (F▂ M▂)"
+              },
+              "url": "/specialty/gastroenterology/hereditary-gastrointestinal-polyposis",
+              "id": "nav-link-hereditary-gastrointestinal-polyposis"
+            },
+            {
+              "label": {
+                "en": "Eosinophilic gastritis and esophagitis (F▂ M▄)",
+                "es": "Eosinophilic gastritis and esophagitis (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/eosinophilic-gastritis-and-esophagitis",
+              "id": "nav-link-eosinophilic-gastritis-and-esophagitis"
+            },
+            {
+              "label": {
+                "en": "Alcohol associated Hepatitis (F▂ M▄)",
+                "es": "Alcohol associated Hepatitis (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/alcohol-associated-hepatitis",
+              "id": "nav-link-alcohol-associated-hepatitis"
+            },
+            {
+              "label": {
+                "en": "HIV (F▂ M▄)",
+                "es": "HIV (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/hiv",
+              "id": "nav-link-hiv"
+            },
+            {
+              "label": {
+                "en": "Esophageal Cancer (F▂ M█)",
+                "es": "Esophageal Cancer (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/esophageal-cancer",
+              "id": "nav-link-esophageal-cancer"
+            },
+            {
+              "label": {
+                "en": "Pancreatic cancer (F▂ M█)",
+                "es": "Pancreatic cancer (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/pancreatic-cancer",
+              "id": "nav-link-pancreatic-cancer"
+            },
+            {
+              "label": {
+                "en": "Hepatocellular carcinoma (F▂ M█)",
+                "es": "Hepatocellular carcinoma (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/hepatocellular-carcinoma",
+              "id": "nav-link-hepatocellular-carcinoma"
+            },
+            {
+              "label": {
+                "en": "Cholangiocarciona (F▂ M█)",
+                "es": "Cholangiocarciona (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/cholangiocarciona",
+              "id": "nav-link-cholangiocarciona"
+            },
+            {
+              "label": {
+                "en": "Liver transplant (F▂ M█)",
+                "es": "Liver transplant (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/liver-transplant",
+              "id": "nav-link-liver-transplant"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Emergency Room",
+            "es": "Sala de Emergencias"
+          },
+          "id": "nav-cat-emergency-room",
+          "subItems": [
+            {
+              "label": {
+                "en": "GI Hemorrahage (F█ M█)",
+                "es": "GI Hemorrahage (F█ M█)"
+              },
+              "url": "/specialty/gastroenterology/gi-hemorrahage",
+              "id": "nav-link-gi-hemorrahage"
+            },
+            {
+              "label": {
+                "en": "Acute pancreatitis (F█ M█)",
+                "es": "Acute pancreatitis (F█ M█)"
+              },
+              "url": "/specialty/gastroenterology/acute-pancreatitis",
+              "id": "nav-link-acute-pancreatitis"
+            },
+            {
+              "label": {
+                "en": "Infective gastroenteritis (F█ M▄)",
+                "es": "Infective gastroenteritis (F█ M▄)"
+              },
+              "url": "/specialty/gastroenterology/infective-gastroenteritis",
+              "id": "nav-link-infective-gastroenteritis"
+            },
+            {
+              "label": {
+                "en": "Clostridioides dificile (F▄ M█)",
+                "es": "Clostridioides dificile (F▄ M█)"
+              },
+              "url": "/specialty/gastroenterology/clostridioides-dificile",
+              "id": "nav-link-clostridioides-dificile"
+            },
+            {
+              "label": {
+                "en": "Ischaemic bowel disease (F▄ M█)",
+                "es": "Ischaemic bowel disease (F▄ M█)"
+              },
+              "url": "/specialty/gastroenterology/ischaemic-bowel-disease",
+              "id": "nav-link-ischaemic-bowel-disease"
+            },
+            {
+              "label": {
+                "en": "Hepatic decompensation (F▂ M█)",
+                "es": "Hepatic decompensation (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/hepatic-decompensation",
+              "id": "nav-link-hepatic-decompensation"
+            },
+            {
+              "label": {
+                "en": "GI and Hepatic toxicity (F▂ M▄)",
+                "es": "GI and Hepatic toxicity (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/gi-and-hepatic-toxicity",
+              "id": "nav-link-gi-and-hepatic-toxicity"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Hospitalization",
+            "es": "Hospitalización"
+          },
+          "id": "nav-cat-hospitalization",
+          "subItems": [
+            {
+              "label": {
+                "en": "Severe GI bleeding requiring intervention (F█ M█)",
+                "es": "Severe GI bleeding requiring intervention (F█ M█)"
+              },
+              "url": "/specialty/gastroenterology/severe-gi-bleeding-requiring-intervention",
+              "id": "nav-link-severe-gi-bleeding-requiring-intervention"
+            },
+            {
+              "label": {
+                "en": "Acute liver failure (F█ M█)",
+                "es": "Acute liver failure (F█ M█)"
+              },
+              "url": "/specialty/gastroenterology/acute-liver-failure",
+              "id": "nav-link-acute-liver-failure"
+            },
+            {
+              "label": {
+                "en": "Severe acute pancreatitis with complications (F▄ M█)",
+                "es": "Severe acute pancreatitis with complications (F▄ M█)"
+              },
+              "url": "/specialty/gastroenterology/severe-acute-pancreatitis-with-complications",
+              "id": "nav-link-severe-acute-pancreatitis-with-complications"
+            },
+            {
+              "label": {
+                "en": "Advanced liver disease with decompensation (F▄ M█)",
+                "es": "Advanced liver disease with decompensation (F▄ M█)"
+              },
+              "url": "/specialty/gastroenterology/advanced-liver-disease-with-decompensation",
+              "id": "nav-link-advanced-liver-disease-with-decompensation"
+            },
+            {
+              "label": {
+                "en": "Liver transplant complications (F▂ M█)",
+                "es": "Liver transplant complications (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/liver-transplant-complications",
+              "id": "nav-link-liver-transplant-complications"
+            },
+            {
+              "label": {
+                "en": "GI malignancy complications (F▂ M█)",
+                "es": "GI malignancy complications (F▂ M█)"
+              },
+              "url": "/specialty/gastroenterology/gi-malignancy-complications",
+              "id": "nav-link-gi-malignancy-complications"
+            },
+            {
+              "label": {
+                "en": "Complicated inflammatory bowel disease (F▂ M▄)",
+                "es": "Complicated inflammatory bowel disease (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/complicated-inflammatory-bowel-disease",
+              "id": "nav-link-complicated-inflammatory-bowel-disease"
+            },
+            {
+              "label": {
+                "en": "Severe Clostridioides difficile colitis (F▂ M▄)",
+                "es": "Severe Clostridioides difficile colitis (F▂ M▄)"
+              },
+              "url": "/specialty/gastroenterology/severe-clostridioides-difficile-colitis",
+              "id": "nav-link-severe-clostridioides-difficile-colitis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-header",
+      "items": [
+        {
+          "label": {
+            "en": "Invite me a coffee",
+            "es": "Invítame un café"
+          },
+          "url": "#",
+          "id": "nav-link-invite-coffee"
+        }
+      ]
+    }
+  ]
+}

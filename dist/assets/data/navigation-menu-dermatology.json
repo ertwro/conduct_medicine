@@ -1,0 +1,342 @@
+{
+  "ui_strings": {
+    "en": {
+      "charcotImageTitle": "Learn more about Robert Willan",
+      "charcotImageAlt": "Dermatology",
+      "navUnavailableMsg": "Dermatology navigation menu is currently unavailable.",
+      "navErrorMsg": "Error loading dermatology navigation menu. See console for details.",
+      "legendTitle": "Symbol Legend:",
+      "legendFC": "Frequency of Consultation",
+      "legendMA": "Mortality Associated",
+      "legendHigh": "High",
+      "legendMedium": "Medium",
+      "legendLow": "Low",
+      "legendIndicators": "(Indicators like (F█ M▂) appear if data is available)"
+    },
+    "es": {
+      "charcotImageTitle": "Aprender más sobre Robert Willan",
+      "charcotImageAlt": "Dermatología",
+      "navUnavailableMsg": "El menú de navegación de dermatología no está disponible actualmente.",
+      "navErrorMsg": "Error al cargar el menú de navegación de dermatología. Consulte la consola para más detalles.",
+      "legendTitle": "Leyenda de Símbolos:",
+      "legendFC": "Frecuencia de Consulta",
+      "legendMA": "Mortalidad Asociada",
+      "legendHigh": "Alta",
+      "legendMedium": "Media",
+      "legendLow": "Baja",
+      "legendIndicators": "(Indicadores como (F█ M▂) aparecen si hay datos disponibles)"
+    }
+  },
+  "sections": [
+    {
+      "title": {
+        "en": "Dermatology",
+        "es": "Dermatología"
+      },
+      "id": "nav-header-dermatology",
+      "historicalFigure": {
+        "name": "Robert Willan",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Robert_willan.jpg",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Robert_Willan"
+      },
+      "items": [
+        {
+          "label": {
+            "en": "Home",
+            "es": "Inicio"
+          },
+          "url": "/",
+          "id": "nav-link-home"
+        },
+        {
+          "label": {
+            "en": "Outpatient Setting",
+            "es": "Consulta Externa"
+          },
+          "id": "nav-cat-outpatient-setting",
+          "subItems": [
+            {
+              "label": {
+                "en": "Atopic dermatitis (Adult and Pediatric) (F█ M▂)",
+                "es": "Dermatitis Atópica (Adultos y Pediátrica) (F█ M▂)"
+              },
+              "url": "/specialty/dermatology/atopic-dermatitis",
+              "id": "nav-link-atopic-dermatitis"
+            },
+            {
+              "label": {
+                "en": "Contact dermatitis and occupational dermatoses (F█ M▂)",
+                "es": "Dermatitis de contacto y dermatosis ocupacionales (F█ M▂)"
+              },
+              "url": "/specialty/dermatology/contact-dermatitis",
+              "id": "nav-link-contact-dermatitis"
+            },
+            {
+              "label": {
+                "en": "Acne, rosacea, hidradenitis suppurativa (F█ M▂)",
+                "es": "Acné, rosácea, hidradenitis supurativa (F█ M▂)"
+              },
+              "url": "/specialty/dermatology/acne-rosacea-hidradenitis",
+              "id": "nav-link-acne-rosacea-hidradenitis"
+            },
+            {
+              "label": {
+                "en": "Benign melanocytic tumors (Nevi) (F█ M▂)",
+                "es": "Tumores melanocíticos benignos (Nevus) (F█ M▂)"
+              },
+              "url": "/specialty/dermatology/benign-melanocytic-tumors",
+              "id": "nav-link-benign-melanocytic-tumors"
+            },
+            {
+              "label": {
+                "en": "Epidermal proliferations and cysts (F█ M▂)",
+                "es": "Proliferaciones epidérmicas y quistes (F█ M▂)"
+              },
+              "url": "/specialty/dermatology/epidermal-proliferations-cysts",
+              "id": "nav-link-epidermal-proliferations-cysts"
+            },
+            {
+              "label": {
+                "en": "Malignant melanoma and other melanocytic tumors (F▄ M█)",
+                "es": "Melanoma maligno y otros tumores melanocíticos (F▄ M█)"
+              },
+              "url": "/specialty/dermatology/malignant-melanoma",
+              "id": "nav-link-malignant-melanoma"
+            },
+            {
+              "label": {
+                "en": "Fungal infections - dermatophytosis (F▄ M▂)",
+                "es": "Infecciones fúngicas - dermatofitosis (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/fungal-infections-dermatophytosis",
+              "id": "nav-link-fungal-infections-dermatophytosis"
+            },
+            {
+              "label": {
+                "en": "Psoriasis and psoriasiform dermatoses (F▄ M▂)",
+                "es": "Psoriasis y dermatosis psoriasiformes (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/psoriasis",
+              "id": "nav-link-psoriasis"
+            },
+            {
+              "label": {
+                "en": "Hair biology and disorders (Alopecia) (F▄ M▂)",
+                "es": "Biología y trastornos del pelo (Alopecia) (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/hair-disorders-alopecia",
+              "id": "nav-link-hair-disorders-alopecia"
+            },
+            {
+              "label": {
+                "en": "Nail biology and disease (F▄ M▂)",
+                "es": "Biología y enfermedades de las uñas (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/nail-disorders",
+              "id": "nav-link-nail-disorders"
+            },
+            {
+              "label": {
+                "en": "Dermatologic surgery (Biopsies, excisions) (F▄ M▂)",
+                "es": "Cirugía dermatológica (Biopsias, escisiones) (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/dermatologic-surgery",
+              "id": "nav-link-dermatologic-surgery"
+            },
+            {
+              "label": {
+                "en": "Lichen planus and lichenoid dermatoses (F▄ M▂)",
+                "es": "Liquen plano y dermatosis liquenoides (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/lichen-planus-lichenoid",
+              "id": "nav-link-lichen-planus-lichenoid"
+            },
+            {
+              "label": {
+                "en": "Disorders of genitalia and oral cavity (F▄ M▂)",
+                "es": "Trastornos de los genitales y la cavidad oral (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/genital-oral-disorders",
+              "id": "nav-link-genital-oral-disorders"
+            },
+            {
+              "label": {
+                "en": "STIs and cutaneous manifestations of HIV (F▂ M▄)",
+                "es": "ITS y manifestaciones cutáneas del VIH (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/sti-hiv-dermatology",
+              "id": "nav-link-sti-hiv-dermatology"
+            },
+            {
+              "label": {
+                "en": "Dermatologic signs of systemic disease (F▂ M▄)",
+                "es": "Signos dermatológicos de enfermedad sistémica (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/dermatologic-signs-systemic-disease",
+              "id": "nav-link-dermatologic-signs-systemic-disease"
+            },
+            {
+              "label": {
+                "en": "Pediatric collagen vascular disease (F▂ M▄)",
+                "es": "Enfermedad vascular del colágeno pediátrica (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/pediatric-collagen-vascular-disease",
+              "id": "nav-link-pediatric-collagen-vascular-disease"
+            },
+            {
+              "label": {
+                "en": "Cutaneous T cell lymphoma (Mycosis Fungoides) (F▂ M▄)",
+                "es": "Linfoma cutáneo de células T (Micosis fungoide) (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/cutaneous-t-cell-lymphoma",
+              "id": "nav-link-cutaneous-t-cell-lymphoma"
+            },
+            {
+              "label": {
+                "en": "Congenital and acquired blistering disorders (stable) (F▂ M▄)",
+                "es": "Enfermedades ampollosas congénitas y adquiridas (estable) (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/blistering-disorders-stable",
+              "id": "nav-link-blistering-disorders-stable"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Emergency Room",
+            "es": "Sala de Emergencias"
+          },
+          "id": "nav-cat-emergency-room",
+          "subItems": [
+            {
+              "label": {
+                "en": "Acute Bacterial Skin Infections (Cellulitis, Abscess) (F█ M▄)",
+                "es": "Infecciones Bacterianas Agudas de la Piel (Celulitis, Absceso) (F█ M▄)"
+              },
+              "url": "/specialty/dermatology/acute-bacterial-infections",
+              "id": "nav-link-acute-bacterial-infections"
+            },
+            {
+              "label": {
+                "en": "Urticaria and Angioedema (Acute) (F█ M▄)",
+                "es": "Urticaria y Angioedema (Agudo) (F█ M▄)"
+              },
+              "url": "/specialty/dermatology/urticaria-angioedema-acute",
+              "id": "nav-link-urticaria-angioedema-acute"
+            },
+            {
+              "label": {
+                "en": "Severe Flares of Chronic Disease (Atopic Dermatitis) (F▄ M▂)",
+                "es": "Exacerbaciones Graves de Enfermedad Crónica (Dermatitis Atópica) (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/severe-flares-chronic-disease",
+              "id": "nav-link-severe-flares-chronic-disease"
+            },
+            {
+              "label": {
+                "en": "Herpes Zoster (Shingles) (F▄ M▂)",
+                "es": "Herpes Zóster (Culebrilla) (F▄ M▂)"
+              },
+              "url": "/specialty/dermatology/herpes-zoster",
+              "id": "nav-link-herpes-zoster"
+            },
+            {
+              "label": {
+                "en": "Dermatologic Emergencies (Concern for SJS/TEN) (F▂ M█)",
+                "es": "Urgencias Dermatológicas (Sospecha de SJS/TEN) (F▂ M█)"
+              },
+              "url": "/specialty/dermatology/dermatologic-emergencies-er",
+              "id": "nav-link-dermatologic-emergencies-er"
+            },
+            {
+              "label": {
+                "en": "Purpura & Vasculitis (Acute Systemic Signs) (F▂ M█)",
+                "es": "Púrpura y Vasculitis (Signos Sistémicos Agudos) (F▂ M█)"
+              },
+              "url": "/specialty/dermatology/purpura-vasculitis-acute",
+              "id": "nav-link-purpura-vasculitis-acute"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Hospitalization",
+            "es": "Hospitalización"
+          },
+          "id": "nav-cat-hospitalization",
+          "subItems": [
+            {
+              "label": {
+                "en": "Severe Infections (Cellulitis, Necrotizing Fasciitis) (F█ M█)",
+                "es": "Infecciones Graves (Celulitis, Fascitis Necrotizante) (F█ M█)"
+              },
+              "url": "/specialty/dermatology/severe-infections-inpatient",
+              "id": "nav-link-severe-infections-inpatient"
+            },
+            {
+              "label": {
+                "en": "Severe Cutaneous Adverse Drug Reactions (SJS/TEN, DRESS) (F▄ M█)",
+                "es": "Reacciones Adversas Cutáneas Graves a Fármacos (SJS/TEN, DRESS) (F▄ M█)"
+              },
+              "url": "/specialty/dermatology/scars-inpatient",
+              "id": "nav-link-scars-inpatient"
+            },
+            {
+              "label": {
+                "en": "Erythroderma (Exfoliative Dermatitis) (F▄ M▄)",
+                "es": "Eritrodermia (Dermatitis Exfoliativa) (F▄ M▄)"
+              },
+              "url": "/specialty/dermatology/erythroderma-inpatient",
+              "id": "nav-link-erythroderma-inpatient"
+            },
+            {
+              "label": {
+                "en": "Severe Autoimmune Blistering Diseases (Pemphigus) (F▂ M▄)",
+                "es": "Enfermedades Ampollosas Autoinmunes Graves (Pénfigo) (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/autoimmune-blistering-inpatient",
+              "id": "nav-link-autoimmune-blistering-inpatient"
+            },
+            {
+              "label": {
+                "en": "Systemic Vasculitis or Connective Tissue Disease (F▂ M▄)",
+                "es": "Vasculitis Sistémica o Enfermedad del Tejido Conectivo (F▂ M▄)"
+              },
+              "url": "/specialty/dermatology/systemic-vasculitis-inpatient",
+              "id": "nav-link-systemic-vasculitis-inpatient"
+            },
+            {
+              "label": {
+                "en": "Complications of Cutaneous Malignancy (F▂ M█)",
+                "es": "Complicaciones de Malignidad Cutánea (F▂ M█)"
+              },
+              "url": "/specialty/dermatology/cutaneous-malignancy-complications",
+              "id": "nav-link-cutaneous-malignancy-complications"
+            },
+            {
+              "label": {
+                "en": "Calciphylaxis (F▂ M█)",
+                "es": "Calcifilaxis (F▂ M█)"
+              },
+              "url": "/specialty/dermatology/calciphylaxis-inpatient",
+              "id": "nav-link-calciphylaxis-inpatient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-header",
+      "items": [
+        {
+          "label": {
+            "en": "Invite me a coffee",
+            "es": "Invítame un café"
+          },
+          "url": "#",
+          "id": "nav-link-invite-coffee"
+        }
+      ]
+    }
+  ]
+}

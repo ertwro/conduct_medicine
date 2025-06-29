@@ -1,0 +1,513 @@
+{
+  "ui_strings": {
+    "en": {
+      "charcotImageTitle": "Learn more about Rheumatology",
+      "charcotImageAlt": "Rheumatology",
+      "navUnavailableMsg": "Rheumatology navigation menu is currently unavailable.",
+      "navErrorMsg": "Error loading rheumatology navigation menu. See console for details.",
+      "legendTitle": "Symbol Legend:",
+      "legendFC": "Frequency of Consultation",
+      "legendMA": "Mortality Associated",
+      "legendHigh": "High",
+      "legendMedium": "Medium",
+      "legendLow": "Low",
+      "legendIndicators": "(Indicators like (F█ M▂) appear if data is available)"
+    },
+    "es": {
+      "charcotImageTitle": "Aprender más sobre Reumatología",
+      "charcotImageAlt": "Reumatología",
+      "navUnavailableMsg": "El menú de navegación de reumatología no está disponible actualmente.",
+      "navErrorMsg": "Error al cargar el menú de navegación de rheumatology. Consulte la consola para más detalles.",
+      "legendTitle": "Leyenda de Símbolos:",
+      "legendFC": "Frecuencia de Consulta",
+      "legendMA": "Mortalidad Asociada",
+      "legendHigh": "Alta",
+      "legendMedium": "Media",
+      "legendLow": "Baja",
+      "legendIndicators": "(Indicadores como (F█ M▂) aparecen si hay datos disponibles)"
+    }
+  },
+  "sections": [
+    {
+      "title": {
+        "en": "Rheumatology",
+        "es": "Reumatología"
+      },
+      "id": "nav-header-rheumatology",
+      "items": [
+        {
+          "label": {
+            "en": "Home",
+            "es": "Inicio"
+          },
+          "url": "/",
+          "id": "nav-link-home"
+        },
+        {
+          "label": {
+            "en": "Outpatient Setting",
+            "es": "Consulta Externa"
+          },
+          "id": "nav-cat-outpatient-setting",
+          "subItems": [
+            {
+              "label": {
+                "en": "Osteoarthritis (F█ M▂)",
+                "es": "Osteoarthritis (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/osteoarthritis",
+              "id": "nav-link-osteoarthritis"
+            },
+            {
+              "label": {
+                "en": "Low back pain and leg pain (F█ M▂)",
+                "es": "Low back pain and leg pain (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/low-back-pain-and-leg-pain",
+              "id": "nav-link-low-back-pain-and-leg-pain"
+            },
+            {
+              "label": {
+                "en": "Common clinical conditions in the elbow, wrist and Hand (F█ M▂)",
+                "es": "Common clinical conditions in the elbow, wrist and Hand (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/common-clinical-conditions-in-the-elbow-wrist-and-hand",
+              "id": "nav-link-common-clinical-conditions-in-the-elbow-wrist-and-hand"
+            },
+            {
+              "label": {
+                "en": "The knee and shoulder (F█ M▂)",
+                "es": "The knee and shoulder (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/the-knee-and-shoulder",
+              "id": "nav-link-the-knee-and-shoulder"
+            },
+            {
+              "label": {
+                "en": "Common foot and ankle disorders (F█ M▂)",
+                "es": "Common foot and ankle disorders (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/common-foot-and-ankle-disorders",
+              "id": "nav-link-common-foot-and-ankle-disorders"
+            },
+            {
+              "label": {
+                "en": "Osteoporosis (F█ M▂)",
+                "es": "Osteoporosis (F█ M▂)"
+              },
+              "url": "/specialty/rheumatology/osteoporosis",
+              "id": "nav-link-osteoporosis"
+            },
+            {
+              "label": {
+                "en": "Rheumatoid arthritis (F█ M▄)",
+                "es": "Rheumatoid arthritis (F█ M▄)"
+              },
+              "url": "/specialty/rheumatology/rheumatoid-arthritis",
+              "id": "nav-link-rheumatoid-arthritis"
+            },
+            {
+              "label": {
+                "en": "Pathogenesis (F█ M▄)",
+                "es": "Pathogenesis (F█ M▄)"
+              },
+              "url": "/specialty/rheumatology/pathogenesis",
+              "id": "nav-link-pathogenesis"
+            },
+            {
+              "label": {
+                "en": "Treatment (F█ M▄)",
+                "es": "Treatment (F█ M▄)"
+              },
+              "url": "/specialty/rheumatology/treatment",
+              "id": "nav-link-treatment"
+            },
+            {
+              "label": {
+                "en": "Imaging of arthritis (F▄ M▂)",
+                "es": "Imaging of arthritis (F▄ M▂)"
+              },
+              "url": "/specialty/rheumatology/imaging-of-arthritis",
+              "id": "nav-link-imaging-of-arthritis"
+            },
+            {
+              "label": {
+                "en": "Crystal-related pain management (F▄ M▂)",
+                "es": "Crystal-related pain management (F▄ M▂)"
+              },
+              "url": "/specialty/rheumatology/crystal-related-pain-management",
+              "id": "nav-link-crystal-related-pain-management"
+            },
+            {
+              "label": {
+                "en": "Interventional pain management (F▄ M▂)",
+                "es": "Interventional pain management (F▄ M▂)"
+              },
+              "url": "/specialty/rheumatology/interventional-pain-management",
+              "id": "nav-link-interventional-pain-management"
+            },
+            {
+              "label": {
+                "en": "Preventing infections (F▄ M▂)",
+                "es": "Preventing infections (F▄ M▂)"
+              },
+              "url": "/specialty/rheumatology/preventing-infections",
+              "id": "nav-link-preventing-infections"
+            },
+            {
+              "label": {
+                "en": "Psoriatic arthritis (F▄ M▄)",
+                "es": "Psoriatic arthritis (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/psoriatic-arthritis",
+              "id": "nav-link-psoriatic-arthritis"
+            },
+            {
+              "label": {
+                "en": "Axial Spondyloarthritis (F▄ M▄)",
+                "es": "Axial Spondyloarthritis (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/axial-spondyloarthritis",
+              "id": "nav-link-axial-spondyloarthritis"
+            },
+            {
+              "label": {
+                "en": "Sjogren disease (F▄ M▄)",
+                "es": "Sjogren disease (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/sjogren-disease",
+              "id": "nav-link-sjogren-disease"
+            },
+            {
+              "label": {
+                "en": "Lyme disease (F▄ M▄)",
+                "es": "Lyme disease (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/lyme-disease",
+              "id": "nav-link-lyme-disease"
+            },
+            {
+              "label": {
+                "en": "Systemic Lupus erythematosus (F▄ M█)",
+                "es": "Systemic Lupus erythematosus (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/systemic-lupus-erythematosus",
+              "id": "nav-link-systemic-lupus-erythematosus"
+            },
+            {
+              "label": {
+                "en": "Scleroderma (F▄ M█)",
+                "es": "Scleroderma (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/scleroderma",
+              "id": "nav-link-scleroderma"
+            },
+            {
+              "label": {
+                "en": "Basic science for the Rheumatologist (F▂ M▂)",
+                "es": "Basic science for the Rheumatologist (F▂ M▂)"
+              },
+              "url": "/specialty/rheumatology/basic-science-for-the-rheumatologist",
+              "id": "nav-link-basic-science-for-the-rheumatologist"
+            },
+            {
+              "label": {
+                "en": "Pediatric Rheumatology (F▂ M▂)",
+                "es": "Pediatric Rheumatology (F▂ M▂)"
+              },
+              "url": "/specialty/rheumatology/pediatric-rheumatology",
+              "id": "nav-link-pediatric-rheumatology"
+            },
+            {
+              "label": {
+                "en": "Brief encounters with unusual rheumatic diseases (F▂ M▂)",
+                "es": "Brief encounters with unusual rheumatic diseases (F▂ M▂)"
+              },
+              "url": "/specialty/rheumatology/brief-encounters-with-unusual-rheumatic-diseases",
+              "id": "nav-link-brief-encounters-with-unusual-rheumatic-diseases"
+            },
+            {
+              "label": {
+                "en": "Antiphospholipid Syndrome (F▂ M▄)",
+                "es": "Antiphospholipid Syndrome (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/antiphospholipid-syndrome",
+              "id": "nav-link-antiphospholipid-syndrome"
+            },
+            {
+              "label": {
+                "en": "Pregnancy in rheumatic disease (F▂ M▄)",
+                "es": "Pregnancy in rheumatic disease (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/pregnancy-in-rheumatic-disease",
+              "id": "nav-link-pregnancy-in-rheumatic-disease"
+            },
+            {
+              "label": {
+                "en": "Idiopathic inflammatory myopathies (F▂ M▄)",
+                "es": "Idiopathic inflammatory myopathies (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/idiopathic-inflammatory-myopathies",
+              "id": "nav-link-idiopathic-inflammatory-myopathies"
+            },
+            {
+              "label": {
+                "en": "Autoinflammatory diseases (F▂ M▄)",
+                "es": "Autoinflammatory diseases (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/autoinflammatory-diseases",
+              "id": "nav-link-autoinflammatory-diseases"
+            },
+            {
+              "label": {
+                "en": "Challenges in dermato-rheumatology (F▂ M▄)",
+                "es": "Challenges in dermato-rheumatology (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/challenges-in-dermato-rheumatology",
+              "id": "nav-link-challenges-in-dermato-rheumatology"
+            },
+            {
+              "label": {
+                "en": "Sarcoidosis (F▂ M▄)",
+                "es": "Sarcoidosis (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/sarcoidosis",
+              "id": "nav-link-sarcoidosis"
+            },
+            {
+              "label": {
+                "en": "Systemic rheumatic syndromes (F▂ M▄)",
+                "es": "Systemic rheumatic syndromes (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/systemic-rheumatic-syndromes",
+              "id": "nav-link-systemic-rheumatic-syndromes"
+            },
+            {
+              "label": {
+                "en": "Rheumatic syndromes with cancer immunotherapy (F▂ M▄)",
+                "es": "Rheumatic syndromes with cancer immunotherapy (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/rheumatic-syndromes-with-cancer-immunotherapy",
+              "id": "nav-link-rheumatic-syndromes-with-cancer-immunotherapy"
+            },
+            {
+              "label": {
+                "en": "Pulmonary involvement in rheumatic diseases (F▂ M▄)",
+                "es": "Pulmonary involvement in rheumatic diseases (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/pulmonary-involvement-in-rheumatic-diseases",
+              "id": "nav-link-pulmonary-involvement-in-rheumatic-diseases"
+            },
+            {
+              "label": {
+                "en": "Large vessel vasculitis (F▂ M█)",
+                "es": "Large vessel vasculitis (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/large-vessel-vasculitis",
+              "id": "nav-link-large-vessel-vasculitis"
+            },
+            {
+              "label": {
+                "en": "ANCA-associated vasculitis (F▂ M█)",
+                "es": "ANCA-associated vasculitis (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/anca-associated-vasculitis",
+              "id": "nav-link-anca-associated-vasculitis"
+            },
+            {
+              "label": {
+                "en": "Vasculitic syndromes (F▂ M█)",
+                "es": "Vasculitic syndromes (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/vasculitic-syndromes",
+              "id": "nav-link-vasculitic-syndromes"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Emergency Room",
+            "es": "Sala de Emergencias"
+          },
+          "id": "nav-cat-emergency-room",
+          "subItems": [
+            {
+              "label": {
+                "en": "Septic arthritis (F█ M█)",
+                "es": "Septic arthritis (F█ M█)"
+              },
+              "url": "/specialty/rheumatology/septic-arthritis",
+              "id": "nav-link-septic-arthritis"
+            },
+            {
+              "label": {
+                "en": "Acute lupus flare (F▄ M█)",
+                "es": "Acute lupus flare (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/acute-lupus-flare",
+              "id": "nav-link-acute-lupus-flare"
+            },
+            {
+              "label": {
+                "en": "Acute vasculitis (F▄ M█)",
+                "es": "Acute vasculitis (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/acute-vasculitis",
+              "id": "nav-link-acute-vasculitis"
+            },
+            {
+              "label": {
+                "en": "Acute joint swelling (F▄ M▄)",
+                "es": "Acute joint swelling (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/acute-joint-swelling",
+              "id": "nav-link-acute-joint-swelling"
+            },
+            {
+              "label": {
+                "en": "Acute crystal arthropathy (F▄ M▄)",
+                "es": "Acute crystal arthropathy (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/acute-crystal-arthropathy",
+              "id": "nav-link-acute-crystal-arthropathy"
+            },
+            {
+              "label": {
+                "en": "Severe systemic lupus complications (F▂ M█)",
+                "es": "Severe systemic lupus complications (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/severe-systemic-lupus-complications",
+              "id": "nav-link-severe-systemic-lupus-complications"
+            },
+            {
+              "label": {
+                "en": "Acute scleroderma crisis (F▂ M█)",
+                "es": "Acute scleroderma crisis (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/acute-scleroderma-crisis",
+              "id": "nav-link-acute-scleroderma-crisis"
+            },
+            {
+              "label": {
+                "en": "Acute inflammatory arthritis (F▂ M▄)",
+                "es": "Acute inflammatory arthritis (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/acute-inflammatory-arthritis",
+              "id": "nav-link-acute-inflammatory-arthritis"
+            },
+            {
+              "label": {
+                "en": "Drug-induced lupus (F▂ M▄)",
+                "es": "Drug-induced lupus (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/drug-induced-lupus",
+              "id": "nav-link-drug-induced-lupus"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Hospitalization",
+            "es": "Hospitalización"
+          },
+          "id": "nav-cat-hospitalization",
+          "subItems": [
+            {
+              "label": {
+                "en": "Severe lupus nephritis (F█ M█)",
+                "es": "Severe lupus nephritis (F█ M█)"
+              },
+              "url": "/specialty/rheumatology/severe-lupus-nephritis",
+              "id": "nav-link-severe-lupus-nephritis"
+            },
+            {
+              "label": {
+                "en": "Severe vasculitis complications (F█ M█)",
+                "es": "Severe vasculitis complications (F█ M█)"
+              },
+              "url": "/specialty/rheumatology/severe-vasculitis-complications",
+              "id": "nav-link-severe-vasculitis-complications"
+            },
+            {
+              "label": {
+                "en": "Complicated septic arthritis (F▄ M█)",
+                "es": "Complicated septic arthritis (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/complicated-septic-arthritis",
+              "id": "nav-link-complicated-septic-arthritis"
+            },
+            {
+              "label": {
+                "en": "Severe autoimmune complications (F▄ M█)",
+                "es": "Severe autoimmune complications (F▄ M█)"
+              },
+              "url": "/specialty/rheumatology/severe-autoimmune-complications",
+              "id": "nav-link-severe-autoimmune-complications"
+            },
+            {
+              "label": {
+                "en": "Complex rheumatoid arthritis management (F▄ M▄)",
+                "es": "Complex rheumatoid arthritis management (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/complex-rheumatoid-arthritis-management",
+              "id": "nav-link-complex-rheumatoid-arthritis-management"
+            },
+            {
+              "label": {
+                "en": "Severe scleroderma manifestations (F▄ M▄)",
+                "es": "Severe scleroderma manifestations (F▄ M▄)"
+              },
+              "url": "/specialty/rheumatology/severe-scleroderma-manifestations",
+              "id": "nav-link-severe-scleroderma-manifestations"
+            },
+            {
+              "label": {
+                "en": "Life-threatening vasculitis (F▂ M█)",
+                "es": "Life-threatening vasculitis (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/life-threatening-vasculitis",
+              "id": "nav-link-life-threatening-vasculitis"
+            },
+            {
+              "label": {
+                "en": "Severe myositis (F▂ M█)",
+                "es": "Severe myositis (F▂ M█)"
+              },
+              "url": "/specialty/rheumatology/severe-myositis",
+              "id": "nav-link-severe-myositis"
+            },
+            {
+              "label": {
+                "en": "Complex autoimmune disease management (F▂ M▄)",
+                "es": "Complex autoimmune disease management (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/complex-autoimmune-disease-management",
+              "id": "nav-link-complex-autoimmune-disease-management"
+            },
+            {
+              "label": {
+                "en": "Severe inflammatory arthritis (F▂ M▄)",
+                "es": "Severe inflammatory arthritis (F▂ M▄)"
+              },
+              "url": "/specialty/rheumatology/severe-inflammatory-arthritis",
+              "id": "nav-link-severe-inflammatory-arthritis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-header",
+      "items": [
+        {
+          "label": {
+            "en": "Invite me a coffee",
+            "es": "Invítame un café"
+          },
+          "url": "#",
+          "id": "nav-link-invite-coffee"
+        }
+      ]
+    }
+  ]
+}

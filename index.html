@@ -2,13 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <base href="./" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conduct Based Medicine</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Conduct Based Medicine - Advanced Medical Education Platform</title>
+    <meta
+      name="description"
+      content="Evidence-based medical education platform with clinical decision support for healthcare professionals. Features interactive tools, presentations, and comprehensive specialty content."
+    />
+    <meta
+      name="keywords"
+      content="medical education, clinical decision support, neurology, dermatology, healthcare, medical reference"
+    />
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- Reveal.js for presentations -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css"
@@ -23,7 +32,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css"
     />
 
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
     <div
@@ -51,26 +64,244 @@
           Welcome to Conduct Based Medicine
         </h2>
         <p class="mb-4">
-          This is the main landing page. The presentation above is loaded
-          dynamically.
+          Advanced medical education platform with evidence-based clinical
+          decision support for healthcare professionals. Features interactive
+          tools, presentations, and comprehensive specialty content organized by
+          clinical settings.
         </p>
         <p class="mb-4">
-          Navigate using the menu on the left or search for content.
+          Navigate using the menu on the left or explore our medical specialties
+          below.
         </p>
+
+        <!-- Medical Specialties Grid -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-4 text-sky-400">
+            Medical Specialties
+          </h3>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4"
+          >
+            <a
+              href="/specialty/neurology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🧠 Neurology</h4>
+              <p class="text-sm text-gray-300">
+                Neurological disorders and brain-related conditions
+              </p>
+            </a>
+            <a
+              href="/specialty/dermatology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🧴 Dermatology</h4>
+              <p class="text-sm text-gray-300">
+                Skin conditions and dermatologic diseases
+              </p>
+            </a>
+            <a
+              href="/specialty/cardiology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🫀 Cardiology</h4>
+              <p class="text-sm text-gray-300">
+                Cardiovascular diseases and heart conditions
+              </p>
+            </a>
+            <a
+              href="/specialty/internal_medicine"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">
+                🏥 Internal Medicine
+              </h4>
+              <p class="text-sm text-gray-300">
+                Comprehensive adult medical care
+              </p>
+            </a>
+            <a
+              href="/specialty/gastroenterology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">
+                🫀 Gastroenterology
+              </h4>
+              <p class="text-sm text-gray-300">
+                Digestive system and liver diseases
+              </p>
+            </a>
+            <a
+              href="/specialty/pulmonology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🫁 Pulmonology</h4>
+              <p class="text-sm text-gray-300">
+                Respiratory diseases and lung conditions
+              </p>
+            </a>
+            <a
+              href="/specialty/endocrinology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🧬 Endocrinology</h4>
+              <p class="text-sm text-gray-300">
+                Hormone disorders and metabolic conditions
+              </p>
+            </a>
+            <a
+              href="/specialty/nephrology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🫘 Nephrology</h4>
+              <p class="text-sm text-gray-300">
+                Kidney diseases and renal disorders
+              </p>
+            </a>
+            <a
+              href="/specialty/hematology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🩸 Hematology</h4>
+              <p class="text-sm text-gray-300">
+                Blood disorders and hematologic conditions
+              </p>
+            </a>
+            <a
+              href="/specialty/rheumatology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🦴 Rheumatology</h4>
+              <p class="text-sm text-gray-300">Autoimmune and joint diseases</p>
+            </a>
+            <a
+              href="/specialty/infectious_disease"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">
+                🦠 Infectious Disease
+              </h4>
+              <p class="text-sm text-gray-300">
+                Infectious diseases and antimicrobial therapy
+              </p>
+            </a>
+            <a
+              href="/specialty/psychiatry"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🧠 Psychiatry</h4>
+              <p class="text-sm text-gray-300">
+                Mental health and psychiatric disorders
+              </p>
+            </a>
+            <a
+              href="/specialty/allergy_immunology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">
+                🤧 Allergy & Immunology
+              </h4>
+              <p class="text-sm text-gray-300">
+                Allergic diseases and immune disorders
+              </p>
+            </a>
+            <a
+              href="/specialty/gynecology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">👩 Gynecology</h4>
+              <p class="text-sm text-gray-300">Women's reproductive health</p>
+            </a>
+            <a
+              href="/specialty/urology"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">🫘 Urology</h4>
+              <p class="text-sm text-gray-300">
+                Urologic conditions and male health
+              </p>
+            </a>
+            <a
+              href="/specialty/pediatrics"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">👶 Pediatrics</h4>
+              <p class="text-sm text-gray-300">
+                Children's health and pediatric medicine
+              </p>
+            </a>
+            <a
+              href="/specialty/physical_medicine"
+              class="specialty-card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <h4 class="font-semibold text-blue-400 mb-2">
+                🏃 Physical Medicine & Rehabilitation
+              </h4>
+              <p class="text-sm text-gray-300">
+                Rehabilitation and functional medicine
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Clinical Organization -->
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 class="text-xl font-semibold mb-3 text-sky-400">
-            Featured Content
+            Evidence-Based Clinical Organization
           </h3>
-          <p>
-            Explore our documentation and examples to learn more about creating
-            stunning presentations.
-          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-semibold text-green-400 mb-2">
+                🏥 Outpatient Setting
+              </h4>
+              <p class="text-sm text-gray-300">
+                Routine care, screening, preventive medicine, and chronic
+                condition management
+              </p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-400 mb-2">
+                🚨 Emergency Room
+              </h4>
+              <p class="text-sm text-gray-300">
+                Acute presentations, urgent conditions, and emergency medical
+                care
+              </p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-semibold text-red-400 mb-2">
+                🏨 Hospitalization
+              </h4>
+              <p class="text-sm text-gray-300">
+                Complex cases, inpatient management, and specialized medical
+                care
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-gray-700 rounded-lg">
+            <h4 class="font-semibold text-sky-400 mb-2">
+              📊 Frequency & Mortality Indicators
+            </h4>
+            <p class="text-sm text-gray-300 mb-2">
+              Each condition includes evidence-based indicators:
+            </p>
+            <div class="flex flex-wrap gap-4 text-xs">
+              <span class="text-gray-400"
+                ><strong>█/▄/▂</strong> Consultation Frequency
+                (High/Medium/Low)</span
+              >
+              <span class="text-gray-400"
+                ><strong>█/▄/▂</strong> Mortality Risk (High/Medium/Low)</span
+              >
+            </div>
+          </div>
         </div>
       </div>
     </main>
 
     <div id="page-overlay-placeholder"></div>
 
+    <!-- Reveal.js Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/markdown/markdown.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
@@ -78,10 +309,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/math/math.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/zoom/zoom.js"></script>
 
-    <script src="assets/js/search-data.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/navigation-index.js"></script>
+    <!-- Presentation Loader (needed for reveal.js presentations) -->
     <script src="assets/js/reveal-loader.js"></script>
+
+    <!-- SPA Application -->
+    <script type="module" src="src/main.js"></script>
+
     <div id="footer-placeholder"></div>
   </body>
 </html>

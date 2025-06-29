@@ -1,0 +1,97 @@
+{
+  "classificationRules": {
+    "autoTranslate": {
+      "description": "Content that can be safely auto-translated with medical terminology validation",
+      "includes": [
+        "general condition descriptions",
+        "symptom lists (non-dosage)",
+        "anatomical references",
+        "basic medical terminology",
+        "navigation elements",
+        "educational content headers"
+      ],
+      "patterns": [
+        "## Clinical Presentation",
+        "## Epidemiology",
+        "## Pathophysiology",
+        "## Diagnosis",
+        "### History",
+        "### Physical Examination"
+      ]
+    },
+    "humanReview": {
+      "description": "Content requiring medical professional review before publication",
+      "includes": [
+        "treatment protocols",
+        "medication dosages",
+        "contraindications",
+        "drug interactions",
+        "clinical decision algorithms",
+        "differential diagnosis",
+        "follow-up recommendations"
+      ],
+      "patterns": [
+        "## Treatment",
+        "## Management",
+        "### Medication",
+        "### Dosage",
+        "### Contraindications",
+        "treatmentProtocols",
+        "firstLine",
+        "secondLine"
+      ]
+    },
+    "manualOnly": {
+      "description": "Content that must be manually translated by medical professionals",
+      "includes": [
+        "safety warnings",
+        "red flags",
+        "emergency protocols",
+        "legal disclaimers",
+        "patient safety information",
+        "critical care instructions"
+      ],
+      "patterns": [
+        "## Red Flags",
+        "## Emergency",
+        "## Warning",
+        "## Safety",
+        "redFlags",
+        "emergency protocols",
+        "critical"
+      ]
+    }
+  },
+  "jsonFieldClassification": {
+    "autoTranslate": [
+      "title",
+      "description",
+      "keywords",
+      "associatedConditions"
+    ],
+    "humanReview": [
+      "treatmentProtocols",
+      "diagnosticCriteria",
+      "followUpSchedule",
+      "interactiveTools"
+    ],
+    "manualOnly": [
+      "redFlags",
+      "contraindications",
+      "qualityMetrics"
+    ],
+    "preserve": [
+      "author",
+      "lastUpdated",
+      "reviewDate",
+      "status",
+      "specialty",
+      "contentId",
+      "setting",
+      "frequency",
+      "mortality",
+      "presentationPath",
+      "additionalResources"
+    ]
+  }
+}

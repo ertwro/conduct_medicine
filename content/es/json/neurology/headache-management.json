@@ -1,0 +1,118 @@
+{
+  "title": "Primary cefalea Management",
+  "specialty": "neurology",
+  "contentId": "headache-management",
+  "setting": "outpatient",
+  "frequency": "high",
+  "mortality": "low",
+  "keywords": [
+    "cefalea",
+    "migraña",
+    "tension cefalea",
+    "primary cefalea",
+    "neurología",
+    "pain management"
+  ],
+  "description": "Comprehensive guide to primary cefalea diagnóstico and management including migraña, tension-type, and cluster headaches.",
+  "author": "JP Silva",
+  "lastUpdated": "2024-12-27",
+  "reviewDate": "2025-06-27",
+  "status": "published",
+  "clinicalSettings": [
+    "outpatient",
+    "emergency"
+  ],
+  "associatedConditions": [
+    "medicación overuse cefalea",
+    "crónico migraña",
+    "cluster cefalea"
+  ],
+  "diagnosticCriteria": {
+    "source": "International Headache Society (IHS)",
+    "version": "ICHD-3",
+    "lastUpdate": "2018"
+  },
+  "treatmentProtocols": {
+    "acute": {
+      "firstLine": [
+        "NSAIDs",
+        "acetaminophen",
+        "triptans"
+      ],
+      "secondLine": [
+        "DHE",
+        "antiemetics",
+        "gepants"
+      ],
+      "contraindications": [
+        "cardiovascular disease for triptans"
+      ]
+    },
+    "preventive": {
+      "firstLine": [
+        "topiramate",
+        "propranolol",
+        "amitriptyline"
+      ],
+      "secondLine": [
+        "CGRP antagonists",
+        "botulinum toxin"
+      ],
+      "lifestyle": [
+        "sleep hygiene",
+        "stress management",
+        "exercise"
+      ]
+    }
+  },
+  "redFlags": [
+    "thunderclap headache",
+    "fever with neck stiffness",
+    "progressive neurological deficits",
+    "new headache >50 years",
+    "headache with Valsalva"
+  ],
+  "followUpSchedule": {
+    "acute": "2-4 weeks",
+    "preventive": "4-6 weeks",
+    "stable": "3-6 months"
+  },
+  "qualityMetrics": {
+    "evidenceLevel": "A",
+    "guidelineCompliance": "AHS/IHS",
+    "lastReview": "2024-12-27"
+  },
+  "relatedContent": [
+    "migraine-specific-treatment",
+    "medication-overuse-headache",
+    "secondary-headache-evaluation"
+  ],
+  "interactiveTools": [
+    "headache-diary",
+    "midas-calculator",
+    "medication-tracker"
+  ],
+  "presentationPath": "presentations/neurology/headache-management.html",
+  "additionalResources": {
+    "guidelines": [
+      "https://ichd-3.org/",
+      "https://americanheadachesociety.org/"
+    ],
+    "patientEducation": [
+      "headache-diary-template",
+      "trigger-identification-guide"
+    ]
+  },
+  "treatmentProtocols_reviewRequired": true,
+  "treatmentProtocols_originalLanguage": "en",
+  "diagnosticCriteria_reviewRequired": true,
+  "diagnosticCriteria_originalLanguage": "en",
+  "followUpSchedule_reviewRequired": true,
+  "followUpSchedule_originalLanguage": "en",
+  "interactiveTools_reviewRequired": true,
+  "interactiveTools_originalLanguage": "en",
+  "redFlags_manualTranslationRequired": true,
+  "redFlags_originalLanguage": "en",
+  "qualityMetrics_manualTranslationRequired": true,
+  "qualityMetrics_originalLanguage": "en"
+}

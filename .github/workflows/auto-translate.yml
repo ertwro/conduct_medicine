@@ -1,0 +1,227 @@
+name: 'Auto-translate Medical Content'
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/en/**/*.md'
+      - 'content/en/**/*.json'
+  workflow_dispatch:
+    inputs:
+      specialty:
+        description: 'Medical specialty to translate'
+        required: true
+        type: choice
+        options:
+          - neurology
+          - dermatology
+      content_id:
+        description: 'Content ID to translate'
+        required: true
+        type: string
+
+jobs:
+  auto-translate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Detect changed content files
+        if: github.event_name == 'push'
+        id: changed-files
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            content/en/**/*.md
+            content/en/**/*.json
+          files_yaml: |
+            content:
+              - content/en/**/*.md
+              - content/en/**/*.json
+              
+      - name: Extract content info from changed files
+        if: github.event_name == 'push' && steps.changed-files.outputs.content_any_changed == 'true'
+        id: extract-content
+        run: |
+          echo "Processing changed files: ${{ steps.changed-files.outputs.content_all_changed_files }}"
+          
+          # Extract specialty and content ID from file paths
+          CONTENT_TO_TRANSLATE=""
+          for file in ${{ steps.changed-files.outputs.content_all_changed_files }}; do
+            # Extract specialty and content ID from path like content/en/markdown/neurology/headache-management.md
+            if [[ $file =~ content/en/(markdown|json)/([^/]+)/([^/]+)\.(md|json) ]]; then
+              specialty="${BASH_REMATCH[2]}"
+              content_id="${BASH_REMATCH[3]}"
+              echo "Found: $specialty/$content_id"
+              CONTENT_TO_TRANSLATE="$CONTENT_TO_TRANSLATE $specialty/$content_id"
+            fi
+          done
+          
+          # Remove duplicates and set output
+          UNIQUE_CONTENT=$(echo $CONTENT_TO_TRANSLATE | tr ' ' '\n' | sort -u | tr '\n' ' ')
+          echo "content_list=$UNIQUE_CONTENT" >> $GITHUB_OUTPUT
+          
+      - name: Auto-translate content (from push)
+        if: github.event_name == 'push' && steps.extract-content.outputs.content_list != ''
+        run: |
+          cd content/translation
+          for item in ${{ steps.extract-content.outputs.content_list }}; do
+            specialty=$(echo $item | cut -d'/' -f1)
+            content_id=$(echo $item | cut -d'/' -f2)
+            echo "🤖 Auto-translating $specialty/$content_id"
+            node translate-content.js "$specialty" "$content_id"
+          done
+          
+      - name: Auto-translate content (manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          cd content/translation
+          echo "🤖 Manual translation: ${{ github.event.inputs.specialty }}/${{ github.event.inputs.content_id }}"
+          node translate-content.js "${{ github.event.inputs.specialty }}" "${{ github.event.inputs.content_id }}"
+          
+      - name: Check for translation changes
+        id: translation-changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No translation changes to commit"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Translation changes detected"
+          fi
+          
+      - name: Create Pull Request for Review
+        if: steps.translation-changes.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            🤖 Auto-translate medical content to Spanish
+            
+            - Generated Spanish translations using medical terminology database
+            - Marked sections requiring human medical review
+            - Updated translation status tracking
+            
+            ⚠️ Medical Review Required:
+            All auto-translated content must be reviewed by medical professionals
+            before publication to ensure clinical accuracy and patient safety.
+          title: '🤖 Auto-translation: Spanish Medical Content'
+          body: |
+            ## 🤖 Automated Medical Content Translation
+            
+            This PR contains automatically generated Spanish translations of English medical content.
+            
+            ### ⚠️ Medical Review Required
+            
+            **All content in this PR requires review by qualified medical professionals before merging.**
+            
+            ### What was translated:
+            - Medical terminology using validated translation database
+            - General medical descriptions and symptom lists
+            - Anatomical references and basic clinical information
+            
+            ### What requires human review:
+            - ❗ Treatment protocols and medication dosages
+            - ❗ Contraindications and drug interactions  
+            - ❗ Red flags and emergency protocols
+            - ❗ Clinical decision algorithms
+            - ❗ Patient safety warnings
+            
+            ### Review Checklist:
+            - [ ] Medical terminology accuracy verified
+            - [ ] Treatment protocols reviewed by medical professional
+            - [ ] Dosages and contraindications validated
+            - [ ] Cultural/regional medical practice considerations addressed
+            - [ ] Patient safety information verified
+            - [ ] Legal disclaimers reviewed
+            
+            ### Translation Quality:
+            - ✅ Auto-translated using medical terminology database
+            - ✅ Content classification applied (auto-safe vs. human-review)
+            - ✅ Translation status tracking updated
+            - ⏳ Awaiting medical professional review
+            
+            ---
+            *This translation was generated automatically. Please ensure medical accuracy before approving.*
+          branch: auto-translation/spanish-content
+          delete-branch: true
+          draft: true
+          
+      - name: Add review labels and assignees
+        if: steps.translation-changes.outputs.changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Get the PR number from the previous step
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:auto-translation/spanish-content`,
+              state: 'open'
+            });
+            
+            if (prs.length > 0) {
+              const prNumber = prs[0].number;
+              
+              // Add medical review labels
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: ['medical-review-required', 'auto-translation', 'spanish-content', 'draft']
+              });
+              
+              // Add comment with review instructions
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: `## 🏥 Medical Review Instructions
+                
+**This PR contains auto-translated medical content that requires professional medical review.**
+
+### Review Priority Areas:
+1. **High Priority** - Treatment protocols, dosages, contraindications
+2. **Medium Priority** - Diagnostic criteria, clinical assessments  
+3. **Low Priority** - General descriptions, anatomical terms
+
+### Files to Review:
+Look for sections marked with \`<!-- HUMAN REVIEW REQUIRED -->\` comments.
+
+### Approval Process:
+1. Review medical accuracy of all translated content
+2. Verify treatment protocols and dosages
+3. Check cultural/regional medical practice alignment  
+4. Update translation status after review
+5. Remove draft status when ready for merge
+
+cc: @medical-reviewers <!-- Replace with actual medical reviewer team -->`
+              });
+            }
+            
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Translation Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Event: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Changes detected: ${{ steps.translation-changes.outputs.changes }}" >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ steps.translation-changes.outputs.changes }}" == "true" ]]; then
+            echo "- ✅ Translation PR created for medical review" >> $GITHUB_STEP_SUMMARY
+            echo "- ⚠️ Medical professional review required before merge" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ℹ️ No translation changes required" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,0 +1,454 @@
+{
+  "ui_strings": {
+    "en": {
+      "charcotImageTitle": "Learn more about William Harvey",
+      "charcotImageAlt": "Cardiology",
+      "navUnavailableMsg": "Cardiology navigation menu is currently unavailable.",
+      "navErrorMsg": "Error loading cardiology navigation menu. See console for details.",
+      "legendTitle": "Symbol Legend:",
+      "legendFC": "Frequency of Consultation",
+      "legendMA": "Mortality Associated",
+      "legendHigh": "High",
+      "legendMedium": "Medium",
+      "legendLow": "Low",
+      "legendIndicators": "(Indicators like (F█ M▂) appear if data is available)"
+    },
+    "es": {
+      "charcotImageTitle": "Aprender más sobre William Harvey",
+      "charcotImageAlt": "Cardiología",
+      "navUnavailableMsg": "El menú de navegación de cardiología no está disponible actualmente.",
+      "navErrorMsg": "Error al cargar el menú de navegación de cardiology. Consulte la consola para más detalles.",
+      "legendTitle": "Leyenda de Símbolos:",
+      "legendFC": "Frecuencia de Consulta",
+      "legendMA": "Mortalidad Asociada",
+      "legendHigh": "Alta",
+      "legendMedium": "Media",
+      "legendLow": "Baja",
+      "legendIndicators": "(Indicadores como (F█ M▂) aparecen si hay datos disponibles)"
+    }
+  },
+  "sections": [
+    {
+      "title": {
+        "en": "Cardiology",
+        "es": "Cardiología"
+      },
+      "id": "nav-header-cardiology",
+      "historicalFigure": {
+        "name": "William Harvey",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/William_Harvey_2.jpg",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/William_Harvey"
+      },
+      "items": [
+        {
+          "label": {
+            "en": "Home",
+            "es": "Inicio"
+          },
+          "url": "/",
+          "id": "nav-link-home"
+        },
+        {
+          "label": {
+            "en": "Outpatient Setting",
+            "es": "Consulta Externa"
+          },
+          "id": "nav-cat-outpatient-setting",
+          "subItems": [
+            {
+              "label": {
+                "en": "Hypertension (F█ M▂)",
+                "es": "hipertensión (F█ M▂)"
+              },
+              "url": "/specialty/cardiology/hypertension",
+              "id": "nav-link-hypertension"
+            },
+            {
+              "label": {
+                "en": "Life style recommendations and prevention (F█ M▂)",
+                "es": "recomendaciones de estilo de vida and prevención (F█ M▂)"
+              },
+              "url": "/specialty/cardiology/life-style-recommendations-and-prevention",
+              "id": "nav-link-life-style-recommendations-and-prevention"
+            },
+            {
+              "label": {
+                "en": "Lipids (F█ M▂)",
+                "es": "lípidos (F█ M▂)"
+              },
+              "url": "/specialty/cardiology/lipids",
+              "id": "nav-link-lipids"
+            },
+            {
+              "label": {
+                "en": "Management of ischemic heart disease (F█ M▂)",
+                "es": "manejo of enfermedad isquémica del corazón (F█ M▂)"
+              },
+              "url": "/specialty/cardiology/management-of-ischemic-heart-disease",
+              "id": "nav-link-management-of-ischemic-heart-disease"
+            },
+            {
+              "label": {
+                "en": "Treatment of HFrEF (F█ M▄)",
+                "es": "tratamiento of HFrEF (F█ M▄)"
+              },
+              "url": "/specialty/cardiology/treatment-of-hfref",
+              "id": "nav-link-treatment-of-hfref"
+            },
+            {
+              "label": {
+                "en": "Treatment of HFpEF (F█ M▄)",
+                "es": "tratamiento of HFpEF (F█ M▄)"
+              },
+              "url": "/specialty/cardiology/treatment-of-hfpef",
+              "id": "nav-link-treatment-of-hfpef"
+            },
+            {
+              "label": {
+                "en": "Atrial fibrillation and atrial flutter (F█ M▄)",
+                "es": "fibrilación auricular and aleteo auricular (F█ M▄)"
+              },
+              "url": "/specialty/cardiology/atrial-fibrillation-and-atrial-flutter",
+              "id": "nav-link-atrial-fibrillation-and-atrial-flutter"
+            },
+            {
+              "label": {
+                "en": "Syncope (F▄ M▂)",
+                "es": "síncope (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/syncope",
+              "id": "nav-link-syncope"
+            },
+            {
+              "label": {
+                "en": "Diabetes (F▄ M▂)",
+                "es": "diabetes (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/diabetes",
+              "id": "nav-link-diabetes"
+            },
+            {
+              "label": {
+                "en": "Medical management of obesity (F▄ M▂)",
+                "es": "manejo médico of obesidad (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/medical-management-of-obesity",
+              "id": "nav-link-medical-management-of-obesity"
+            },
+            {
+              "label": {
+                "en": "Echocardiography (F▄ M▂)",
+                "es": "ecocardiografía (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/echocardiography",
+              "id": "nav-link-echocardiography"
+            },
+            {
+              "label": {
+                "en": "Nuclear cardiology and PET imaging (F▄ M▂)",
+                "es": "cardiología nuclear and imágenes PET (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/nuclear-cardiology-and-pet-imaging",
+              "id": "nav-link-nuclear-cardiology-and-pet-imaging"
+            },
+            {
+              "label": {
+                "en": "Perioperative risk stratification (F▄ M▂)",
+                "es": "perioperatorio estratificación de riesgo (F▄ M▂)"
+              },
+              "url": "/specialty/cardiology/perioperative-risk-stratification",
+              "id": "nav-link-perioperative-risk-stratification"
+            },
+            {
+              "label": {
+                "en": "Hypertrophic cardiomyopathy (F▄ M▄)",
+                "es": "miocardiopatía hipertrófica (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/hypertrophic-cardiomyopathy",
+              "id": "nav-link-hypertrophic-cardiomyopathy"
+            },
+            {
+              "label": {
+                "en": "Adult congenital Heart disease (F▄ M▄)",
+                "es": "cardiopatía congénita del adulto (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/adult-congenital-heart-disease",
+              "id": "nav-link-adult-congenital-heart-disease"
+            },
+            {
+              "label": {
+                "en": "Pregnancy and cardiovascular disease (F▄ M▄)",
+                "es": "embarazo and enfermedad cardiovascular (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/pregnancy-and-cardiovascular-disease",
+              "id": "nav-link-pregnancy-and-cardiovascular-disease"
+            },
+            {
+              "label": {
+                "en": "Common supraventricular tachycardias (F▄ M▄)",
+                "es": "comunes taquicardias supraventriculares (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/common-supraventricular-tachycardias",
+              "id": "nav-link-common-supraventricular-tachycardias"
+            },
+            {
+              "label": {
+                "en": "Bradycardia and AV block (F▄ M▄)",
+                "es": "bradicardia and bloqueo AV (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/bradycardia-and-av-block",
+              "id": "nav-link-bradycardia-and-av-block"
+            },
+            {
+              "label": {
+                "en": "Cardiac CT imaging (F▂ M▂)",
+                "es": "imágenes de TC cardíaca (F▂ M▂)"
+              },
+              "url": "/specialty/cardiology/cardiac-ct-imaging",
+              "id": "nav-link-cardiac-ct-imaging"
+            },
+            {
+              "label": {
+                "en": "Cardiac magnetic resonance (F▂ M▂)",
+                "es": "Resonancia magnética cardíaca (F▂ M▂)"
+              },
+              "url": "/specialty/cardiology/cardiac-magnetic-resonance",
+              "id": "nav-link-cardiac-magnetic-resonance"
+            },
+            {
+              "label": {
+                "en": "Other cardiomyopathies (F▂ M▄)",
+                "es": "Otras miocardiopatías (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/other-cardiomyopathies",
+              "id": "nav-link-other-cardiomyopathies"
+            },
+            {
+              "label": {
+                "en": "Cardiac amyloidosis (F▂ M▄)",
+                "es": "Amiloidosis cardíaca (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/cardiac-amyloidosis",
+              "id": "nav-link-cardiac-amyloidosis"
+            },
+            {
+              "label": {
+                "en": "Cardiac sarcoidosis (F▂ M▄)",
+                "es": "Sarcoidosis cardíaca (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/cardiac-sarcoidosis",
+              "id": "nav-link-cardiac-sarcoidosis"
+            },
+            {
+              "label": {
+                "en": "Cardio-oncology (F▂ M▄)",
+                "es": "Cardio-oncología (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/cardio-oncology",
+              "id": "nav-link-cardio-oncology"
+            },
+            {
+              "label": {
+                "en": "Pace makers (including CRT) (F▂ M▄)",
+                "es": "Marcapasos (incluye crt) (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/pace-makers-including-crt",
+              "id": "nav-link-pace-makers-including-crt"
+            },
+            {
+              "label": {
+                "en": "ICD therapy (F▂ M▄)",
+                "es": "Terapia de cdi (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/icd-therapy",
+              "id": "nav-link-icd-therapy"
+            },
+            {
+              "label": {
+                "en": "Assessment and Treatment of pulmonary hypertension (F▂ M█)",
+                "es": "Assessment and tratamiento of pulmonary hipertensión (F▂ M█)"
+              },
+              "url": "/specialty/cardiology/assessment-and-treatment-of-pulmonary-hypertension",
+              "id": "nav-link-assessment-and-treatment-of-pulmonary-hypertension"
+            },
+            {
+              "label": {
+                "en": "Heart transplantation (F▂ M█)",
+                "es": "trasplante de corazón (F▂ M█)"
+              },
+              "url": "/specialty/cardiology/heart-transplantation",
+              "id": "nav-link-heart-transplantation"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Emergency Room",
+            "es": "Sala de Emergencias"
+          },
+          "id": "nav-cat-emergency-room",
+          "subItems": [
+            {
+              "label": {
+                "en": "Management of ST elevation MI patients (F█ M█)",
+                "es": "manejo of ST elevation MI patients (F█ M█)"
+              },
+              "url": "/specialty/cardiology/management-of-st-elevation-mi-patients",
+              "id": "nav-link-management-of-st-elevation-mi-patients"
+            },
+            {
+              "label": {
+                "en": "Non-ST Elevation acute syndromes (F█ M█)",
+                "es": "Sin elevación del st síndromes agudos (F█ M█)"
+              },
+              "url": "/specialty/cardiology/non-st-elevation-acute-syndromes",
+              "id": "nav-link-non-st-elevation-acute-syndromes"
+            },
+            {
+              "label": {
+                "en": "Acute aortic syndromes (F▄ M█)",
+                "es": "Síndromes aórticos agudos (F▄ M█)"
+              },
+              "url": "/specialty/cardiology/acute-aortic-syndromes",
+              "id": "nav-link-acute-aortic-syndromes"
+            },
+            {
+              "label": {
+                "en": "Pulmonary embolism (F▄ M█)",
+                "es": "embolia pulmonar (F▄ M█)"
+              },
+              "url": "/specialty/cardiology/pulmonary-embolism",
+              "id": "nav-link-pulmonary-embolism"
+            },
+            {
+              "label": {
+                "en": "Ventricular tachycardia (F▄ M▄)",
+                "es": "taquicardia ventricular (F▄ M▄)"
+              },
+              "url": "/specialty/cardiology/ventricular-tachycardia",
+              "id": "nav-link-ventricular-tachycardia"
+            },
+            {
+              "label": {
+                "en": "Deep venous thrombosis (F▂ M▄)",
+                "es": "Trombosis venosa profunda (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/deep-venous-thrombosis",
+              "id": "nav-link-deep-venous-thrombosis"
+            },
+            {
+              "label": {
+                "en": "Pericardial disease (F▂ M▄)",
+                "es": "enfermedad pericárdica (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/pericardial-disease",
+              "id": "nav-link-pericardial-disease"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Hospitalization",
+            "es": "Hospitalización"
+          },
+          "id": "nav-cat-hospitalization",
+          "subItems": [
+            {
+              "label": {
+                "en": "Critical care cardiology (F█ M█)",
+                "es": "Cardiología de cuidados críticos (F█ M█)"
+              },
+              "url": "/specialty/cardiology/critical-care-cardiology",
+              "id": "nav-link-critical-care-cardiology"
+            },
+            {
+              "label": {
+                "en": "Mechanical circulatory support (F█ M█)",
+                "es": "soporte circulatorio mecánico (F█ M█)"
+              },
+              "url": "/specialty/cardiology/mechanical-circulatory-support",
+              "id": "nav-link-mechanical-circulatory-support"
+            },
+            {
+              "label": {
+                "en": "Infective endocarditis (F▄ M█)",
+                "es": "Endocarditis infecciosa (F▄ M█)"
+              },
+              "url": "/specialty/cardiology/infective-endocarditis",
+              "id": "nav-link-infective-endocarditis"
+            },
+            {
+              "label": {
+                "en": "Aortic aneurysms and Aortitis (F▂ M█)",
+                "es": "Aneurismas aórticos y aortitis (F▂ M█)"
+              },
+              "url": "/specialty/cardiology/aortic-aneurysms-and-aortitis",
+              "id": "nav-link-aortic-aneurysms-and-aortitis"
+            },
+            {
+              "label": {
+                "en": "Management of aortic valve disease (F▂ M▄)",
+                "es": "manejo of aortic valve disease (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/management-of-aortic-valve-disease",
+              "id": "nav-link-management-of-aortic-valve-disease"
+            },
+            {
+              "label": {
+                "en": "Management of tricuspid and pulmonic valve disease for the boards (F▂ M▄)",
+                "es": "manejo of tricuspid and pulmonic valve disease for the boards (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/management-of-tricuspid-and-pulmonic-valve-disease-for-the-boards",
+              "id": "nav-link-management-of-tricuspid-and-pulmonic-valve-disease-for-the-boards"
+            },
+            {
+              "label": {
+                "en": "Management considerations for prosthetic heart valves (F▂ M▄)",
+                "es": "manejo considerations for prosthetic heart valves (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/management-considerations-for-prosthetic-heart-valves",
+              "id": "nav-link-management-considerations-for-prosthetic-heart-valves"
+            },
+            {
+              "label": {
+                "en": "Peripheral heart disease (F▂ M▄)",
+                "es": "Enfermedad cardíaca periférica (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/peripheral-heart-disease",
+              "id": "nav-link-peripheral-heart-disease"
+            },
+            {
+              "label": {
+                "en": "Carotid artery disease (F▂ M▄)",
+                "es": "Enfermedad de la arteria carótida (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/carotid-artery-disease",
+              "id": "nav-link-carotid-artery-disease"
+            },
+            {
+              "label": {
+                "en": "Renovascular and mesenteric heart disease (F▂ M▄)",
+                "es": "Renovascular y enfermedad cardíaca mesentérica (F▂ M▄)"
+              },
+              "url": "/specialty/cardiology/renovascular-and-mesenteric-heart-disease",
+              "id": "nav-link-renovascular-and-mesenteric-heart-disease"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-header",
+      "items": [
+        {
+          "label": {
+            "en": "Invite me a coffee",
+            "es": "Invítame un café"
+          },
+          "url": "#",
+          "id": "nav-link-invite-coffee"
+        }
+      ]
+    }
+  ]
+}
