@@ -166,6 +166,13 @@ export class ContentManager {
       
       const text = await response.text();
       console.log(`✅ Successfully loaded markdown content (${text.length} characters)`);
+      
+      // Check if we received HTML instead of markdown (happens in preview when file doesn't exist)
+      if (text.includes('<!DOCTYPE html>') || text.includes('<html') || text.includes('<script')) {
+        console.warn(`⚠️ Received HTML instead of markdown for ${markdownPath}, content doesn't exist`);
+        throw new Error(`Content file not found: ${markdownPath}`);
+      }
+      
       return text;
       
     } catch (error) {

@@ -102,35 +102,62 @@ class ConductMedicineApp {
   }
 
   async loadPersistentComponents() {
-    console.log('Loading persistent components...');
+    console.log('🔧 Loading persistent components...');
+    console.log(`🔧 Base path detected: "${this.basePath}"`);
     
     try {
       // Load header with search and language switcher
       console.log('🔍 Loading header...');
-      const headerHTML = await this.componentLoader.loadPartial(`${this.basePath}/_header.html`);
+      const headerPath = `${this.basePath}/_header.html`;
+      console.log(`🔍 Header path: ${headerPath}`);
+      
+      const headerHTML = await this.componentLoader.loadPartial(headerPath);
       const headerPlaceholder = document.getElementById('header-placeholder');
-      console.log('Header HTML length:', headerHTML?.length, 'Placeholder found:', !!headerPlaceholder);
+      console.log('📄 Header HTML length:', headerHTML?.length, 'Placeholder found:', !!headerPlaceholder);
+      
       if (headerPlaceholder && headerHTML) {
         headerPlaceholder.outerHTML = headerHTML;
-        console.log('✅ Header loaded');
+        console.log('✅ Header loaded successfully');
       } else {
-        console.error('❌ Header loading failed - placeholder or HTML missing');
+        console.error('❌ Header loading failed:', {
+          placeholder: !!headerPlaceholder,
+          html: !!headerHTML,
+          htmlLength: headerHTML?.length
+        });
+        // Create fallback header
+        if (headerPlaceholder) {
+          headerPlaceholder.outerHTML = this.createFallbackHeader();
+          console.log('🔄 Fallback header created');
+        }
       }
 
       // Load navigation shell (will be populated by specialty-specific content)
       console.log('🔍 Loading navigation shell...');
-      const navHTML = await this.componentLoader.loadPartial(`${this.basePath}/_navigation_shell.html`);
+      const navPath = `${this.basePath}/_navigation_shell.html`;
+      console.log(`🔍 Navigation path: ${navPath}`);
+      
+      const navHTML = await this.componentLoader.loadPartial(navPath);
       const navPlaceholder = document.getElementById('navigation-shell-placeholder');
-      console.log('Nav HTML length:', navHTML?.length, 'Placeholder found:', !!navPlaceholder);
+      console.log('📄 Nav HTML length:', navHTML?.length, 'Placeholder found:', !!navPlaceholder);
+      
       if (navPlaceholder && navHTML) {
         navPlaceholder.outerHTML = navHTML;
-        console.log('✅ Navigation shell loaded');
+        console.log('✅ Navigation shell loaded successfully');
         
         // Verify navigation panel is now available
         const navPanel = document.querySelector('.site-navigation-panel');
-        console.log('Navigation panel after loading:', !!navPanel);
+        console.log('📄 Navigation panel after loading:', !!navPanel);
       } else {
-        console.error('❌ Navigation shell loading failed - placeholder or HTML missing');
+        console.error('❌ Navigation shell loading failed:', {
+          placeholder: !!navPlaceholder,
+          html: !!navHTML,
+          htmlLength: navHTML?.length
+        });
+        // Create fallback navigation
+        if (navPlaceholder) {
+          navPlaceholder.outerHTML = this.createFallbackNavigation();
+          console.log('🔄 Fallback navigation created');
+        }
       }
 
       // Load footer
@@ -780,6 +807,39 @@ class ConductMedicineApp {
     return label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   }
 
+  createFallbackHeader() {
+    return `
+      <header class="site-header">
+        <section class="search-social-nav-section">
+          <button id="mobile-nav-toggle" class="mobile-nav-toggle-button" aria-label="Toggle navigation">
+            <span>☰</span>
+          </button>
+          <div class="search-bar-container">
+            <div class="relative">
+              <input id="search-input" type="search" placeholder="Search site content..." 
+                     class="block w-full pl-10 pr-3 py-2.5 rounded-lg bg-gray-700 text-gray-200 placeholder-gray-400 focus:ring-sky-500 focus:border-sky-500 focus:bg-gray-600 transition" />
+              <div id="search-results-preview" class="search-results-container"></div>
+            </div>
+          </div>
+          <button id="translate-button" class="text-sm ml-4 px-3 py-1.5 rounded transition">Switch to Spanish</button>
+        </section>
+      </header>
+    `;
+  }
+
+  createFallbackNavigation() {
+    return `
+      <aside class="site-navigation-panel">
+        <nav class="navigation-content">
+          <div class="navigation-error p-4 text-center">
+            <h3 class="text-lg font-semibold text-yellow-400 mb-2">Navigation Loading...</h3>
+            <p class="text-sm text-gray-400">Unable to load navigation from server.</p>
+          </div>
+        </nav>
+      </aside>
+    `;
+  }
+
 
   loadMainPresentation() {
     // Check if there's a presentation area and load it
@@ -840,6 +900,13 @@ class ConductMedicineApp {
       // Load content using the hybrid CMS with current language
       const currentLanguage = window.currentLanguage || 'en';
       const content = await this.contentManager.loadContent(specialty, page, currentLanguage);
+      
+      console.log('📄 Content loaded:', {
+        hasError: !!content.error,
+        contentLength: content.content?.length,
+        contentPreview: content.content?.substring(0, 200),
+        metadata: content.metadata
+      });
       
       if (content.error) {
         mainContent.innerHTML = content.content;
@@ -1240,15 +1307,49 @@ class ConductMedicineApp {
   }
 }
 
+// Global error handler for debugging
+window.addEventListener('error', (event) => {
+  console.error('🚨 Global JavaScript Error:', {
+    message: event.message,
+    filename: event.filename,
+    line: event.lineno,
+    column: event.colno,
+    error: event.error
+  });
+});
+
 // Initialize the application when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    window.app = new ConductMedicineApp();
-    window.app.init();
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      console.log('🚀 DOM loaded, initializing app...');
+      window.app = new ConductMedicineApp();
+      await window.app.init();
+      console.log('🎉 App initialization completed');
+    } catch (error) {
+      console.error('💥 App initialization failed:', error);
+      // Show fallback content
+      document.body.innerHTML = `
+        <div style="padding: 2rem; color: #ef4444; font-family: Arial, sans-serif;">
+          <h1>Application Error</h1>
+          <p>Failed to initialize the application. Please refresh the page.</p>
+          <pre>${error.message}</pre>
+        </div>
+      `;
+    }
   });
 } else {
-  window.app = new ConductMedicineApp();
-  window.app.init();
+  try {
+    console.log('🚀 DOM already loaded, initializing app...');
+    window.app = new ConductMedicineApp();
+    window.app.init().then(() => {
+      console.log('🎉 App initialization completed');
+    }).catch((error) => {
+      console.error('💥 App initialization failed:', error);
+    });
+  } catch (error) {
+    console.error('💥 App creation failed:', error);
+  }
 }
 
 export default ConductMedicineApp;
