@@ -4,6 +4,7 @@ import { ComponentLoader } from './utils/component-loader.js';
 import { LanguageManager } from './utils/language-manager.js';
 import { SearchManager } from './utils/search-manager.js';
 import { ContentManager } from './utils/content-manager.js';
+import { CopyManager } from './utils/copy-manager.js';
 import { getNavigationData, clearNavigationCache } from './utils/navigation-data.js';
 import './utils/interactive-app-manager.js'; // This creates window.interactiveAppManager
 
@@ -14,6 +15,7 @@ class ConductMedicineApp {
     this.languageManager = new LanguageManager();
     this.searchManager = new SearchManager();
     this.contentManager = new ContentManager();
+    this.copyManager = new CopyManager();
     this.isInitialized = false;
     this.currentSpecialty = null; // Track current specialty for language switching
     
@@ -49,6 +51,9 @@ class ConductMedicineApp {
       
       // Setup search functionality
       await this.searchManager.init();
+      
+      // Initialize copy functionality
+      this.copyManager.init();
       
       // Initialize routing
       this.setupRouting();
