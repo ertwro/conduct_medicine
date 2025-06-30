@@ -9,6 +9,22 @@ export class SearchManager {
     this.maxResults = 10;
   }
 
+  getBasePath() {
+    // Use Vite's BASE_URL if available (set in vite.config.js)
+    if (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) {
+      return import.meta.env.BASE_URL.replace(/\/$/, ''); // Remove trailing slash
+    }
+    
+    // Fallback: detect base path from current location
+    const pathname = window.location.pathname;
+    if (pathname.includes('/conduct_medicine/')) {
+      return '/conduct_medicine';
+    }
+    
+    // Default for development
+    return '';
+  }
+
   async init() {
     // Load search data
     await this.loadSearchData();
@@ -22,14 +38,18 @@ export class SearchManager {
 
   async loadSearchData() {
     try {
+      console.log('🔍 Loading search data...');
+      
       // Check if sitePages is already loaded globally
       if (window.sitePages && Array.isArray(window.sitePages)) {
+        console.log('✅ Using pre-loaded search data from window.sitePages');
         this.searchData = window.sitePages;
         return;
       }
       
       // Load existing search data script with correct base path for dev/prod
-      const basePath = import.meta.env.DEV ? '/conduct_medicine' : '';
+      const basePath = this.getBasePath();
+      console.log(`🔍 Fetching search data from: ${basePath}/assets/js/search-data.js`);
       const response = await fetch(`${basePath}/assets/js/search-data.js`);
       if (!response.ok) {
         throw new Error(`Failed to fetch search data: ${response.status}`);
@@ -62,6 +82,7 @@ export class SearchManager {
       
       // Make it globally available for compatibility
       window.sitePages = this.searchData;
+      console.log(`✅ Search data loaded successfully: ${this.searchData.length} items`);
       
     } catch (error) {
       console.error('Failed to load search data:', error);
@@ -100,9 +121,20 @@ export class SearchManager {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results-preview');
     
+    console.log('🔍 Initializing search UI...', {
+      searchInput: !!searchInput,
+      searchResults: !!searchResults
+    });
+    
     if (!searchInput || !searchResults) {
+      console.warn('⚠️ Search elements not found:', {
+        searchInput: !!searchInput,
+        searchResults: !!searchResults
+      });
       return;
     }
+    
+    console.log('✅ Search UI elements found, attaching event listeners');
 
     // Input event handler
     searchInput.addEventListener('input', (event) => {
