@@ -238,17 +238,20 @@ export class ContentManager {
     // Convert markdown to HTML
     const htmlContent = this.markedRenderer.parse(content);
     
-    // Sanitize HTML for security
+    // Sanitize HTML for security (including copy button attributes)
     const sanitizedContent = DOMPurify.sanitize(htmlContent, {
-      ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'br', 'strong', 'em', 'u', 'ul', 'ol', 'li', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'code', 'pre', 'div', 'span', 'mark'],
-      ALLOWED_ATTR: ['href', 'title', 'class', 'id', 'target', 'rel']
+      ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'br', 'strong', 'em', 'u', 'ul', 'ol', 'li', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'code', 'pre', 'div', 'span', 'mark', 'button'],
+      ALLOWED_ATTR: ['href', 'title', 'class', 'id', 'target', 'rel', 'data-section-id', 'data-format', 'aria-label', 'tabindex', 'style']
     });
     
     // Add medical indicators if present
     const enhancedContent = this.addMedicalIndicators(sanitizedContent, combinedMetadata);
     
+    // Add copy buttons to content sections
+    const contentWithCopyButtons = this.addCopyButtons(enhancedContent);
+    
     return {
-      content: enhancedContent,
+      content: contentWithCopyButtons,
       metadata: combinedMetadata,
       rawMarkdown: content,
       lastModified: new Date().toISOString()
@@ -580,5 +583,72 @@ ${trans.content}
     if (language === 'en') return true; // English is always available
     // Check if translated content exists
     return false; // Will be implemented with full translation system
+  }
+
+  /**
+   * Add copy buttons to content sections
+   */
+  addCopyButtons(htmlContent) {
+    // Create a temporary container to parse HTML
+    const container = document.createElement('div');
+    container.innerHTML = htmlContent;
+    
+    // Find copyable sections (exclude h1 as it's usually the main title)
+    const copyableSections = container.querySelectorAll('h2, h3, h4, h5, h6, p, ul, ol, blockquote, .medical-table-wrapper');
+    
+    let sectionCounter = 0;
+    
+    copyableSections.forEach(section => {
+      // Skip very short content (less than 20 characters)
+      const textContent = section.textContent || '';
+      if (textContent.trim().length < 20) return;
+      
+      // Skip if already has a copy button
+      if (section.querySelector('.copy-btn')) return;
+      
+      // Skip medical indicators
+      if (section.classList.contains('medical-indicators')) return;
+      
+      // Generate unique section ID
+      const sectionId = `copyable-section-${Date.now()}-${sectionCounter++}`;
+      
+      // Wrap section in copyable container
+      const wrapper = document.createElement('div');
+      wrapper.className = 'copyable-section';
+      wrapper.dataset.sectionId = sectionId;
+      
+      // Create copy button
+      const copyButton = document.createElement('button');
+      copyButton.className = 'copy-btn section-copy-btn';
+      copyButton.dataset.sectionId = sectionId;
+      copyButton.dataset.format = 'text';
+      
+      // Use Lucide copy icon SVG
+      copyButton.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+        </svg>
+      `;
+      
+      copyButton.title = 'Copy to clipboard';
+      copyButton.setAttribute('aria-label', 'Copy this section to clipboard');
+      copyButton.setAttribute('tabindex', '0');
+      
+      // Clone section content and preserve original ID if it exists
+      const sectionClone = section.cloneNode(true);
+      if (!sectionClone.id) {
+        sectionClone.id = sectionId;
+      }
+      
+      // Add elements to wrapper
+      wrapper.appendChild(sectionClone);
+      wrapper.appendChild(copyButton);
+      
+      // Replace original section with wrapper
+      section.parentNode.replaceChild(wrapper, section);
+    });
+    
+    return container.innerHTML;
   }
 }

@@ -777,3 +777,231 @@ mark.search-preview-highlight { background-color: #facc15; color: #1f2937; paddi
   background-color: #dc2626;
   color: #fecaca;
 }
+
+/* Copy-to-Clipboard Functionality Styles */
+
+/* Copyable Section Container */
+.copyable-section {
+  position: relative;
+  margin: 0.5rem 0;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+}
+
+.copyable-section:hover {
+  background-color: rgba(55, 65, 81, 0.3);
+}
+
+/* Copy Button Base Styles */
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(55, 65, 81, 0.8);
+  color: #9ca3af;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s ease;
+  z-index: 10;
+  outline: none;
+  backdrop-filter: blur(4px);
+}
+
+/* Show copy button on hover or focus */
+.copyable-section:hover .copy-btn,
+.copy-btn:focus {
+  opacity: 1;
+}
+
+/* Copy icon styling */
+.copy-btn .copy-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  transition: stroke 0.15s ease;
+}
+
+/* Copy button hover state */
+.copy-btn:hover {
+  background-color: rgba(75, 85, 99, 0.9);
+  color: #f3f4f6;
+  border-color: rgba(107, 114, 128, 0.3);
+  transform: scale(1.02);
+}
+
+/* Copy button active state */
+.copy-btn:active {
+  transform: scale(0.98);
+  background-color: rgba(55, 65, 81, 0.9);
+}
+
+/* Success state */
+.copy-btn.copy-success {
+  background-color: rgba(5, 150, 105, 0.9);
+  color: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+  opacity: 1;
+}
+
+.copy-btn.copy-success:hover {
+  background-color: rgba(4, 120, 87, 0.9);
+  transform: scale(1.02);
+}
+
+.copy-btn.copy-success .copy-icon {
+  stroke: #ffffff;
+}
+
+/* Error state */
+.copy-btn.copy-error {
+  background-color: rgba(220, 38, 38, 0.9);
+  color: #ffffff;
+  border-color: rgba(239, 68, 68, 0.3);
+  opacity: 1;
+}
+
+.copy-btn.copy-error:hover {
+  background-color: rgba(185, 28, 28, 0.9);
+  transform: scale(1.02);
+}
+
+.copy-btn.copy-error .copy-icon {
+  stroke: #ffffff;
+}
+
+/* Section-specific copy button positioning - GitHub style */
+.copyable-section .copy-btn {
+  top: 0.375rem;
+  right: 0.375rem;
+}
+
+/* Headings get slightly different positioning */
+.copyable-section:has(h2) .copy-btn,
+.copyable-section:has(h3) .copy-btn,
+.copyable-section:has(h4) .copy-btn,
+.copyable-section:has(h5) .copy-btn,
+.copyable-section:has(h6) .copy-btn {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Tables and blockquotes get more padding */
+.copyable-section:has(table) .copy-btn,
+.copyable-section:has(.medical-table-wrapper) .copy-btn,
+.copyable-section:has(blockquote) .copy-btn {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+/* Lists get standard positioning */
+.copyable-section:has(ul) .copy-btn,
+.copyable-section:has(ol) .copy-btn {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Copy Menu (for advanced copy options) */
+.copy-menu {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 15;
+}
+
+.copyable-section:hover .copy-menu {
+  opacity: 1;
+}
+
+.copy-menu .copy-btn {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  opacity: 1;
+}
+
+.copy-menu .copy-btn:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive Design for Copy Buttons */
+@media (max-width: 768px) {
+  .copy-btn {
+    width: 1.75rem;
+    height: 1.75rem;
+    opacity: 0.7; /* Slightly visible on mobile */
+    background-color: rgba(55, 65, 81, 0.9);
+    backdrop-filter: blur(6px);
+  }
+  
+  .copy-btn .copy-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .copyable-section {
+    padding-right: 2.5rem; /* Make room for copy button */
+  }
+  
+  .copyable-section:hover .copy-btn,
+  .copyable-section:active .copy-btn {
+    opacity: 1; /* Full opacity on interaction */
+  }
+  
+  .copy-menu {
+    flex-direction: column;
+    opacity: 0.8; /* Slightly visible on mobile */
+  }
+  
+  .copy-menu .copy-btn {
+    padding: 0.375rem;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Accessibility improvements */
+.copy-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Integration with medical content styles */
+.medical-content .copyable-section {
+  margin: 1rem 0;
+}
+
+.medical-content-with-sidebar .copyable-section {
+  margin: 0.75rem 0;
+}
+
+/* Ensure copy buttons don't interfere with medical indicators */
+.copyable-section .medical-indicators {
+  position: relative;
+  z-index: 5;
+}
+
+.copyable-section .medical-indicators + .copy-btn {
+  top: 2rem; /* Move below medical indicators */
+}
+
+/* Copy button tooltip - using native browser tooltip only */
+.copy-btn[title] {
+  position: relative;
+}
