@@ -1096,12 +1096,116 @@ class ConductMedicineApp {
 
   async loadInteractiveTool(tool) {
     console.log(`Loading interactive tool: ${tool}`);
-    // Placeholder for interactive tools
+    
+    // Hide presentation area for tools
+    this.hidePresentationArea();
+    
+    // Clear navigation panel for tools
+    const navPanel = document.querySelector('.site-navigation-panel');
+    if (navPanel) {
+      navPanel.innerHTML = `
+        <div class="tool-navigation p-4">
+          <h3 class="text-lg font-semibold text-sky-400 mb-3">🧬 Clinical Tools</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-gray-300 hover:text-sky-400 transition-colors">← Back to Home</a></li>
+            <li><a href="/tools/antibiogram" class="text-gray-300 hover:text-sky-400 transition-colors ${tool === 'antibiogram' ? 'text-sky-400' : ''}">🦠 Antibiogram Calculator</a></li>
+          </ul>
+        </div>
+      `;
+    }
+    
     const mainContent = document.querySelector('.actual-main-content');
+    if (!mainContent) return;
+    
+    switch (tool) {
+      case 'antibiogram':
+        await this.loadAntibiogramTool();
+        break;
+      default:
+        mainContent.innerHTML = `
+          <h2 class="text-2xl font-semibold mb-4 text-gray-100">Interactive Tool: ${tool}</h2>
+          <p>Interactive medical tool will be loaded here.</p>
+        `;
+    }
+  }
+
+  async loadAntibiogramTool() {
+    console.log('Loading Antibiogram Calculator...');
+    const mainContent = document.querySelector('.actual-main-content');
+    
     if (mainContent) {
       mainContent.innerHTML = `
-        <h2 class="text-2xl font-semibold mb-4 text-gray-100">Interactive Tool: ${tool}</h2>
-        <p>Interactive medical tool will be loaded here.</p>
+        <div class="antibiogram-tool">
+          <header class="mb-6">
+            <div class="flex items-center mb-3">
+              <div class="bg-sky-500 p-3 rounded-full mr-4">
+                <span class="text-white font-bold text-xl">🦠</span>
+              </div>
+              <div>
+                <h1 class="text-2xl font-bold text-gray-100">Antibiogram Calculator</h1>
+                <p class="text-gray-400">Intelligent Antimicrobial Resistance Guide for Colombia</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">CLSI Standards</span>
+              <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">Resistance Detection</span>
+              <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Colombian Data</span>
+              <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">Alpha Version</span>
+            </div>
+          </header>
+          
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <div class="antibiogram-app-container">
+              <div id="antibiogram-loading" class="text-center py-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4"></div>
+                <p class="text-gray-400">Loading Antibiogram Calculator...</p>
+              </div>
+              <iframe 
+                id="antibiogram-iframe"
+                src="https://ertwro.github.io/antibiogram_react_app/"
+                class="w-full h-screen border-0 rounded-lg"
+                style="min-height: 800px; display: none;"
+                onload="document.getElementById('antibiogram-loading').style.display='none'; this.style.display='block';"
+                title="Antibiogram Calculator"
+              ></iframe>
+            </div>
+          </div>
+          
+          <div class="mt-6 bg-gray-800 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold text-sky-400 mb-2">About This Tool</h3>
+            <p class="text-gray-300 text-sm mb-3">
+              The Antibiogram Calculator provides intelligent interpretation of antimicrobial resistance patterns 
+              using Colombian epidemiological data and CLSI standards. It helps clinicians make evidence-based 
+              decisions for bacterial infection management.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <h4 class="font-semibold text-green-400 mb-1">Current Coverage</h4>
+                <ul class="text-gray-400 space-y-1">
+                  <li>• 12 Enterobacterales organisms</li>
+                  <li>• Automated CLSI interpretation</li>
+                  <li>• Resistance pattern detection</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-blue-400 mb-1">Data Sources</h4>
+                <ul class="text-gray-400 space-y-1">
+                  <li>• GREBO hospital network</li>
+                  <li>• INS/SIVIGILA surveillance</li>
+                  <li>• PAHO/ReLAVRA+ regional data</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-purple-400 mb-1">Features</h4>
+                <ul class="text-gray-400 space-y-1">
+                  <li>• Smart recommendations</li>
+                  <li>• Dosage optimization</li>
+                  <li>• Clinical significance scoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       `;
     }
   }

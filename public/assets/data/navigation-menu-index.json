@@ -8,6 +8,16 @@
         "items": [
             {
                 "label": {
+                    "en": "Clinical Tools",
+                    "es": "Herramientas Clínicas"
+                },
+                "id": "nav-cat-tools",
+                "subItems": [
+                    { "label": { "en": "Antibiogram Calculator", "es": "Calculadora de Antibiograma" }, "url": "/tools/antibiogram", "id": "nav-link-antibiogram" }
+                ]
+            },
+            {
+                "label": {
                     "en": "Medical Specialties",
                     "es": "Especialidades Médicas"
                 },
