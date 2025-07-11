@@ -1100,19 +1100,8 @@ class ConductMedicineApp {
     // Hide presentation area for tools
     this.hidePresentationArea();
     
-    // Clear navigation panel for tools
-    const navPanel = document.querySelector('.site-navigation-panel');
-    if (navPanel) {
-      navPanel.innerHTML = `
-        <div class="tool-navigation p-4">
-          <h3 class="text-lg font-semibold text-sky-400 mb-3">🧬 Clinical Tools</h3>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-gray-300 hover:text-sky-400 transition-colors">← Back to Home</a></li>
-            <li><a href="/tools/antibiogram" class="text-gray-300 hover:text-sky-400 transition-colors ${tool === 'antibiogram' ? 'text-sky-400' : ''}">🦠 Antibiogram Calculator</a></li>
-          </ul>
-        </div>
-      `;
-    }
+    // Load full navigation including specialties for tools
+    await this.loadGeneralNavigation();
     
     const mainContent = document.querySelector('.actual-main-content');
     if (!mainContent) return;
