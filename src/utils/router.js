@@ -28,7 +28,10 @@ export class Router {
     
     // Build full URL with base path for GitHub Pages
     const basePath = '/conduct_medicine';
-    const fullPath = window.location.hostname === 'ertwro.github.io' ? basePath + path : path;
+    // Remove leading slash from path before adding base path to avoid double slashes
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    const fullPath = window.location.hostname === 'ertwro.github.io' ? 
+      basePath + (cleanPath ? '/' + cleanPath : '') : path;
     
     // Update browser history with the full path
     if (window.location.pathname + window.location.search !== fullPath) {

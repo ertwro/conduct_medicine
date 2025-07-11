@@ -327,8 +327,9 @@
         var redirectPath = urlParams.get('redirect');
         if (redirectPath) {
           // Clean up the URL and navigate to the intended path
+          var basePath = '/conduct_medicine';
           var cleanUrl = window.location.protocol + '//' + window.location.host + 
-                        window.location.pathname + redirectPath + 
+                        basePath + redirectPath + 
                         (window.location.hash || '');
           history.replaceState(null, null, cleanUrl);
         }
