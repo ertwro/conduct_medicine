@@ -1020,6 +1020,16 @@ class ConductMedicineApp {
           </header>
           
           <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold text-gray-200">Interactive Calculator</h3>
+              <button 
+                id="maximize-antibiogram" 
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                title="Maximize Calculator"
+              >
+                🔍 Maximize
+              </button>
+            </div>
             <div class="antibiogram-app-container">
               <div id="antibiogram-loading" class="text-center py-8">
                 <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4"></div>
@@ -1072,6 +1082,80 @@ class ConductMedicineApp {
           </div>
         </div>
       `;
+      
+      // Add maximize button event listener
+      const maximizeBtn = document.getElementById('maximize-antibiogram');
+      if (maximizeBtn) {
+        maximizeBtn.addEventListener('click', () => {
+          this.showAntibiogramModal();
+        });
+      }
+    }
+  }
+
+  showAntibiogramModal() {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.id = 'antibiogram-modal';
+    modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex flex-col z-50';
+    modal.style.display = 'block';
+    
+    modal.innerHTML = `
+      <div class="flex justify-between items-center p-4 bg-gray-900 border-b border-gray-700">
+        <h2 class="text-xl font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
+        <button 
+          id="close-antibiogram-modal" 
+          class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+          title="Close Maximized View"
+        >
+          ✕ Close
+        </button>
+      </div>
+      <div class="flex-1 p-4">
+        <iframe 
+          src="https://ertwro.github.io/antibiogram_react_app/"
+          class="w-full h-full border-0 rounded-lg bg-white"
+          title="Antibiogram Calculator - Maximized"
+        ></iframe>
+      </div>
+    `;
+    
+    // Add to body
+    document.body.appendChild(modal);
+    
+    // Add close functionality
+    const closeBtn = modal.querySelector('#close-antibiogram-modal');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        this.closeAntibiogramModal();
+      });
+    }
+    
+    // Close on Escape key
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        this.closeAntibiogramModal();
+        document.removeEventListener('keydown', handleEscape);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        this.closeAntibiogramModal();
+      }
+    });
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeAntibiogramModal() {
+    const modal = document.getElementById('antibiogram-modal');
+    if (modal) {
+      modal.remove();
+      document.body.style.overflow = ''; // Restore body scroll
     }
   }
 
