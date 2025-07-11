@@ -1124,10 +1124,10 @@ class ConductMedicineApp {
       return;
     }
     
-    // Create fullscreen overlay
+    // Create fullscreen overlay with header
     const overlay = document.createElement('div');
     overlay.id = 'antibiogram-fullscreen-overlay';
-    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col';
+    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col';
     
     // Create header
     const header = document.createElement('div');
@@ -1143,26 +1143,30 @@ class ConductMedicineApp {
       </button>
     `;
     
-    // Store original styles
+    overlay.appendChild(header);
+    document.body.appendChild(overlay);
+    
+    // Store original styles and transform iframe to fullscreen WITHOUT moving it
     this.originalIframeStyles = {
-      className: iframe.className,
-      style: iframe.style.cssText,
-      parent: iframe.parentElement
+      position: iframe.style.position,
+      top: iframe.style.top,
+      left: iframe.style.left,
+      width: iframe.style.width,
+      height: iframe.style.height,
+      zIndex: iframe.style.zIndex,
+      transform: iframe.style.transform,
+      borderRadius: iframe.style.borderRadius
     };
     
-    // Maximize the iframe
-    iframe.className = 'w-full h-full border-0 bg-white';
-    iframe.style.cssText = 'width: 100%; height: 100%; border: none; border-radius: 0;';
-    
-    // Create content area and move iframe
-    const content = document.createElement('div');
-    content.className = 'flex-1 p-4';
-    content.appendChild(iframe);
-    
-    // Build overlay
-    overlay.appendChild(header);
-    overlay.appendChild(content);
-    document.body.appendChild(overlay);
+    // Make iframe fullscreen with CSS positioning (don't move in DOM)
+    iframe.style.position = 'fixed';
+    iframe.style.top = '80px'; // Below header
+    iframe.style.left = '0';
+    iframe.style.width = '100vw';
+    iframe.style.height = 'calc(100vh - 80px)';
+    iframe.style.zIndex = '50';
+    iframe.style.transform = 'none';
+    iframe.style.borderRadius = '0';
     
     // Add close functionality
     const closeBtn = header.querySelector('#close-antibiogram-fullscreen');
@@ -1192,10 +1196,15 @@ class ConductMedicineApp {
     const iframe = document.getElementById('antibiogram-iframe');
     
     if (overlay && iframe && this.originalIframeStyles) {
-      // Restore iframe to original position and styles
-      iframe.className = this.originalIframeStyles.className;
-      iframe.style.cssText = this.originalIframeStyles.style;
-      this.originalIframeStyles.parent.appendChild(iframe);
+      // Restore iframe original styles (don't move in DOM)
+      iframe.style.position = this.originalIframeStyles.position;
+      iframe.style.top = this.originalIframeStyles.top;
+      iframe.style.left = this.originalIframeStyles.left;
+      iframe.style.width = this.originalIframeStyles.width;
+      iframe.style.height = this.originalIframeStyles.height;
+      iframe.style.zIndex = this.originalIframeStyles.zIndex;
+      iframe.style.transform = this.originalIframeStyles.transform;
+      iframe.style.borderRadius = this.originalIframeStyles.borderRadius;
       
       // Clean up
       overlay.remove();
