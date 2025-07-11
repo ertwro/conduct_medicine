@@ -1116,56 +1116,69 @@ class ConductMedicineApp {
   }
 
   showAntibiogramModal() {
-    // Create modal overlay
-    const modal = document.createElement('div');
-    modal.id = 'antibiogram-modal';
-    modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex flex-col z-50';
-    modal.style.display = 'block';
+    const iframe = document.getElementById('antibiogram-iframe');
+    const container = document.querySelector('.antibiogram-app-container');
     
-    modal.innerHTML = `
-      <div class="flex justify-between items-center p-4 bg-gray-900 border-b border-gray-700">
-        <h2 class="text-xl font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
-        <button 
-          id="close-antibiogram-modal" 
-          class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-          title="Close Maximized View"
-        >
-          ✕ Close
-        </button>
-      </div>
-      <div class="flex-1 p-4">
-        <iframe 
-          src="https://ertwro.github.io/antibiogram_react_app/"
-          class="w-full border-0 rounded-lg bg-white"
-          style="height: calc(100vh - 120px); min-height: 600px;"
-          title="Antibiogram Calculator - Maximized"
-        ></iframe>
-      </div>
-    `;
-    
-    // Add to body
-    document.body.appendChild(modal);
-    
-    // Add close functionality
-    const closeBtn = modal.querySelector('#close-antibiogram-modal');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        this.closeAntibiogramModal();
-      });
+    if (!iframe || !container) {
+      console.error('Antibiogram iframe or container not found');
+      return;
     }
     
+    // Create fullscreen overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'antibiogram-fullscreen-overlay';
+    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col';
+    
+    // Create header
+    const header = document.createElement('div');
+    header.className = 'flex justify-between items-center p-4 bg-gray-900 border-b border-gray-700';
+    header.innerHTML = `
+      <h2 class="text-xl font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
+      <button 
+        id="close-antibiogram-fullscreen" 
+        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+        title="Exit Fullscreen"
+      >
+        ✕ Exit Fullscreen
+      </button>
+    `;
+    
+    // Store original styles
+    this.originalIframeStyles = {
+      className: iframe.className,
+      style: iframe.style.cssText,
+      parent: iframe.parentElement
+    };
+    
+    // Maximize the iframe
+    iframe.className = 'w-full h-full border-0 bg-white';
+    iframe.style.cssText = 'width: 100%; height: 100%; border: none; border-radius: 0;';
+    
+    // Create content area and move iframe
+    const content = document.createElement('div');
+    content.className = 'flex-1 p-4';
+    content.appendChild(iframe);
+    
+    // Build overlay
+    overlay.appendChild(header);
+    overlay.appendChild(content);
+    document.body.appendChild(overlay);
+    
+    // Add close functionality
+    const closeBtn = header.querySelector('#close-antibiogram-fullscreen');
+    closeBtn.addEventListener('click', () => this.closeAntibiogramModal());
+    
     // Close on Escape key
-    const handleEscape = (e) => {
+    this.escapeHandler = (e) => {
       if (e.key === 'Escape') {
         this.closeAntibiogramModal();
-        document.removeEventListener('keydown', handleEscape);
       }
     };
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', this.escapeHandler);
     
     // Close on background click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
         this.closeAntibiogramModal();
       }
     });
@@ -1175,10 +1188,25 @@ class ConductMedicineApp {
   }
 
   closeAntibiogramModal() {
-    const modal = document.getElementById('antibiogram-modal');
-    if (modal) {
-      modal.remove();
-      document.body.style.overflow = ''; // Restore body scroll
+    const overlay = document.getElementById('antibiogram-fullscreen-overlay');
+    const iframe = document.getElementById('antibiogram-iframe');
+    
+    if (overlay && iframe && this.originalIframeStyles) {
+      // Restore iframe to original position and styles
+      iframe.className = this.originalIframeStyles.className;
+      iframe.style.cssText = this.originalIframeStyles.style;
+      this.originalIframeStyles.parent.appendChild(iframe);
+      
+      // Clean up
+      overlay.remove();
+      document.body.style.overflow = '';
+      
+      if (this.escapeHandler) {
+        document.removeEventListener('keydown', this.escapeHandler);
+        this.escapeHandler = null;
+      }
+      
+      this.originalIframeStyles = null;
     }
   }
 
