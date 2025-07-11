@@ -26,9 +26,13 @@ export class Router {
       path = '/' + path;
     }
     
-    // Update browser history
-    if (window.location.pathname + window.location.search !== path) {
-      window.history.pushState(null, '', path);
+    // Build full URL with base path for GitHub Pages
+    const basePath = '/conduct_medicine';
+    const fullPath = window.location.hostname === 'ertwro.github.io' ? basePath + path : path;
+    
+    // Update browser history with the full path
+    if (window.location.pathname + window.location.search !== fullPath) {
+      window.history.pushState(null, '', fullPath);
     }
     this.handleRoute(path);
   }
