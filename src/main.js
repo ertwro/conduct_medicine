@@ -1124,29 +1124,22 @@ class ConductMedicineApp {
       return;
     }
     
-    // Create fullscreen overlay with header
+    // Create simple overlay
     const overlay = document.createElement('div');
     overlay.id = 'antibiogram-fullscreen-overlay';
-    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col';
+    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-40';
     
-    // Create header
-    const header = document.createElement('div');
-    header.className = 'flex justify-between items-center p-2 bg-gray-900 border-b border-gray-700';
-    header.innerHTML = `
-      <h2 class="text-lg font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
-      <button 
-        id="close-antibiogram-fullscreen" 
-        class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg font-medium transition-colors text-sm"
-        title="Exit Fullscreen"
-      >
-        ✕ Exit Fullscreen
-      </button>
-    `;
+    // Create minimal floating close button
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'close-antibiogram-fullscreen';
+    closeBtn.className = 'fixed top-2 right-2 bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded font-medium transition-colors text-xs z-50 opacity-80 hover:opacity-100';
+    closeBtn.innerHTML = '✕';
+    closeBtn.title = 'Exit Fullscreen (Press Escape)';
     
-    overlay.appendChild(header);
     document.body.appendChild(overlay);
+    document.body.appendChild(closeBtn);
     
-    // Store original styles and transform iframe to fullscreen WITHOUT moving it
+    // Store original styles - DON'T MOVE THE IFRAME
     this.originalIframeStyles = {
       position: iframe.style.position,
       top: iframe.style.top,
@@ -1158,18 +1151,39 @@ class ConductMedicineApp {
       borderRadius: iframe.style.borderRadius
     };
     
-    // Make iframe fullscreen with CSS positioning (don't move in DOM)
+    // Just make iframe bigger with CSS - DON'T MOVE IT
     iframe.style.position = 'fixed';
-    iframe.style.top = '50px'; // Below smaller header
+    iframe.style.top = '0';
     iframe.style.left = '0';
     iframe.style.width = '100vw';
-    iframe.style.height = 'calc(100vh - 50px)';
-    iframe.style.zIndex = '50';
+    iframe.style.height = '80vh';
+    iframe.style.zIndex = '45';
     iframe.style.transform = 'none';
     iframe.style.borderRadius = '0';
     
+    // Try to inject CSS into the iframe to fix its internal height constraints
+    iframe.onload = () => {
+      try {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = iframeDoc.createElement('style');
+        style.textContent = `
+          body { 
+            min-height: 100vh !important; 
+            height: auto !important; 
+            overflow-y: auto !important; 
+          }
+          #root, .App { 
+            min-height: 100vh !important; 
+            height: auto !important; 
+          }
+        `;
+        iframeDoc.head.appendChild(style);
+      } catch (e) {
+        console.log('Cannot inject CSS into iframe due to CORS restrictions');
+      }
+    };
+    
     // Add close functionality
-    const closeBtn = header.querySelector('#close-antibiogram-fullscreen');
     closeBtn.addEventListener('click', () => this.closeAntibiogramModal());
     
     // Close on Escape key
@@ -1193,10 +1207,11 @@ class ConductMedicineApp {
 
   closeAntibiogramModal() {
     const overlay = document.getElementById('antibiogram-fullscreen-overlay');
+    const closeBtn = document.getElementById('close-antibiogram-fullscreen');
     const iframe = document.getElementById('antibiogram-iframe');
     
     if (overlay && iframe && this.originalIframeStyles) {
-      // Restore iframe original styles (don't move in DOM)
+      // Restore iframe styles - DON'T MOVE IT
       iframe.style.position = this.originalIframeStyles.position;
       iframe.style.top = this.originalIframeStyles.top;
       iframe.style.left = this.originalIframeStyles.left;
@@ -1208,6 +1223,7 @@ class ConductMedicineApp {
       
       // Clean up
       overlay.remove();
+      if (closeBtn) closeBtn.remove();
       document.body.style.overflow = '';
       
       if (this.escapeHandler) {
