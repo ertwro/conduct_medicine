@@ -1020,6 +1020,14 @@ class ConductMedicineApp {
     console.log('Loading Antibiogram Calculator...');
     const mainContent = document.querySelector('.actual-main-content');
     
+    // Determine the correct iframe URL based on environment
+    const isProduction = window.location.hostname === 'ertwro.github.io';
+    const antibiogramUrl = isProduction 
+      ? 'https://ertwro.github.io/antibiogram_react_app/'
+      : 'https://ertwro.github.io/antibiogram_react_app/'; // For now, always use production URL
+    
+    console.log(`🔍 Loading antibiogram from: ${antibiogramUrl} (production: ${isProduction})`);
+    
     if (mainContent) {
       mainContent.innerHTML = `
         <div class="antibiogram-tool">
@@ -1059,11 +1067,12 @@ class ConductMedicineApp {
               </div>
               <iframe 
                 id="antibiogram-iframe"
-                src="https://ertwro.github.io/antibiogram_react_app/"
+                src="${antibiogramUrl}"
                 class="w-full h-screen border-0 rounded-lg"
                 style="min-height: 800px; display: none;"
                 onload="document.getElementById('antibiogram-loading').style.display='none'; this.style.display='block';"
                 title="Antibiogram Calculator"
+                allow="clipboard-write"
               ></iframe>
             </div>
           </div>
@@ -1111,6 +1120,58 @@ class ConductMedicineApp {
         maximizeBtn.addEventListener('click', () => {
           this.showAntibiogramModal();
         });
+      }
+
+      // Add iframe error handling
+      const iframe = document.getElementById('antibiogram-iframe');
+      if (iframe) {
+        iframe.onerror = (error) => {
+          console.error('Failed to load antibiogram iframe:', error);
+          console.error('Iframe src:', iframe.src);
+          console.error('Environment:', {
+            hostname: window.location.hostname,
+            href: window.location.href,
+            isProduction: window.location.hostname === 'ertwro.github.io'
+          });
+          const loadingDiv = document.getElementById('antibiogram-loading');
+          if (loadingDiv) {
+            loadingDiv.innerHTML = `
+              <div class="text-center py-8">
+                <div class="text-red-400 mb-4">⚠️</div>
+                <p class="text-red-400 mb-2">Failed to load Antibiogram Calculator</p>
+                <p class="text-gray-400 text-sm mb-2">URL: ${iframe.src}</p>
+                <p class="text-gray-400 text-sm">Please check your internet connection and try again.</p>
+                <button onclick="window.location.reload()" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">
+                  Reload Page
+                </button>
+              </div>
+            `;
+          }
+        };
+
+        // Handle iframe load timeout
+        const loadTimeout = setTimeout(() => {
+          if (iframe.style.display === 'none') {
+            console.warn('Antibiogram iframe taking longer than expected to load');
+            const loadingDiv = document.getElementById('antibiogram-loading');
+            if (loadingDiv) {
+              loadingDiv.innerHTML = `
+                <div class="text-center py-8">
+                  <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4"></div>
+                  <p class="text-gray-400 mb-2">Loading Antibiogram Calculator...</p>
+                  <p class="text-gray-500 text-sm">This may take a moment on first load</p>
+                </div>
+              `;
+            }
+          }
+        }, 10000); // 10 second timeout
+
+        iframe.onload = () => {
+          clearTimeout(loadTimeout);
+          document.getElementById('antibiogram-loading').style.display = 'none';
+          iframe.style.display = 'block';
+          console.log('✅ Antibiogram iframe loaded successfully');
+        };
       }
     }
   }
@@ -1161,25 +1222,18 @@ class ConductMedicineApp {
     iframe.style.transform = 'none';
     iframe.style.borderRadius = '0';
     
-    // Try to inject CSS into the iframe to fix its internal height constraints
+    // Try to communicate with iframe for better integration
     iframe.onload = () => {
       try {
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const style = iframeDoc.createElement('style');
-        style.textContent = `
-          body { 
-            min-height: 100vh !important; 
-            height: auto !important; 
-            overflow-y: auto !important; 
-          }
-          #root, .App { 
-            min-height: 100vh !important; 
-            height: auto !important; 
-          }
-        `;
-        iframeDoc.head.appendChild(style);
+        // Try to send a message to the iframe to optimize for fullscreen
+        iframe.contentWindow.postMessage({
+          type: 'FULLSCREEN_MODE',
+          enabled: true
+        }, 'https://ertwro.github.io');
+        
+        console.log('📤 Sent fullscreen mode message to antibiogram iframe');
       } catch (e) {
-        console.log('Cannot inject CSS into iframe due to CORS restrictions');
+        console.log('Cannot communicate with iframe due to CORS restrictions');
       }
     };
     
@@ -1211,6 +1265,16 @@ class ConductMedicineApp {
     const iframe = document.getElementById('antibiogram-iframe');
     
     if (overlay && iframe && this.originalIframeStyles) {
+      // Notify iframe that fullscreen mode is ending
+      try {
+        iframe.contentWindow.postMessage({
+          type: 'FULLSCREEN_MODE',
+          enabled: false
+        }, 'https://ertwro.github.io');
+        console.log('📤 Sent fullscreen mode end message to antibiogram iframe');
+      } catch (e) {
+        console.log('Cannot communicate with iframe due to CORS restrictions');
+      }
       // Restore iframe styles - DON'T MOVE IT
       iframe.style.position = this.originalIframeStyles.position;
       iframe.style.top = this.originalIframeStyles.top;
