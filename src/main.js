@@ -18,6 +18,7 @@ class ConductMedicineApp {
     this.copyManager = new CopyManager();
     this.isInitialized = false;
     this.currentSpecialty = null; // Track current specialty for language switching
+    this.originalHomeContent = null; // Store original homepage content
     
     // Detect and store base path at startup
     this.basePath = this.detectBasePath();
@@ -37,12 +38,26 @@ class ConductMedicineApp {
     return '';
   }
 
+  storeOriginalHomeContent() {
+    // Store the original homepage content from index.html
+    const mainContent = document.querySelector('.actual-main-content');
+    if (mainContent && mainContent.innerHTML.trim()) {
+      this.originalHomeContent = mainContent.innerHTML;
+      console.log('✅ Original homepage content stored');
+    } else {
+      console.warn('⚠️ No original homepage content found to store');
+    }
+  }
+
   async init() {
     if (this.isInitialized) return;
     
     console.log('🏥 Initializing Conduct Based Medicine SPA...');
     
     try {
+      // Store original homepage content before any navigation
+      this.storeOriginalHomeContent();
+      
       // Load core components that persist across navigation
       await this.loadPersistentComponents();
       
@@ -244,8 +259,15 @@ class ConductMedicineApp {
     delete window.neurologyNavInitialized;
     delete window.dermatologyNavInitialized;
     
-    // The main page content is already in the HTML from index.html
-    // Don't replace it - just use the original content
+    // Restore homepage content when navigating back from other pages
+    const mainContent = document.querySelector('.actual-main-content');
+    if (mainContent && this.originalHomeContent && !mainContent.innerHTML.includes('Clinical Decision Support Tools')) {
+      // Restore the original homepage content
+      mainContent.innerHTML = this.originalHomeContent;
+      console.log('✅ Original homepage content restored');
+    } else if (mainContent && !this.originalHomeContent && !mainContent.innerHTML.includes('Clinical Decision Support Tools')) {
+      console.warn('⚠️ No original homepage content available to restore');
+    }
     
     // Clear navigation panel before loading general navigation
     const navPanel = document.querySelector('.site-navigation-panel');
@@ -1094,20 +1116,6 @@ class ConductMedicineApp {
   }
 
   showAntibiogramModal() {
-    // Get the existing iframe
-    const existingIframe = document.getElementById('antibiogram-iframe');
-    if (!existingIframe) {
-      console.error('Antibiogram iframe not found');
-      return;
-    }
-    
-    // Store original parent and styles for restoration
-    this.originalIframeParent = existingIframe.parentElement;
-    this.originalIframeStyles = {
-      className: existingIframe.className,
-      style: existingIframe.style.cssText
-    };
-    
     // Create modal overlay
     const modal = document.createElement('div');
     modal.id = 'antibiogram-modal';
@@ -1125,18 +1133,18 @@ class ConductMedicineApp {
           ✕ Close
         </button>
       </div>
-      <div class="flex-1 p-4" id="modal-iframe-container">
+      <div class="flex-1 p-4">
+        <iframe 
+          src="https://ertwro.github.io/antibiogram_react_app/"
+          class="w-full border-0 rounded-lg bg-white"
+          style="height: calc(100vh - 120px); min-height: 600px;"
+          title="Antibiogram Calculator - Maximized"
+        ></iframe>
       </div>
     `;
     
     // Add to body
     document.body.appendChild(modal);
-    
-    // Move the existing iframe to the modal
-    const modalContainer = modal.querySelector('#modal-iframe-container');
-    existingIframe.className = 'w-full border-0 rounded-lg bg-white';
-    existingIframe.style.cssText = 'height: calc(100vh - 120px); min-height: 600px;';
-    modalContainer.appendChild(existingIframe);
     
     // Add close functionality
     const closeBtn = modal.querySelector('#close-antibiogram-modal');
@@ -1168,19 +1176,6 @@ class ConductMedicineApp {
 
   closeAntibiogramModal() {
     const modal = document.getElementById('antibiogram-modal');
-    const iframe = document.getElementById('antibiogram-iframe');
-    
-    if (modal && iframe && this.originalIframeParent) {
-      // Restore iframe to its original location and styles
-      iframe.className = this.originalIframeStyles.className;
-      iframe.style.cssText = this.originalIframeStyles.style;
-      this.originalIframeParent.appendChild(iframe);
-      
-      // Clean up stored references
-      this.originalIframeParent = null;
-      this.originalIframeStyles = null;
-    }
-    
     if (modal) {
       modal.remove();
       document.body.style.overflow = ''; // Restore body scroll
