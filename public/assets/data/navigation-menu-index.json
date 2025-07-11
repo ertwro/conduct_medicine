@@ -8,6 +8,14 @@
         "items": [
             {
                 "label": {
+                    "en": "Home",
+                    "es": "Inicio"
+                },
+                "url": "/",
+                "id": "nav-link-home"
+            },
+            {
+                "label": {
                     "en": "Clinical Tools",
                     "es": "Herramientas Clínicas"
                 },
