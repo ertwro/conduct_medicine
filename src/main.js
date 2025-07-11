@@ -1,5 +1,4 @@
 // src/main.js - Main SPA entry point
-import './index.css';
 import { Router } from './utils/router.js';
 import { ComponentLoader } from './utils/component-loader.js';
 import { LanguageManager } from './utils/language-manager.js';
