@@ -1094,6 +1094,20 @@ class ConductMedicineApp {
   }
 
   showAntibiogramModal() {
+    // Get the existing iframe
+    const existingIframe = document.getElementById('antibiogram-iframe');
+    if (!existingIframe) {
+      console.error('Antibiogram iframe not found');
+      return;
+    }
+    
+    // Store original parent and styles for restoration
+    this.originalIframeParent = existingIframe.parentElement;
+    this.originalIframeStyles = {
+      className: existingIframe.className,
+      style: existingIframe.style.cssText
+    };
+    
     // Create modal overlay
     const modal = document.createElement('div');
     modal.id = 'antibiogram-modal';
@@ -1111,17 +1125,18 @@ class ConductMedicineApp {
           ✕ Close
         </button>
       </div>
-      <div class="flex-1 p-4">
-        <iframe 
-          src="https://ertwro.github.io/antibiogram_react_app/"
-          class="w-full h-full border-0 rounded-lg bg-white"
-          title="Antibiogram Calculator - Maximized"
-        ></iframe>
+      <div class="flex-1 p-4" id="modal-iframe-container">
       </div>
     `;
     
     // Add to body
     document.body.appendChild(modal);
+    
+    // Move the existing iframe to the modal
+    const modalContainer = modal.querySelector('#modal-iframe-container');
+    existingIframe.className = 'w-full border-0 rounded-lg bg-white';
+    existingIframe.style.cssText = 'height: calc(100vh - 120px); min-height: 600px;';
+    modalContainer.appendChild(existingIframe);
     
     // Add close functionality
     const closeBtn = modal.querySelector('#close-antibiogram-modal');
@@ -1153,6 +1168,19 @@ class ConductMedicineApp {
 
   closeAntibiogramModal() {
     const modal = document.getElementById('antibiogram-modal');
+    const iframe = document.getElementById('antibiogram-iframe');
+    
+    if (modal && iframe && this.originalIframeParent) {
+      // Restore iframe to its original location and styles
+      iframe.className = this.originalIframeStyles.className;
+      iframe.style.cssText = this.originalIframeStyles.style;
+      this.originalIframeParent.appendChild(iframe);
+      
+      // Clean up stored references
+      this.originalIframeParent = null;
+      this.originalIframeStyles = null;
+    }
+    
     if (modal) {
       modal.remove();
       document.body.style.overflow = ''; // Restore body scroll
