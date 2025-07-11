@@ -1131,12 +1131,12 @@ class ConductMedicineApp {
     
     // Create header
     const header = document.createElement('div');
-    header.className = 'flex justify-between items-center p-4 bg-gray-900 border-b border-gray-700';
+    header.className = 'flex justify-between items-center p-2 bg-gray-900 border-b border-gray-700';
     header.innerHTML = `
-      <h2 class="text-xl font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
+      <h2 class="text-lg font-bold text-white">🦠 Antibiogram Calculator - Maximized</h2>
       <button 
         id="close-antibiogram-fullscreen" 
-        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+        class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg font-medium transition-colors text-sm"
         title="Exit Fullscreen"
       >
         ✕ Exit Fullscreen
@@ -1160,10 +1160,10 @@ class ConductMedicineApp {
     
     // Make iframe fullscreen with CSS positioning (don't move in DOM)
     iframe.style.position = 'fixed';
-    iframe.style.top = '80px'; // Below header
+    iframe.style.top = '50px'; // Below smaller header
     iframe.style.left = '0';
     iframe.style.width = '100vw';
-    iframe.style.height = 'calc(100vh - 80px)';
+    iframe.style.height = 'calc(100vh - 50px)';
     iframe.style.zIndex = '50';
     iframe.style.transform = 'none';
     iframe.style.borderRadius = '0';
