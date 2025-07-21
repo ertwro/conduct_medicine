@@ -1020,8 +1020,8 @@ class ConductMedicineApp {
     console.log('Loading Antibiogram Calculator...');
     const mainContent = document.querySelector('.actual-main-content');
     
-    // Always use the GitHub Pages deployment
-    const antibiogramUrl = 'https://ertwro.github.io/antibiogram_react_app/';
+    // Use the GitHub Pages deployment from dist directory
+    const antibiogramUrl = 'https://ertwro.github.io/antibiogram_react_app/dist/';
     
     console.log(`🔍 Loading antibiogram from: ${antibiogramUrl}`);
     
