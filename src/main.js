@@ -1020,18 +1020,18 @@ class ConductMedicineApp {
     console.log('Loading Antibiogram Calculator...');
     const mainContent = document.querySelector('.actual-main-content');
     
-    // Determine the correct iframe URL based on environment
-    const isProduction = window.location.hostname === 'ertwro.github.io';
-    const antibiogramUrl = isProduction 
-      ? 'https://ertwro.github.io/antibiogram_react_app/'
-      : 'https://ertwro.github.io/antibiogram_react_app/'; // For now, always use production URL
+    // Use local development server for testing
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const antibiogramUrl = isLocalhost 
+      ? 'http://localhost:4174/' 
+      : 'https://ertwro.github.io/antibiogram_react_app/';
     
-    console.log(`🔍 Loading antibiogram from: ${antibiogramUrl} (production: ${isProduction})`);
+    console.log(`🔍 Loading antibiogram from: ${antibiogramUrl}`);
     
     if (mainContent) {
       mainContent.innerHTML = `
-        <div class="antibiogram-tool">
-          <header class="mb-6">
+        <div class="antibiogram-tool w-full">
+          <header class="mb-3 px-4">
             <div class="flex items-center mb-3">
               <div class="bg-sky-500 p-3 rounded-full mr-4">
                 <span class="text-white font-bold text-xl">🦠</span>
@@ -1049,18 +1049,8 @@ class ConductMedicineApp {
             </div>
           </header>
           
-          <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <div class="flex justify-between items-center mb-4">
-              <h3 class="text-lg font-semibold text-gray-200">Interactive Calculator</h3>
-              <button 
-                id="maximize-antibiogram" 
-                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-                title="Maximize Calculator"
-              >
-                🔍 Maximize
-              </button>
-            </div>
-            <div class="antibiogram-app-container">
+          <div class="w-full h-screen" style="margin: 0; padding: 0;">
+            <div class="antibiogram-app-container w-full h-full" style="margin: 0; padding: 0;">
               <div id="antibiogram-loading" class="text-center py-8">
                 <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4"></div>
                 <p class="text-gray-400">Loading Antibiogram Calculator...</p>
@@ -1068,12 +1058,57 @@ class ConductMedicineApp {
               <iframe 
                 id="antibiogram-iframe"
                 src="${antibiogramUrl}"
-                class="w-full h-screen border-0 rounded-lg"
-                style="min-height: 800px; display: none;"
-                onload="document.getElementById('antibiogram-loading').style.display='none'; this.style.display='block';"
+                class="w-full h-full border-0"
+                style="min-height: 100vh; display: none; border: none; border-radius: 0; margin: 0; padding: 0; outline: none;"
+                onload="window.antibiogramLoadSuccess()"
+                onerror="window.antibiogramLoadError()"
                 title="Antibiogram Calculator"
                 allow="clipboard-write"
               ></iframe>
+              <div id="antibiogram-error" style="display: none;" class="text-center py-8">
+                <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-6 mb-4">
+                  <div class="flex items-center mb-3">
+                    <span class="text-yellow-400 text-2xl mr-3">⚠️</span>
+                    <h3 class="text-yellow-400 font-semibold">External Calculator Unavailable</h3>
+                  </div>
+                  <p class="text-gray-300 mb-4">
+                    The interactive antibiogram calculator is temporarily unavailable due to a configuration issue. 
+                    The external React app needs to be rebuilt with the correct base path for GitHub Pages deployment.
+                  </p>
+                  <div class="bg-gray-800 p-3 rounded text-sm text-gray-400 mb-4">
+                    <strong>Technical Issue:</strong> The React app's vite.config.js has <code class="bg-gray-700 px-1 rounded">base: './'</code><br>
+                    <strong>Fix needed:</strong> Change to <code class="bg-gray-700 px-1 rounded">base: '/antibiogram_react_app/'</code> and redeploy
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
+                    <div>
+                      <h4 class="font-semibold text-gray-300 mb-2">Manual Process:</h4>
+                      <ul class="space-y-1">
+                        <li>• Review organism identification</li>
+                        <li>• Check antimicrobial susceptibility</li>
+                        <li>• Apply CLSI interpretive criteria</li>
+                        <li>• Consider local resistance patterns</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-300 mb-2">Key Considerations:</h4>
+                      <ul class="space-y-1">
+                        <li>• Colombian epidemiological data</li>
+                        <li>• ESBL detection protocols</li>
+                        <li>• Carbapenemase screening</li>
+                        <li>• Clinical significance scoring</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mt-4 flex gap-3 justify-center">
+                    <button onclick="location.reload()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      🔄 Retry
+                    </button>
+                    <a href="/conduct_medicine/specialties/infectious-diseases/" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      📚 View Guidelines
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -1113,18 +1148,52 @@ class ConductMedicineApp {
           </div>
         </div>
       `;
+
+      // Define global functions for iframe loading
+      window.antibiogramLoadSuccess = () => {
+        console.log('✅ Antibiogram iframe loaded successfully');
+        const loading = document.getElementById('antibiogram-loading');
+        const iframe = document.getElementById('antibiogram-iframe');
+        const error = document.getElementById('antibiogram-error');
+        
+        if (loading) loading.style.display = 'none';
+        if (iframe) iframe.style.display = 'block';
+        if (error) error.style.display = 'none';
+      };
+
+      window.antibiogramLoadError = () => {
+        console.error('❌ Failed to load antibiogram iframe');
+        const loading = document.getElementById('antibiogram-loading');
+        const iframe = document.getElementById('antibiogram-iframe');
+        const error = document.getElementById('antibiogram-error');
+        
+        if (loading) loading.style.display = 'none';
+        if (iframe) iframe.style.display = 'none';
+        if (error) error.style.display = 'block';
+        
+        // Log the current URL that failed
+        if (iframe) {
+          console.error('Failed URL:', iframe.src);
+        }
+      };
       
-      // Add maximize button event listener
-      const maximizeBtn = document.getElementById('maximize-antibiogram');
-      if (maximizeBtn) {
-        maximizeBtn.addEventListener('click', () => {
-          this.showAntibiogramModal();
-        });
-      }
+      // Add timeout fallback for iframe loading
+      setTimeout(() => {
+        const iframe = document.getElementById('antibiogram-iframe');
+        const loading = document.getElementById('antibiogram-loading');
+        if (iframe && loading && loading.style.display !== 'none') {
+          console.warn('⚠️ Antibiogram iframe load timeout, triggering error handler');
+          window.antibiogramLoadError();
+        }
+      }, 5000); // 5 second timeout
 
       // Add iframe error handling
       const iframe = document.getElementById('antibiogram-iframe');
+      console.log('🔍 Iframe element found:', !!iframe);
       if (iframe) {
+        console.log('🔍 Iframe src:', iframe.src);
+        console.log('🔍 Iframe initial display:', iframe.style.display);
+        console.log('🔍 Iframe dimensions:', { width: iframe.style.width, height: iframe.style.height });
         iframe.onerror = (error) => {
           console.error('Failed to load antibiogram iframe:', error);
           console.error('Iframe src:', iframe.src);
@@ -1168,136 +1237,32 @@ class ConductMedicineApp {
 
         iframe.onload = () => {
           clearTimeout(loadTimeout);
-          document.getElementById('antibiogram-loading').style.display = 'none';
+          const loadingDiv = document.getElementById('antibiogram-loading');
+          if (loadingDiv) {
+            loadingDiv.style.display = 'none';
+            console.log('✅ Loading div hidden');
+          }
           iframe.style.display = 'block';
-          console.log('✅ Antibiogram iframe loaded successfully');
+          console.log('✅ Antibiogram iframe loaded successfully and made visible');
+          console.log('🔍 Iframe display style:', iframe.style.display);
+          console.log('🔍 Iframe computed style:', window.getComputedStyle(iframe).display);
         };
+
+        // Fallback: Force show iframe after 5 seconds if still hidden
+        setTimeout(() => {
+          if (iframe && iframe.style.display === 'none') {
+            console.warn('⚠️ Iframe still hidden after 5 seconds, forcing display');
+            iframe.style.display = 'block';
+            const loadingDiv = document.getElementById('antibiogram-loading');
+            if (loadingDiv) {
+              loadingDiv.style.display = 'none';
+            }
+          }
+        }, 5000);
       }
     }
   }
 
-  showAntibiogramModal() {
-    const iframe = document.getElementById('antibiogram-iframe');
-    const container = document.querySelector('.antibiogram-app-container');
-    
-    if (!iframe || !container) {
-      console.error('Antibiogram iframe or container not found');
-      return;
-    }
-    
-    // Create simple overlay
-    const overlay = document.createElement('div');
-    overlay.id = 'antibiogram-fullscreen-overlay';
-    overlay.className = 'fixed inset-0 bg-black bg-opacity-95 z-40';
-    
-    // Create minimal floating close button
-    const closeBtn = document.createElement('button');
-    closeBtn.id = 'close-antibiogram-fullscreen';
-    closeBtn.className = 'fixed top-2 right-2 bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded font-medium transition-colors text-xs z-50 opacity-80 hover:opacity-100';
-    closeBtn.innerHTML = '✕';
-    closeBtn.title = 'Exit Fullscreen (Press Escape)';
-    
-    document.body.appendChild(overlay);
-    document.body.appendChild(closeBtn);
-    
-    // Store original styles - DON'T MOVE THE IFRAME
-    this.originalIframeStyles = {
-      position: iframe.style.position,
-      top: iframe.style.top,
-      left: iframe.style.left,
-      width: iframe.style.width,
-      height: iframe.style.height,
-      zIndex: iframe.style.zIndex,
-      transform: iframe.style.transform,
-      borderRadius: iframe.style.borderRadius
-    };
-    
-    // Just make iframe bigger with CSS - DON'T MOVE IT
-    iframe.style.position = 'fixed';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    iframe.style.width = '100vw';
-    iframe.style.height = '80vh';
-    iframe.style.zIndex = '45';
-    iframe.style.transform = 'none';
-    iframe.style.borderRadius = '0';
-    
-    // Try to communicate with iframe for better integration
-    iframe.onload = () => {
-      try {
-        // Try to send a message to the iframe to optimize for fullscreen
-        iframe.contentWindow.postMessage({
-          type: 'FULLSCREEN_MODE',
-          enabled: true
-        }, 'https://ertwro.github.io');
-        
-        console.log('📤 Sent fullscreen mode message to antibiogram iframe');
-      } catch (e) {
-        console.log('Cannot communicate with iframe due to CORS restrictions');
-      }
-    };
-    
-    // Add close functionality
-    closeBtn.addEventListener('click', () => this.closeAntibiogramModal());
-    
-    // Close on Escape key
-    this.escapeHandler = (e) => {
-      if (e.key === 'Escape') {
-        this.closeAntibiogramModal();
-      }
-    };
-    document.addEventListener('keydown', this.escapeHandler);
-    
-    // Close on background click
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        this.closeAntibiogramModal();
-      }
-    });
-    
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden';
-  }
-
-  closeAntibiogramModal() {
-    const overlay = document.getElementById('antibiogram-fullscreen-overlay');
-    const closeBtn = document.getElementById('close-antibiogram-fullscreen');
-    const iframe = document.getElementById('antibiogram-iframe');
-    
-    if (overlay && iframe && this.originalIframeStyles) {
-      // Notify iframe that fullscreen mode is ending
-      try {
-        iframe.contentWindow.postMessage({
-          type: 'FULLSCREEN_MODE',
-          enabled: false
-        }, 'https://ertwro.github.io');
-        console.log('📤 Sent fullscreen mode end message to antibiogram iframe');
-      } catch (e) {
-        console.log('Cannot communicate with iframe due to CORS restrictions');
-      }
-      // Restore iframe styles - DON'T MOVE IT
-      iframe.style.position = this.originalIframeStyles.position;
-      iframe.style.top = this.originalIframeStyles.top;
-      iframe.style.left = this.originalIframeStyles.left;
-      iframe.style.width = this.originalIframeStyles.width;
-      iframe.style.height = this.originalIframeStyles.height;
-      iframe.style.zIndex = this.originalIframeStyles.zIndex;
-      iframe.style.transform = this.originalIframeStyles.transform;
-      iframe.style.borderRadius = this.originalIframeStyles.borderRadius;
-      
-      // Clean up
-      overlay.remove();
-      if (closeBtn) closeBtn.remove();
-      document.body.style.overflow = '';
-      
-      if (this.escapeHandler) {
-        document.removeEventListener('keydown', this.escapeHandler);
-        this.escapeHandler = null;
-      }
-      
-      this.originalIframeStyles = null;
-    }
-  }
 
   initializeInteractions() {
     // Mobile navigation toggle
