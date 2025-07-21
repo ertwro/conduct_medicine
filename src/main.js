@@ -1020,11 +1020,8 @@ class ConductMedicineApp {
     console.log('Loading Antibiogram Calculator...');
     const mainContent = document.querySelector('.actual-main-content');
     
-    // Use local development server for testing
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const antibiogramUrl = isLocalhost 
-      ? 'http://localhost:4174/' 
-      : 'https://ertwro.github.io/antibiogram_react_app/';
+    // Always use the GitHub Pages deployment
+    const antibiogramUrl = 'https://ertwro.github.io/antibiogram_react_app/';
     
     console.log(`🔍 Loading antibiogram from: ${antibiogramUrl}`);
     
