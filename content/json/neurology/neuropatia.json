@@ -1,0 +1,79 @@
+{
+  "title": "The Primary Care Guide to Peripheral Neuropathy",
+  "specialty": "neurology",
+  "contentId": "peripheral-neuropathy",
+  "setting": "outpatient",
+  "frequency": "medium",
+  "mortality": "low",
+  "keywords": ["neuropathy", "peripheral neuropathy", "DSPN", "CIDP", "nerve damage", "numbness", "tingling", "neuropathic pain", "diabetic neuropathy", "polyneuropathy"],
+  "description": "Systematic evidence-based framework for assessment and management of peripheral neuropathy in primary care, featuring critical triage tools and treatment protocols.",
+  "author": "JP Silva",
+  "lastUpdated": "2025-01-04",
+  "reviewDate": "2025-07-04",
+  "status": "published",
+  "clinicalSettings": ["outpatient", "emergency"],
+  "associatedConditions": [
+    "diabetic neuropathy",
+    "CIDP",
+    "small fiber neuropathy",
+    "mononeuropathy multiplex",
+    "carpal tunnel syndrome",
+    "vitamin B12 deficiency"
+  ],
+  "diagnosticCriteria": {
+    "source": "AANEM Guidelines",
+    "version": "2021",
+    "lastUpdate": "2021"
+  },
+  "treatmentProtocols": {
+    "diagnostic": {
+      "firstLine": ["HbA1c", "Vitamin B12 with MMA", "SPEP with immunofixation", "TSH", "HIV test"],
+      "secondLine": ["EMG/NCS", "skin biopsy", "paraneoplastic panel"],
+      "redFlags": ["acute onset", "asymmetry", "motor predominance", "autonomic features"]
+    },
+    "symptomatic": {
+      "firstLine": ["duloxetine", "gabapentin", "nortriptyline"],
+      "topical": ["lidocaine patches", "capsaicin cream"],
+      "contraindications": ["opioids for chronic neuropathic pain"]
+    }
+  },
+  "redFlags": [
+    "acute or subacute onset",
+    "asymmetric symptoms",
+    "non-length-dependent pattern",
+    "predominantly motor features",
+    "predominantly autonomic features",
+    "prominent sensory ataxia",
+    "diffuse areflexia"
+  ],
+  "followUpSchedule": {
+    "initial": "4-6 weeks",
+    "stable": "3-6 months",
+    "urgent": "refer to neurology immediately with red flags"
+  },
+  "qualityMetrics": {
+    "evidenceLevel": "A",
+    "guidelineCompliance": "AANEM/AAN",
+    "lastReview": "2025-01-04"
+  },
+  "relatedContent": [
+    "diabetic-neuropathy",
+    "carpal-tunnel-syndrome",
+    "vitamin-deficiency-neurology"
+  ],
+  "interactiveTools": [
+    "neuropathy-assessment-tool",
+    "pain-scale-tracker"
+  ],
+  "presentationPath": "presentations/neurology/peripheral-neuropathy.html",
+  "additionalResources": {
+    "guidelines": [
+      "https://www.aanem.org/",
+      "https://www.aan.com/"
+    ],
+    "patientEducation": [
+      "neuropathy-self-care-guide",
+      "diabetic-foot-care"
+    ]
+  }
+}

@@ -1104,10 +1104,10 @@ const sitePages = [
         "keywords": "neurology, outpatient setting, tremors"
     },
     {
-        "title": "Neuropathy",
-        "url": "/specialty/neurology/neuropathy",
-        "description": "Neuropathy - Neurology clinical information, diagnosis, and management guidelines.",
-        "keywords": "neurology, outpatient setting, neuropathy"
+        "title": "Peripheral Neuropathy",
+        "url": "/specialty/neurology/neuropatia",
+        "description": "The Primary Care Guide to Peripheral Neuropathy - Systematic evidence-based framework for assessment and management with critical triage tools and treatment protocols.",
+        "keywords": "neurology, outpatient setting, neuropathy, peripheral neuropathy, DSPN, CIDP, nerve damage, numbness, tingling, neuropathic pain, diabetic neuropathy"
     },
     {
         "title": "Diagnosis of Sleep Disorders",
