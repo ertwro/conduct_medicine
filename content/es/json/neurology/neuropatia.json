@@ -1,0 +1,79 @@
+{
+  "title": "Guía de Atención Primaria para Neuropatía Periférica",
+  "specialty": "neurology",
+  "contentId": "neuropatia",
+  "setting": "outpatient",
+  "frequency": "medium",
+  "mortality": "low",
+  "keywords": ["neuropatía", "neuropatía periférica", "PSDP", "PDIC", "daño nervioso", "entumecimiento", "hormigueo", "dolor neuropático", "neuropatía diabética", "polineuropatía"],
+  "description": "Marco sistemático basado en evidencia para la evaluación y manejo de neuropatía periférica en atención primaria, con herramientas críticas de triaje y protocolos de tratamiento.",
+  "author": "JP Silva",
+  "lastUpdated": "2025-01-04",
+  "reviewDate": "2025-07-04",
+  "status": "published",
+  "clinicalSettings": ["outpatient", "emergency"],
+  "associatedConditions": [
+    "neuropatía diabética",
+    "PDIC",
+    "neuropatía de fibras pequeñas",
+    "mononeuropatía múltiple",
+    "síndrome del túnel carpiano",
+    "deficiencia de vitamina B12"
+  ],
+  "diagnosticCriteria": {
+    "source": "Guías AANEM",
+    "version": "2021",
+    "lastUpdate": "2021"
+  },
+  "treatmentProtocols": {
+    "diagnostic": {
+      "firstLine": ["HbA1c", "Vitamina B12 con AMM", "EFPS con inmunofijación", "TSH", "prueba de VIH"],
+      "secondLine": ["EMG/ECN", "biopsia de piel", "panel paraneoplásico"],
+      "redFlags": ["inicio agudo", "asimetría", "predominio motor", "características autonómicas"]
+    },
+    "symptomatic": {
+      "firstLine": ["duloxetina", "gabapentina", "nortriptilina"],
+      "topical": ["parches de lidocaína", "crema de capsaicina"],
+      "contraindications": ["opioides para dolor neuropático crónico"]
+    }
+  },
+  "redFlags": [
+    "inicio agudo o subagudo",
+    "síntomas asimétricos",
+    "patrón no dependiente de longitud",
+    "características predominantemente motoras",
+    "características predominantemente autonómicas",
+    "ataxia sensorial prominente",
+    "arreflexia difusa"
+  ],
+  "followUpSchedule": {
+    "initial": "4-6 semanas",
+    "stable": "3-6 meses",
+    "urgent": "referir a neurología inmediatamente con señales de alarma"
+  },
+  "qualityMetrics": {
+    "evidenceLevel": "A",
+    "guidelineCompliance": "AANEM/AAN",
+    "lastReview": "2025-01-04"
+  },
+  "relatedContent": [
+    "neuropatía-diabética",
+    "síndrome-túnel-carpiano",
+    "neurología-deficiencia-vitaminas"
+  ],
+  "interactiveTools": [
+    "herramienta-evaluación-neuropatía",
+    "rastreador-escala-dolor"
+  ],
+  "presentationPath": "presentations/neurology/neuropatia-periférica.html",
+  "additionalResources": {
+    "guidelines": [
+      "https://www.aanem.org/",
+      "https://www.aan.com/"
+    ],
+    "patientEducation": [
+      "guía-autocuidado-neuropatía",
+      "cuidado-pie-diabético"
+    ]
+  }
+}

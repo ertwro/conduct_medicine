@@ -16,7 +16,8 @@ export class ContentManager {
     return {
       'neurology': {
         'cefaleas-primarias': 'headache-management',
-        'manejo-de-cefaleas-y-dolor': 'headache-management'
+        'manejo-de-cefaleas-y-dolor': 'headache-management',
+        'neuropatia': 'neuropatia'
       },
       'dermatology': {
         // Dermatology URLs already match filenames, but including for consistency
